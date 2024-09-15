@@ -5,6 +5,10 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* Header */
 .top-nav {
     display: flex;
@@ -43,7 +47,7 @@ body, html {
 
 /* Hero Banner */
 .hero-banner {
-    height: 300px;
+    height: 200px;
     background-color: #f5f5f5;
     display: flex;
     justify-content: center;
@@ -67,60 +71,50 @@ body, html {
     background-color: #fafafa;
 }
 
-/* Carte pleine largeur */
-.card-full-width {
-    display: flex;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-    height: 250px;
+/* Grille 3x3 */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
 
-.card-full-width .card-image img {
-    width: 40%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-full-width .card-content {
-    padding: 20px;
-    width: 60%;
-}
-
-.card-full-width h2, .card p, .card span {
-    margin: 0 0 10px;
-}
-
-/* Cartes en ligne de 3 */
-.cards-row {
-    display: flex;
-    justify-content: space-between;
-}
-
+/* Cartes individuelles */
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
-    width: 32%;
-    height: 250px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-image img {
     width: 100%;
-    height: 50%;
+    height: 150px;
     object-fit: cover;
 }
 
 .card-content {
-    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 10px 0;
 }
 
-.card h2, .card p, .card span {
-    margin: 0 0 10px;
+.card-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.card-label {
+    font-size: 0.9em;
+    color: #888;
 }
 
 /* Footer */
@@ -131,4 +125,3 @@ footer {
     padding: 20px;
     margin-top: 20px;
 }
-
