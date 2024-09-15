@@ -63,38 +63,16 @@ body, html {
 
 /* Section des cartes */
 .cards-section {
+    margin: 80px 20px
     padding: 20px;
     background-color: #fafafa;
-}
-
-/* Carte pleine largeur */
-.card-full-width {
-    display: flex;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    margin-bottom: 20px;
-    height: 250px;
-}
-
-.card-full-width .card-image img {
-    width: 40%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-full-width .card-content {
-    padding: 20px;
-    width: 60%;
-}
-
-.card-full-width h2, .card p, .card span {
-    margin: 0 0 10px;
 }
 
 /* Cartes en ligne de 3 */
 .cards-row {
     display: flex;
     justify-content: space-between;
+    padding-bottop: 20px
 }
 
 .card {
