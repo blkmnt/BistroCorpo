@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page avec Cartes</title>
+    <title>Cartes en Grille</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -30,30 +30,18 @@
         </div>
     </section>
 
-    <!-- Section avec des cartes -->
+    <!-- Section avec des cartes dans une grille -->
     <section class="cards-section">
-        <!-- Carte en plein largeur avec variation (image à gauche, contenu à droite) -->
-        <div class="card card-full-width">
-            <div class="card-image">
-                <img src="image1.jpg" alt="Image Carte 1">
-            </div>
-            <div class="card-content">
-                <h2>Titre Carte 1</h2>
-                <p>Sous-titre Carte 1</p>
-                <span class="label">Label</span>
-            </div>
-        </div>
-
-        <!-- Cartes sur une ligne (3 par ligne) -->
-        <div class="cards-row">
+        <div class="cards-grid">
+            <!-- Cartes en grille avec span -->
             <div class="card">
                 <div class="card-image">
                     <img src="image2.jpg" alt="Image Carte 2">
                 </div>
                 <div class="card-content">
-                    <h2>Titre Carte 2</h2>
-                    <p>Sous-titre Carte 2</p>
-                    <span class="label">Label</span>
+                    <span class="card-title">Titre Carte 2</span>
+                    <span class="card-subtitle">Sous-titre Carte 2</span>
+                    <span class="card-label">Label</span>
                 </div>
             </div>
 
@@ -62,9 +50,9 @@
                     <img src="image3.jpg" alt="Image Carte 3">
                 </div>
                 <div class="card-content">
-                    <h2>Titre Carte 3</h2>
-                    <p>Sous-titre Carte 3</p>
-                    <span class="label">Label</span>
+                    <span class="card-title">Titre Carte 3</span>
+                    <span class="card-subtitle">Sous-titre Carte 3</span>
+                    <span class="card-label">Label</span>
                 </div>
             </div>
 
@@ -73,11 +61,13 @@
                     <img src="image4.jpg" alt="Image Carte 4">
                 </div>
                 <div class="card-content">
-                    <h2>Titre Carte 4</h2>
-                    <p>Sous-titre Carte 4</p>
-                    <span class="label">Label</span>
+                    <span class="card-title">Titre Carte 4</span>
+                    <span class="card-subtitle">Sous-titre Carte 4</span>
+                    <span class="card-label">Label</span>
                 </div>
             </div>
+
+            <!-- Ajoute autant de cartes que tu veux ici -->
         </div>
     </section>
 
@@ -90,4 +80,3 @@
 
 </body>
 </html>
-
