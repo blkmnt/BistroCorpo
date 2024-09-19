@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap')
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Montserrat, sans-serif;
 }
 
 body {
@@ -12,6 +13,14 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+p, .card p {
+    font-weight: 400;
+}
+
+h1, h2, .card h2 {
+    font-weight: 900;
 }
 
 /* Header */
