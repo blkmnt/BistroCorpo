@@ -37,7 +37,7 @@ header {
 .hero {
     display: flex;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 8rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #d8d8d8;
@@ -165,10 +165,17 @@ footer {
     .content {
         grid-template-columns: 1fr;
     }
+    .hero {
+        padding: 4rem 2rem;
+    }    
+    
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .content {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .hero {
+        padding: 4rem 2rem;
     }
 }
