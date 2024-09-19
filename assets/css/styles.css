@@ -83,8 +83,6 @@ header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
 }
 
 .card img {
@@ -116,9 +114,6 @@ header {
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
     color: white;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
 }
 
 .label.blue {
