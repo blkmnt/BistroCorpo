@@ -26,7 +26,7 @@ h1, h2, .card h2 {
 
 /* Header */
 header {
-    background-color: red;
+    background-color: #474747;
     height: 50px;
     padding: 2rem;
     max-width: 1200px;
@@ -37,11 +37,11 @@ header {
 .hero {
     display: flex;
     justify-content: space-between;
-    padding: 6rem;
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #4a00b4;
-    color: white;
+    background-color: #d8d8d8;
+    color: black;
 }
 
 .hero-content {
@@ -147,7 +147,7 @@ header {
 
 /* Footer */
 footer {
-    background-color: red;
+    background-color: #474747;
     height: 50px;
     text-align: center;
     display: flex;
