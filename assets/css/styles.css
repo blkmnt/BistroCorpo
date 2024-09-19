@@ -168,7 +168,12 @@ footer {
     .hero {
         padding: 4rem 2rem;
     }    
-    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.75rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -177,5 +182,11 @@ footer {
     }
     .hero {
         padding: 4rem 2rem;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.75rem;
     }
 }
