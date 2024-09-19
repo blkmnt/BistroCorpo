@@ -120,6 +120,32 @@ header {
     background-color: #007bff;
 }
 
+/* Carte inactive */
+
+.card.inactive {
+    background-color: #f0f0f0; /* Couleur de fond grisée */
+    cursor: not-allowed; /* Curseur inactif */
+    opacity: 0.6; /* Réduction de l'opacité pour un effet "désactivé" */
+}
+
+.card.inactive img {
+    filter: grayscale(100%); /* Image en noir et blanc */
+    opacity: 0.7; /* Réduire l'opacité de l'image */
+}
+
+.card.inactive:hover {
+    transform: none; /* Pas d'effet de déplacement */
+}
+
+.card.inactive p,
+.card.inactive h2 {
+    color: #999; /* Texte gris */
+}
+
+.card.inactive .label {
+    background-color: #999; /* Couleur neutre pour le label */
+}
+
 /* Footer */
 footer {
     background-color: red;
