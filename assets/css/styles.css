@@ -180,13 +180,4 @@ footer {
     .content {
         grid-template-columns: repeat(2, 1fr);
     }
-    .hero {
-        padding: 4rem 2rem;
-    }
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
-        font-size: 0.75rem;
-    }
 }
