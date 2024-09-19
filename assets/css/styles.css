@@ -18,6 +18,7 @@ a {
 header {
     background-color: red;
     height: 50px;
+    padding: 2rem;
 }
 
 /* Hero Section */
@@ -31,10 +32,11 @@ header {
 
 .hero-content {
     max-width: 60%;
+    padding: 2rem;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
@@ -113,6 +115,7 @@ footer {
     justify-content: center;
     align-items: center;
     color: white;
+    padding: 2rem;
 }
 
 /* Responsive Design */
