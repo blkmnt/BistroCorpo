@@ -52,6 +52,7 @@ header {
     font-size: 3.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 .hero p {
