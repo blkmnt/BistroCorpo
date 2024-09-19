@@ -123,8 +123,7 @@ header {
 /* Carte inactive */
 
 .card.inactive {
-    background-color: #f0f0f0; /* Couleur de fond grisée */
-    opacity: 0.6; /* Réduction de l'opacité pour un effet "désactivé" */
+    opacity: 0.5; /* Réduction de l'opacité pour un effet "désactivé" */
 }
 
 .card.inactive img {
