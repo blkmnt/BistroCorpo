@@ -33,6 +33,14 @@ header {
     margin: 0 auto;
 }
 
+header-content {
+    
+}
+
+header-image {
+    max-height: 100%;
+}
+
 /* Hero Section */
 .hero {
     display: flex;
