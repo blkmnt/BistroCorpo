@@ -160,8 +160,24 @@ header {
     cursor: pointer;
 }
 
+.button:nth-child(4n+1) {
+    background-color: #3A86FF;
+}
+
+.button:nth-child(4n+2) {
+    background-color: #FF006E;
+}
+
+.button:nth-child(4n+3) {
+    background-color: #7AE7C7;
+}
+
+.button:nth-child(4n+4) {
+    background-color: #FFBE0B;
+}
+
 .button:hover {
-    
+    filter: brightness(90%);
 }
 
 /* Carte inactive */
@@ -196,6 +212,7 @@ header {
 .card.inactive .button:hover {
     background-color: #999;
     transform: none;
+    cursor: initial;
 }
 
 /* Footer */
