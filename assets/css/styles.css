@@ -208,11 +208,6 @@ header {
     color: #999;
 }
 
-.card.inactive:hover h2,
-.card.inactive:hover p {
-  color: inherit;
-}
-
 .card.inactive .label {
     background-color: #999;
 }
