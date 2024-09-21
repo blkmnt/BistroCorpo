@@ -223,5 +223,6 @@ footer {
 @media (min-width: 769px) and (max-width: 1024px) {
     .content {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0rem 2rem 2rem 2rem;
     }
 }
