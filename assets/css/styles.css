@@ -139,6 +139,14 @@ header {
   color: #7AE7C7;
 }
 
+.card:nth-child(3n+4) h2 {
+  color: #FB5607;
+}
+
+.card:nth-child(3n+5) h2 {
+  color: #8338EC;
+}
+
 .card p {
     font-size: 1rem;
     color: #0E1116;
@@ -159,6 +167,14 @@ header {
 
 .card:nth-child(3n+3):hover {
   background-color: #7AE7C7;
+}
+
+.card:nth-child(3n+4):hover {
+  back-groundcolor: #FB5607;
+}
+
+.card:nth-child(3n+5):hover {
+  background-color: #8338EC;
 }
 
 .card:hover h2,
