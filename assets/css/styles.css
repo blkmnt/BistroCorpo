@@ -155,11 +155,11 @@ header {
 }
 
 .card:nth-child(3n+2):hover {
-  background-color: #7AE7C7;
+  background-color: #FF006E;
 }
 
 .card:nth-child(3n+3):hover {
-  background-color: #FF006E;
+  background-color: #7AE7C7;
 }
 
 .card:hover h2,
