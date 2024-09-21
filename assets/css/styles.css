@@ -35,8 +35,8 @@ header {
 /* Hero Section */
 .hero {
     display: flex;
-    justify-content: space-between;
-    padding: 8rem 2rem;
+    justify-content: center;
+    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     color: black;
@@ -44,6 +44,8 @@ header {
 
 .hero-content {
     max-width: 60%;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .hero h1 {
@@ -56,11 +58,12 @@ header {
 .hero p {
     font-size: 1.2rem;
     text-transform: uppercase;
+    padding-top: 2rem
+    text-align: center;
 }
 
 .hero-image {
-    width: 4rem;
-
+    max-width: 600px;
 }
 
 /* Content Section */
@@ -159,8 +162,10 @@ footer {
         grid-template-columns: 1fr;
     }
     .hero {
-        padding: 4rem 2rem;
+        padding: 2rem;
     }    
+    .hero-content {
+        max-width: 100%
     .hero h1 {
         font-size: 2rem;
     }
