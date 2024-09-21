@@ -5,11 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-    color: #0E1116;
 }
 
 body {
     background-color: #ffffff;
+    color: #0E1116;
 }
 
 a {
