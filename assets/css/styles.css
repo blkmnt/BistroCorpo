@@ -159,7 +159,7 @@ header {
 }
 
 .button:hover {
-    filter: brightness(0.8);
+    
 }
 
 /* Carte inactive */
@@ -188,7 +188,6 @@ header {
 .card.inactive .button {
     background-color: #999;
     color: #fff;
-    cursor: not-allowed;
 }
 
 .card.inactive .button:hover {
