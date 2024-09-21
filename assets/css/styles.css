@@ -157,22 +157,33 @@ header {
     margin-top: auto;
     border: none;
     outline: none;
+    overflow: hidden;
     cursor: pointer;
 }
 
-.button:nth-child(4n+1) {
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+}
+
+.card:nth-child(4n+1) .button {
     background-color: #3A86FF;
 }
 
-.button:nth-child(4n+2) {
+.card:nth-child(4n+2) .button {
     background-color: #FF006E;
 }
 
-.button:nth-child(4n+3) {
+.card:nth-child(4n+3) .button {
     background-color: #7AE7C7;
 }
 
-.button:nth-child(4n+4) {
+.card:nth-child(4n+4) .button {
     background-color: #FFBE0B;
 }
 
@@ -209,10 +220,18 @@ header {
     color: #fff;
 }
 
+.card.inactive .button::before {
+    background-color: transparent;
+}
+
 .card.inactive .button:hover {
     background-color: #999;
-    transform: none;
+    filter: none;
     cursor: initial;
+}
+
+.card.inactive .button:hover::before {
+    background-color: transparent;
 }
 
 /* Footer */
