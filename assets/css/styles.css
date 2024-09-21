@@ -157,18 +157,7 @@ header {
     margin-top: auto;
     border: none;
     outline: none;
-    overflow: hidden;
     cursor: pointer;
-}
-
-.button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: transparent;
 }
 
 .card:nth-child(4n+1) .button {
@@ -220,18 +209,10 @@ header {
     color: #fff;
 }
 
-.card.inactive .button::before {
-    background-color: transparent;
-}
-
 .card.inactive .button:hover {
     background-color: #999;
     filter: none;
     cursor: initial;
-}
-
-.card.inactive .button:hover::before {
-    background-color: transparent;
 }
 
 /* Footer */
