@@ -189,25 +189,32 @@ header {
 /* Carte inactive */
 
 .card.inactive {
-    opacity: 0.5; /* Réduction de l'opacité pour un effet "désactivé" */
+    opacity: 0.5;
 }
 
 .card.inactive img {
-    filter: grayscale(100%); /* Image en noir et blanc */
-    opacity: 0.7; /* Réduire l'opacité de l'image */
+    filter: grayscale(100%);
+    opacity: 0.7;
 }
 
 .card.inactive:hover {
-    transform: none; /* Pas d'effet de déplacement */
+    transform: none;
+    background-color: #ffffff;
+    color: inherit;
 }
 
 .card.inactive p,
 .card.inactive h2 {
-    color: #999; /* Texte gris */
+    color: #999;
+}
+
+.card.inactive:hover h2,
+.card.inactive:hover p {
+  color: inherit;
 }
 
 .card.inactive .label {
-    background-color: #999; /* Couleur neutre pour le label */
+    background-color: #999;
 }
 
 /* Footer */
