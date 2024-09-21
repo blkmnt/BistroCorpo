@@ -126,23 +126,23 @@ header {
     margin-bottom: 0.75rem;
 }
 
-.card:nth-child(3n+1) h2 {
+.card:nth-child(5n+1) h2 {
   color: #3A86FF;
 }
 
-.card:nth-child(3n+2) h2 {
+.card:nth-child(5n+2) h2 {
   color: #FF006E;
 }
 
-.card:nth-child(3n+3) h2 {
+.card:nth-child(5n+3) h2 {
   color: #7AE7C7;
 }
 
-.card:nth-child(3n+4) h2 {
+.card:nth-child(5n+4) h2 {
   color: #FB5607;
 }
 
-.card:nth-child(3n+5) h2 {
+.card:nth-child(5n+5) h2 {
   color: #8338EC;
 }
 
@@ -156,23 +156,23 @@ header {
     color: #ffffff;
 }
 
-.card:nth-child(3n+1):hover {
+.card:nth-child(5n+1):hover {
   background-color: #3A86FF;
 }
 
-.card:nth-child(3n+2):hover {
+.card:nth-child(5n+2):hover {
   background-color: #FF006E;
 }
 
-.card:nth-child(3n+3):hover {
+.card:nth-child(5n+3):hover {
   background-color: #7AE7C7;
 }
 
-.card:nth-child(3n+4):hover {
+.card:nth-child(5n+4):hover {
   background-color: #FB5607;
 }
 
-.card:nth-child(3n+5):hover {
+.card:nth-child(5n+5):hover {
   background-color: #8338EC;
 }
 
