@@ -200,6 +200,7 @@ header {
     transform: none;
     background-color: #ffffff;
     color: inherit;
+    opacity: 0.5;
 }
 
 .card.inactive p,
