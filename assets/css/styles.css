@@ -197,6 +197,9 @@ footer {
     height: 100%;
     color: white;
     text-align: center;
+    font-size: 0.5rem;
+    justify-content: center;
+
 }
 
 /* Responsive Design */
