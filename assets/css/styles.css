@@ -58,7 +58,7 @@ header {
 .hero p {
     font-size: 1.2rem;
     text-transform: uppercase;
-    padding-top: 2rem
+    padding-top: 2rem;
     text-align: center;
 }
 
@@ -165,7 +165,7 @@ footer {
         padding: 2rem;
     }    
     .hero-content {
-        max-width: 100%
+        max-width: 100%;
     .hero h1 {
         font-size: 2rem;
     }
