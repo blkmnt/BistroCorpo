@@ -33,11 +33,11 @@ header {
     margin: 0 auto;
 }
 
-header-content {
+.header-content {
     
 }
 
-header-image {
+.header-image {
     max-height: 100%;
     filter: invert(1);
 }
