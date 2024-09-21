@@ -130,6 +130,18 @@ header {
     margin-bottom: 0.75rem;
 }
 
+.card:nth-child(3n+1) h2 {
+  color: #3A86FF;
+}
+
+.card:nth-child(3n+2) h2 {
+  color: #FF006E;
+}
+
+.card:nth-child(3n+3) h2 {
+  color: #7AE7C7;
+}
+
 .card p {
     font-size: 1rem;
     color: #666;
