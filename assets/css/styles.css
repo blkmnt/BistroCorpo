@@ -170,7 +170,7 @@ header {
 }
 
 .card:nth-child(3n+4):hover {
-  back-groundcolor: #FB5607;
+  background-color: #FB5607;
 }
 
 .card:nth-child(3n+5):hover {
