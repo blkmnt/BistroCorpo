@@ -136,7 +136,7 @@ header {
 .card p {
     font-size: 1rem;
     color: #0E1116;
-    margin-bottom: 1rem
+    margin-bottom: 2.5rem
 }
 
 .card:hover {
@@ -144,7 +144,7 @@ header {
 
 .button {
     font-size: 1rem;
-    padding: 0.25rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 99px;
     color: white;
     background-color: #3A86FF;
@@ -157,6 +157,9 @@ header {
     outline: none;
     cursor: pointer;
 }
+
+.button:hover {
+    filter: brightness(0.8);
 
 /* Carte inactive */
 
@@ -181,8 +184,15 @@ header {
     color: #999;
 }
 
-.card.inactive .label {
+.card.inactive .button {
     background-color: #999;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+.card.inactive .button:hover {
+    background-color: #999;
+    transform: none;
 }
 
 /* Footer */
