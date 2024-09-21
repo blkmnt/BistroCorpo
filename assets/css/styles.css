@@ -166,6 +166,8 @@ footer {
     }    
     .hero-content {
         max-width: 100%;
+    .hero-image {
+        max-width: 100%;
     .hero h1 {
         font-size: 2rem;
     }
