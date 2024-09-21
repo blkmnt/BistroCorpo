@@ -10,6 +10,7 @@
 body {
     background-color: #ffffff;
     color: #0E1116;
+    padding: 50px;
 }
 
 a {
@@ -32,6 +33,10 @@ header {
     width: 100%;
     padding: 0;
     margin: 0 auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 .header-content {
@@ -178,13 +183,18 @@ header {
 footer {
     background-color: #0E1116;
     height: 50px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 2rem;
+    width: 100%;
+    padding: 0;
     margin: 0 auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 /* Responsive Design */
