@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    color: #0E1116;
 }
 
 body {
@@ -26,7 +27,7 @@ h1, h2, .card h2 {
 
 /* Header */
 header {
-    background-color: #474747;
+    background-color: #0E1116;
     height: 50px;
     padding: 2rem;
     margin: 0 auto;
@@ -116,7 +117,15 @@ header {
 }
 
 .label.blue {
-    background-color: #007bff;
+    background-color: #3A86FF;
+}
+
+.label.green {
+    background-color: #7AE7C7;
+}
+
+.label.pink {
+    background-color: #FF006E;
 }
 
 /* Carte inactive */
@@ -145,7 +154,7 @@ header {
 
 /* Footer */
 footer {
-    background-color: #474747;
+    background-color: #0E1116;
     height: 50px;
     text-align: center;
     display: flex;
