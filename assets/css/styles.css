@@ -43,6 +43,14 @@ header {
     height: 100%;
 }
 
+.header-content a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 .header-content img {
     height: 100%;
     width: auto;
