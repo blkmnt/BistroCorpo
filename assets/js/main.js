@@ -172,30 +172,30 @@ function loadRandomMeetingTheme() {
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomMeetingTheme();
 
-function loadRandomEscapeTask() {
+function loadRandomEchappatoire() {
     fetch('assets/csv/echappatoire_liste.csv') // Charger le fichier CSV
         .then(response => response.text()) 
         .then(data => {
             const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
 
-            const tasks = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            const echappatoire = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
             // Fonction pour afficher une tâche aléatoire
-            function displayRandomTask() {
-                if (tasks.length > 0) {
+            function displayRandomEchappatoire() {
+                if (echappatoire.length > 0) {
                     const randomIndex = Math.floor(Math.random() * tasks.length);
-                    const randomTask = tasks[randomIndex];
-                    document.getElementById('echappatoire').textContent = randomTask; // Mettre à jour le texte du H1
+                    const randomEchappatoire = echappatoire[randomIndex];
+                    document.getElementById('echappatoire').textContent = randomEchappatoire; // Mettre à jour le texte du H1
                 }
             }
 
             // Afficher une tâche lors du chargement initial
-            displayRandomTask();
+            displayRandomEchappatoire();
 
             // Ajouter un événement au clic du bouton pour générer une nouvelle tâche aléatoire
             document.querySelector('.button').addEventListener('click', function(event) {
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
-                displayRandomTask(); // Afficher une nouvelle tâche
+                displayRandomEchappatoire(); // Afficher une nouvelle tâche
             });
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
