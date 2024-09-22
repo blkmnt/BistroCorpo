@@ -258,8 +258,12 @@ header {
 }
 
 .tool-content {
+    display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.tool-header {
 }
 
 .tool h1 {
