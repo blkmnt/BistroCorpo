@@ -16,15 +16,17 @@ function loadCSV() {
 }
 
 function displayCards() {
-    const startRow = 1; // Définissez la première ligne à prendre en compte
+    const startRow = 1; // Définissez la première ligne à prendre en compte (1 pour la première ligne dans le CSV)
     const endRow = 10;  // Définissez la dernière ligne à prendre en compte
 
     const content = document.querySelector('.content');
     content.innerHTML = ''; // Vider le contenu existant
 
-    tools.forEach(tool => {
-        // Assurez-vous que chaque outil a une propriété 'rowNumber' correspondant à sa ligne dans le CSV
-        if (tool.rowNumber >= startRow && tool.rowNumber <= endRow) {
+    tools.forEach((tool, index) => {
+        // L'index commence à 0, donc on ajoute 1 pour comparer avec les lignes du CSV
+        const currentRow = index + 1; 
+        
+        if (currentRow >= startRow && currentRow <= endRow) {
             const cardClass = tool.status === 'Active' ? 'card' : 'card inactive';
             const cardHTML = `
                 <div class="${cardClass}">
@@ -44,6 +46,7 @@ function displayCards() {
         }
     });
 }
+
 
 
 // Fonction pour choisir aléatoirement une ligne (outil actif)
