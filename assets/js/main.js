@@ -7,8 +7,8 @@ function loadCSV() {
         .then(data => {
             const rows = data.split('\n').slice(1); // Ignore l'en-tête
             tools = rows.map(row => {
-                const [title, description, buttonText, url, status, image] = row.split(';');
-                return { title, description, buttonText, url, status, image };
+                const [﻿title, description, buttonText, link, image, status] = row.split(';');
+                return { ﻿title, description, buttonText, link, image, status };
             });
             displayCards(); // Affiche toutes les cartes après le chargement
         })
@@ -16,17 +16,12 @@ function loadCSV() {
 }
 
 function displayCards() {
-    const startRow = 1; // Première ligne à prendre en compte
-    const endRow = 10;  // Dernière ligne à prendre en compte
-
     const content = document.querySelector('.content');
     content.innerHTML = ''; // Vider le contenu existant
 
-    tools.forEach((tool, index) => {
-        // L'index commence à 0, donc on ajoute 1 pour comparer avec les lignes du CSV
-        const currentRow = index + 1; 
-        
-        if (currentRow >= startRow && currentRow <= endRow) {
+    tools.forEach(tool => {
+        // Vérifier si le titre n'est pas "Encore plus de choses à découvrir !"
+        if (tool.title !== "Encore plus de choses à découvrir !") {
             const cardClass = tool.status === 'Active' ? 'card' : 'card inactive';
             const cardHTML = `
                 <div class="${cardClass}">
