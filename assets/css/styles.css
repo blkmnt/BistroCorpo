@@ -185,6 +185,18 @@ header {
     cursor: pointer;
 }
 
+.button-pink {
+    background-color: #FF006E;
+}
+
+.button-green {
+    background-color: #7AE7C7;
+}
+
+.button-yellow {
+    background-color: #FFBE0B;
+}
+
 .card:nth-child(4n+1) .button {
     background-color: #3A86FF;
 }
@@ -296,6 +308,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tool-image-pink {
+    background-color: rgba(255, 0, 110, 0.3);
+}
+
+.tool-image-green {
+    background-color: (122, 231, 199, 0.3);
+}
+
+.tool-image-yellow {
+    background-color: rgba(255, 190, 11, 0.3);
 }
 
 .tool-image img {
