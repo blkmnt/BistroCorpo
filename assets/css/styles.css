@@ -212,7 +212,7 @@ header {
 }
 
 .card.inactive .card-image-container {
-    filter: grayscale(100%);
+    background-color: #cccccc;
     opacity: 0.7;
 }
 
