@@ -245,6 +245,41 @@ header {
     cursor: initial;
 }
 
+/* Tool Section */
+.tool {
+    display: flex;
+    justify-content: center;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: black;
+}
+
+.tool-content {
+    max-width: 60%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tool h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.tool p {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.tool-image {
+    max-width: 600px;
+}
+
+
 /* Footer */
 footer {
     background-color: #0E1116;
