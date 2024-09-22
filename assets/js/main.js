@@ -21,9 +21,8 @@ function displayCards() {
 
     tools.forEach(tool => {
         if (tool.title && tool.buttonText && tool.title !== "Encore plus de choses à découvrir !") {
-            const cardClass = tool.status === "Active" ? 'card' : 'card inactive';
             const cardHTML = `
-                <div class="${cardClass}">
+                <div class="${tool.status}">
                     <div class="card-image-container">
                         <img src="${tool.image}" alt="${tool.title}">
                     </div>
