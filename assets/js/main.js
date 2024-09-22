@@ -40,24 +40,48 @@ function displayCards() {
     });
 }
 
+// Fonction pour afficher 2 cartes aléatoires et une carte spécifique
+function displayRandomCards() {
+    const content = document.querySelector('.content');
+    content.innerHTML = ''; // Vider le contenu existant
 
+    // Filtrer les outils actifs
+    const activeTools = tools.filter(tool => tool.status === "card");
 
+    // Choisir 2 outils aléatoires parmi les actifs
+    const randomCards = [];
+    while (randomCards.length < 2) {
+        const randomIndex = Math.floor(Math.random() * activeTools.length);
+        const randomTool = activeTools[randomIndex];
 
-
-
-// Fonction pour choisir aléatoirement une ligne (outil actif)
-function getRandomActiveTool() {
-    const activeTools = tools.filter(tool => tool.status === 'active');
-    const randomIndex = Math.floor(Math.random() * activeTools.length);
-    return activeTools[randomIndex];
-}
-
-// Fonction pour choisir une ligne par numéro
-function getToolByIndex(index) {
-    if (index >= 0 && index < tools.length) {
-        return tools[index];
+        // Vérifier que la carte n'est pas déjà ajoutée
+        if (!randomCards.includes(randomTool)) {
+            randomCards.push(randomTool);
+        }
     }
-    return null;
+
+    // Ajouter la carte spécifique
+    const specialCard = tools.find(tool => tool.title === "Encore plus de choses à découvrir !");
+    if (specialCard) randomCards.push(specialCard);
+
+    // Afficher les cartes choisies
+    randomCards.forEach(tool => {
+        const cardHTML = `
+            <div class="${tool.status}">
+                <div class="card-image-container">
+                    <img src="${tool.image}" alt="${tool.title}">
+                </div>
+                <div class="card-content">
+                    <h2>${tool.title}</h2>
+                    <p>${tool.description}</p>
+                </div>
+                <a href="${tool.link}">
+                    <button class="button">${tool.buttonText}</button>
+                </a>
+            </div>
+        `;
+        content.innerHTML += cardHTML;
+    });
 }
 
 // Appel de la fonction pour charger les données
