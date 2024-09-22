@@ -52,7 +52,7 @@ function randomCard() {
 
             // Filtrer les outils actifs
             const activeTools = tools.filter(tool => 
-                tool.status && tool.status.trim() === 'active' && tool.title.trim() !== "Encore plus de choses à découvrir !"
+                tool.status && tool.status.trim() === 'card' && tool.title.trim() !== "Encore plus de choses à découvrir !"
             );
             
             // Log pour voir les outils actifs dans la console
