@@ -50,10 +50,6 @@ function randomCard() {
                 return { title, description, buttonText, link, image, status };
             });
 
-            // Filtrer les outils actifs
-            const activeTools = tools.filter(tool => tool.status.trim() === "card");
-            console.log(activeTools); // Vérifie si les cartes actives sont correctement filtrées
-
             // Choisir 2 outils aléatoires
             const selectedTools = [];
             while (selectedTools.length < 2 && activeTools.length > 0) {
