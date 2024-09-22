@@ -138,3 +138,37 @@ document.querySelector('.tool-button a').addEventListener('click', (event) => {
 
 // Appel de la fonction pour charger les défis
 loadChallenges();
+
+// Fonction pour charger et afficher un thème de réunion aléatoire
+function loadRandomMeetingTheme() {
+    fetch('assets/csv/reunions_liste.csv') // Charger le fichier CSV
+        .then(response => response.text()) 
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+
+            const themes = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            
+            // Fonction pour afficher un thème aléatoire
+            function displayRandomTheme() {
+                if (themes.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * themes.length);
+                    const randomTheme = themes[randomIndex];
+                    document.getElementById('réunion').textContent = randomTheme; // Mettre à jour le texte du H1
+                }
+            }
+
+            // Afficher un thème lors du chargement initial
+            displayRandomTheme();
+
+            // Ajouter un événement au clic du bouton pour générer un autre thème aléatoire
+            document.querySelector('.button.button-pink').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                displayRandomTheme(); // Afficher un nouveau thème
+            });
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Appeler la fonction pour charger et afficher un thème dès le chargement de la page
+loadRandomMeetingTheme();
+
