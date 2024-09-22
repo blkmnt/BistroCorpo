@@ -20,9 +20,8 @@ function displayCards() {
     content.innerHTML = ''; // Vider le contenu existant
 
     tools.forEach(tool => {
-        // Vérifier si le titre n'est pas "Encore plus de choses à découvrir !"
-        if (tool.title !== "Encore plus de choses à découvrir !") {
-            const cardClass = tool.status === 'Active' ? 'card' : 'card inactive';
+        if (tool.title && tool.buttonText && tool.title !== "Encore plus de choses à découvrir !") {
+            const cardClass = tool.status === "Active" ? 'card' : 'card inactive';
             const cardHTML = `
                 <div class="${cardClass}">
                     <div class="card-image-container">
@@ -32,7 +31,7 @@ function displayCards() {
                         <h2>${tool.title}</h2>
                         <p>${tool.description}</p>
                     </div>
-                    <a href="${tool.url}">
+                    <a href="${tool.link}">
                         <button class="button">${tool.buttonText}</button>
                     </a>
                 </div>
@@ -41,6 +40,8 @@ function displayCards() {
         }
     });
 }
+
+
 
 
 
