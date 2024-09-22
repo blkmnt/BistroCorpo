@@ -172,3 +172,94 @@ function loadRandomMeetingTheme() {
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomMeetingTheme();
 
+function loadRandomEchappatoire() {
+    fetch('assets/csv/échappatoire_liste.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            const echappatoires = rows.map(row => {
+                const [theme] = row.split(';');
+                return { theme };
+            });
+
+            // Choisir un thème aléatoire
+            const randomIndex = Math.floor(Math.random() * echappatoires.length);
+            const selectedEchappatoire = echappatoires[randomIndex];
+
+            // Afficher le thème dans le HTML
+            document.getElementById('echappatoire').textContent = selectedEchappatoire.theme;
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Appeler la fonction pour charger et afficher un thème dès le chargement de la page
+loadRandomEchappatoire();
+
+function loadRandomUrgence() {
+    fetch('assets/csv/urgence_liste.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            const urgences = rows.map(row => {
+                const [theme] = row.split(';');
+                return { theme };
+            });
+
+            // Choisir un thème aléatoire
+            const randomIndex = Math.floor(Math.random() * urgences.length);
+            const selectedUrgence = urgences[randomIndex];
+
+            // Afficher le thème dans le HTML
+            document.getElementById('urgence').textContent = selectedUrgence.theme;
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Appeler la fonction pour charger et afficher un thème dès le chargement de la page
+loadRandomUrgence();
+
+function loadRandomJustification() {
+    fetch('assets/csv/justification_liste.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            const justifications = rows.map(row => {
+                const [theme] = row.split(';');
+                return { theme };
+            });
+
+            // Choisir un thème aléatoire
+            const randomIndex = Math.floor(Math.random() * justifications.length);
+            const selectedJustification = justifications[randomIndex];
+
+            // Afficher le thème dans le HTML
+            document.getElementById('justification').textContent = selectedJustification.theme;
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Appeler la fonction pour charger et afficher un thème dès le chargement de la page
+loadRandomJustification();
+
+function loadRandomDistinction() {
+    fetch('assets/csv/distinction_liste.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            const distinctions = rows.map(row => {
+                const [theme] = row.split(';');
+                return { theme };
+            });
+
+            // Choisir un thème aléatoire
+            const randomIndex = Math.floor(Math.random() * distinctions.length);
+            const selectedDistinction = distinctions[randomIndex];
+
+            // Afficher le thème dans le HTML
+            document.getElementById('distinction').textContent = selectedDistinction.theme;
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Appeler la fonction pour charger et afficher un thème dès le chargement de la page
+loadRandomDistinction();
