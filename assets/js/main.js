@@ -40,47 +40,61 @@ function displayCards() {
     });
 }
 
-// Fonction pour afficher 2 cartes aléatoires et une carte spécifique
-function displayRandomCards() {
+function randomCard() {
+    fetch('assets/csv/tools.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            const tools = rows.map(row => {
+                const [title, description, buttonText, link, image, status] = row.split(';');
+                return { title, description, buttonText, link, image, status };
+            });
+
+            // Filtrer les outils actifs
+            const activeTools = tools.filter(tool => tool.status === "card");
+
+            // Choisir 2 outils aléatoires
+            const selectedTools = [];
+            while (selectedTools.length < 2 && activeTools.length > 0) {
+                const randomIndex = Math.floor(Math.random() * activeTools.length);
+                selectedTools.push(activeTools[randomIndex]);
+                activeTools.splice(randomIndex, 1); // Éliminer l'outil choisi pour éviter les doublons
+            }
+
+            // Ajouter la carte "Encore plus de choses à découvrir !"
+            const discoverMore = tools.find(tool => tool.title === "Encore plus de choses à découvrir !");
+            if (discoverMore) {
+                selectedTools.push(discoverMore);
+            }
+
+            displayRandomCards(selectedTools); // Appeler la fonction pour afficher les cartes
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Fonction pour afficher les cartes aléatoires
+function displayRandomCards(selectedTools) {
     const content = document.querySelector('.content');
     content.innerHTML = ''; // Vider le contenu existant
 
-    // Filtrer les outils actifs
-    const activeTools = tools.filter(tool => tool.status === "card");
-
-    // Choisir 2 outils aléatoires parmi les actifs
-    const randomCards = [];
-    while (randomCards.length < 2) {
-        const randomIndex = Math.floor(Math.random() * activeTools.length);
-        const randomTool = activeTools[randomIndex];
-
-        // Vérifier que la carte n'est pas déjà ajoutée
-        if (!randomCards.includes(randomTool)) {
-            randomCards.push(randomTool);
+    selectedTools.forEach(tool => {
+        if (tool.title && tool.buttonText) {
+            const cardHTML = `
+                <div class="${tool.status}">
+                    <div class="card-image-container">
+                        <img src="${tool.image}" alt="${tool.title}">
+                    </div>
+                    <div class="card-content">
+                        <h2>${tool.title}</h2>
+                        <p>${tool.description}</p>
+                    </div>
+                    <a href="${tool.link}">
+                        <button class="button">${tool.buttonText}</button>
+                    </a>
+                </div>
+            `;
+            content.innerHTML += cardHTML;
         }
-    }
-
-    // Ajouter la carte spécifique
-    const specialCard = tools.find(tool => tool.title === "Encore plus de choses à découvrir !");
-    if (specialCard) randomCards.push(specialCard);
-
-    // Afficher les cartes choisies
-    randomCards.forEach(tool => {
-        const cardHTML = `
-            <div class="${tool.status}">
-                <div class="card-image-container">
-                    <img src="${tool.image}" alt="${tool.title}">
-                </div>
-                <div class="card-content">
-                    <h2>${tool.title}</h2>
-                    <p>${tool.description}</p>
-                </div>
-                <a href="${tool.link}">
-                    <button class="button">${tool.buttonText}</button>
-                </a>
-            </div>
-        `;
-        content.innerHTML += cardHTML;
     });
 }
 
