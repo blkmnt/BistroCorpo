@@ -15,30 +15,36 @@ function loadCSV() {
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
 
-// Fonction pour afficher toutes les cartes
 function displayCards() {
+    const startRow = 1; // Définissez la première ligne à prendre en compte
+    const endRow = 10;  // Définissez la dernière ligne à prendre en compte
+
     const content = document.querySelector('.content');
     content.innerHTML = ''; // Vider le contenu existant
 
     tools.forEach(tool => {
-        const cardClass = tool.status === 'active' ? 'card' : 'card inactive';
-        const cardHTML = `
-            <div class="${cardClass}">
-                <div class="card-image-container">
-                    <img src="assets/images/${tool.title.replace(/\s+/g, '')}.svg" alt="${tool.title}">
+        // Assurez-vous que chaque outil a une propriété 'rowNumber' correspondant à sa ligne dans le CSV
+        if (tool.rowNumber >= startRow && tool.rowNumber <= endRow) {
+            const cardClass = tool.status === 'Active' ? 'card' : 'card inactive';
+            const cardHTML = `
+                <div class="${cardClass}">
+                    <div class="card-image-container">
+                        <img src="${tool.image}" alt="${tool.title}">
+                    </div>
+                    <div class="card-content">
+                        <h2>${tool.title}</h2>
+                        <p>${tool.description}</p>
+                    </div>
+                    <a href="${tool.url}">
+                        <button class="button">${tool.buttonText}</button>
+                    </a>
                 </div>
-                <div class="card-content">
-                    <h2>${tool.title}</h2>
-                    <p>${tool.description}</p>
-                </div>
-                <a href="${tool.url}">
-                    <button class="button">${tool.buttonText}</button>
-                </a>
-            </div>
-        `;
-        content.innerHTML += cardHTML;
+            `;
+            content.innerHTML += cardHTML;
+        }
     });
 }
+
 
 // Fonction pour choisir aléatoirement une ligne (outil actif)
 function getRandomActiveTool() {
