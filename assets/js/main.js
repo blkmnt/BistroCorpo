@@ -116,7 +116,7 @@ function loadChallenges() {
     fetch('assets/csv/MissionFun_liste.csv')
         .then(response => response.text())
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            const rows = data.split('\n');
             challenges = rows.map(row => row.trim()).filter(row => row !== ''); // Filtrer les lignes vides
             displayRandomChallenge(); // Afficher un défi au chargement
         })
@@ -144,7 +144,7 @@ function loadRandomMeetingTheme() {
     fetch('assets/csv/reunions_liste.csv') // Charger le fichier CSV
         .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+            const rows = data.split('\n');
 
             const themes = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
@@ -176,14 +176,14 @@ function loadRandomEchappatoire() {
     fetch('assets/csv/echappatoire_liste.csv') // Charger le fichier CSV
         .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+            const rows = data.split('\n');
 
             const echappatoire = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
             // Fonction pour afficher une tâche aléatoire
             function displayRandomEchappatoire() {
                 if (echappatoire.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * tasks.length);
+                    const randomIndex = Math.floor(Math.random() * echappatoire.length); // Utiliser echappatoire
                     const randomEchappatoire = echappatoire[randomIndex];
                     document.getElementById('echappatoire').textContent = randomEchappatoire; // Mettre à jour le texte du H1
                 }
@@ -208,7 +208,7 @@ function loadRandomUrgentTask() {
     fetch('assets/csv/urgence_liste.csv') // Charger le fichier CSV
         .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+            const rows = data.split('\n');
 
             const tasks = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
@@ -241,7 +241,7 @@ function loadRandomJustification() {
     fetch('assets/csv/justification_liste.csv') // Charger le fichier CSV
         .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+            const rows = data.split('\n').slice(1);
 
             const justifications = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
@@ -274,7 +274,7 @@ function loadRandomDistinction() {
     fetch('assets/csv/distinction_liste.csv') // Charger le fichier CSV
         .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+            const rows = data.split('\n');
 
             const distinctions = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
