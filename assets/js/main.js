@@ -50,9 +50,15 @@ function randomCard() {
                 return { title, description, buttonText, link, image, status };
             });
 
-            // Filtrer les outils actifs
+            // Récupérer le titre du h2 dans la section de la page
+            const pageTitle = document.querySelector('.tool-header h2').textContent.trim();
+
+            // Filtrer les outils actifs et exclure ceux dont le titre correspond au h2 de la page
             const activeTools = tools.filter(tool => 
-                tool.status && tool.status.trim() === 'card' && tool.title.trim() !== "Encore plus de choses à découvrir !"
+                tool.status && 
+                tool.status.trim() === 'card' && 
+                tool.title.trim() !== "Encore plus de choses à découvrir !" && 
+                tool.title.trim() !== pageTitle // Exclure le titre correspondant au h2
             );
             
             // Log pour voir les outils actifs dans la console
