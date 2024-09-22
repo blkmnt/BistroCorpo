@@ -106,3 +106,35 @@ function displayRandomCards(selectedTools) {
 // Appel de la fonction pour charger les données
 loadCSV();
 
+
+
+
+let challenges = [];
+
+// Fonction pour charger les défis depuis le CSV
+function loadChallenges() {
+    fetch('assets/csv/MissionFun_liste.csv')
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Ignore l'en-tête
+            challenges = rows.map(row => row.trim()).filter(row => row !== ''); // Filtrer les lignes vides
+            displayRandomChallenge(); // Afficher un défi au chargement
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Fonction pour afficher un défi aléatoire
+function displayRandomChallenge() {
+    const randomIndex = Math.floor(Math.random() * challenges.length);
+    const selectedChallenge = challenges[randomIndex];
+    document.getElementById('défi').textContent = selectedChallenge;
+}
+
+// Événement pour le bouton "Un autre challenge"
+document.querySelector('.tool-button a').addEventListener('click', (event) => {
+    event.preventDefault(); // Empêcher le rechargement de la page
+    displayRandomChallenge(); // Afficher un nouveau défi
+});
+
+// Appel de la fonction pour charger les défis
+loadChallenges();
