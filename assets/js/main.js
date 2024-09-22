@@ -185,7 +185,7 @@ function loadRandomEscapeTask() {
                 if (tasks.length > 0) {
                     const randomIndex = Math.floor(Math.random() * tasks.length);
                     const randomTask = tasks[randomIndex];
-                    document.getElementById('défi').textContent = randomTask; // Mettre à jour le texte du H1
+                    document.getElementById('echappatoire').textContent = randomTask; // Mettre à jour le texte du H1
                 }
             }
 
