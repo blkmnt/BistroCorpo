@@ -50,7 +50,13 @@ function randomCard() {
                 return { title, description, buttonText, link, image, status };
             });
 
-            // Choisir 2 outils aléatoires
+            // Filtrer les outils actifs
+            const activeTools = tools.filter(tool => tool.status && tool.status.trim() === 'card');
+            
+            // Log pour voir les outils actifs dans la console
+            console.log('Outils actifs:', activeTools);
+
+            // Choisir 2 outils aléatoires parmi les actifs
             const selectedTools = [];
             while (selectedTools.length < 2 && activeTools.length > 0) {
                 const randomIndex = Math.floor(Math.random() * activeTools.length);
@@ -59,7 +65,7 @@ function randomCard() {
             }
 
             // Ajouter la carte "Encore plus de choses à découvrir !"
-            const discoverMore = tools.find(tool => tool.title === "Encore plus de choses à découvrir !");
+            const discoverMore = tools.find(tool => tool.title && tool.title.trim() === "Encore plus de choses à découvrir !");
             if (discoverMore) {
                 selectedTools.push(discoverMore);
             }
