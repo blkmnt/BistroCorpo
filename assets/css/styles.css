@@ -349,11 +349,17 @@ footer {
     .hero p {
         font-size: 0.75rem;
     }
+    .tool h1 {
+    font-size: 2rem;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .content {
         grid-template-columns: repeat(2, 1fr);
         padding: 0rem 2rem 2rem 2rem;
+    }
+    .tool h1 {
+    font-size: 3rem;
     }
 }
