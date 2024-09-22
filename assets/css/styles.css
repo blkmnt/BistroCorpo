@@ -361,5 +361,13 @@ footer {
     }
     .tool h1 {
         font-size: 3rem;
+        margin: 2rem 0 2rem;
     }
+    .tool {
+        padding: 2rem 2rem 4rem;
+
+    }
+    .tool p {
+        font-size: 0.75rem;
+        text-align: justify;
 }
