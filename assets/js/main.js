@@ -7,8 +7,8 @@ function loadCSV() {
         .then(data => {
             const rows = data.split('\n').slice(1); // Ignore l'en-tête
             tools = rows.map(row => {
-                const [title, description, buttonText, url, status] = row.split(';');
-                return { title, description, buttonText, url, status };
+                const [title, description, buttonText, url, status, image] = row.split(';');
+                return { title, description, buttonText, url, status, image };
             });
             displayCards(); // Affiche toutes les cartes après le chargement
         })
@@ -16,8 +16,8 @@ function loadCSV() {
 }
 
 function displayCards() {
-    const startRow = 1; // Définissez la première ligne à prendre en compte (1 pour la première ligne dans le CSV)
-    const endRow = 10;  // Définissez la dernière ligne à prendre en compte
+    const startRow = 1; // Première ligne à prendre en compte
+    const endRow = 10;  // Dernière ligne à prendre en compte
 
     const content = document.querySelector('.content');
     content.innerHTML = ''; // Vider le contenu existant
@@ -46,6 +46,7 @@ function displayCards() {
         }
     });
 }
+
 
 
 
