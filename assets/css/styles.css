@@ -315,7 +315,7 @@ header {
 }
 
 .tool-image-green {
-    background-color: (122, 231, 199, 0.3);
+    background-color: rgba(122, 231, 199, 0.3);
 }
 
 .tool-image-yellow {
