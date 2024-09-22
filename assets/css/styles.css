@@ -248,7 +248,9 @@ header {
 /* Tool Section */
 .tool {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
