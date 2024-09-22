@@ -172,22 +172,31 @@ function loadRandomMeetingTheme() {
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomMeetingTheme();
 
-function loadRandomEchappatoire() {
-    fetch('assets/csv/échappatoire_liste.csv')
-        .then(response => response.text())
+function loadRandomEscapeTask() {
+    fetch('assets/csv/echappatoire_liste.csv') // Charger le fichier CSV
+        .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore l'en-tête
-            const echappatoires = rows.map(row => {
-                const [theme] = row.split(';');
-                return { theme };
+            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+
+            const tasks = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            
+            // Fonction pour afficher une tâche aléatoire
+            function displayRandomTask() {
+                if (tasks.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * tasks.length);
+                    const randomTask = tasks[randomIndex];
+                    document.getElementById('défi').textContent = randomTask; // Mettre à jour le texte du H1
+                }
+            }
+
+            // Afficher une tâche lors du chargement initial
+            displayRandomTask();
+
+            // Ajouter un événement au clic du bouton pour générer une nouvelle tâche aléatoire
+            document.querySelector('.button').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                displayRandomTask(); // Afficher une nouvelle tâche
             });
-
-            // Choisir un thème aléatoire
-            const randomIndex = Math.floor(Math.random() * echappatoires.length);
-            const selectedEchappatoire = echappatoires[randomIndex];
-
-            // Afficher le thème dans le HTML
-            document.getElementById('echappatoire').textContent = selectedEchappatoire.theme;
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
@@ -195,71 +204,101 @@ function loadRandomEchappatoire() {
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomEchappatoire();
 
-function loadRandomUrgence() {
-    fetch('assets/csv/urgence_liste.csv')
-        .then(response => response.text())
+function loadRandomUrgentTask() {
+    fetch('assets/csv/urgence_liste.csv') // Charger le fichier CSV
+        .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore l'en-tête
-            const urgences = rows.map(row => {
-                const [theme] = row.split(';');
-                return { theme };
+            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+
+            const tasks = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            
+            // Fonction pour afficher une tâche aléatoire
+            function displayRandomTask() {
+                if (tasks.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * tasks.length);
+                    const randomTask = tasks[randomIndex];
+                    document.getElementById('urgence').textContent = randomTask; // Mettre à jour le texte du H1
+                }
+            }
+
+            // Afficher une tâche lors du chargement initial
+            displayRandomTask();
+
+            // Ajouter un événement au clic du bouton pour générer une nouvelle tâche aléatoire
+            document.querySelector('.button').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                displayRandomTask(); // Afficher une nouvelle tâche
             });
-
-            // Choisir un thème aléatoire
-            const randomIndex = Math.floor(Math.random() * urgences.length);
-            const selectedUrgence = urgences[randomIndex];
-
-            // Afficher le thème dans le HTML
-            document.getElementById('urgence').textContent = selectedUrgence.theme;
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
-loadRandomUrgence();
+loadRandomUrgentTask();
 
 function loadRandomJustification() {
-    fetch('assets/csv/justification_liste.csv')
-        .then(response => response.text())
+    fetch('assets/csv/justification_liste.csv') // Charger le fichier CSV
+        .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore l'en-tête
-            const justifications = rows.map(row => {
-                const [theme] = row.split(';');
-                return { theme };
+            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+
+            const justifications = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            
+            // Fonction pour afficher une justification aléatoire
+            function displayRandomJustification() {
+                if (justifications.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * justifications.length);
+                    const randomJustification = justifications[randomIndex];
+                    document.getElementById('justification').textContent = randomJustification; // Mettre à jour le texte du H1
+                }
+            }
+
+            // Afficher une justification lors du chargement initial
+            displayRandomJustification();
+
+            // Ajouter un événement au clic du bouton pour générer une nouvelle justification aléatoire
+            document.querySelector('.button').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                displayRandomJustification(); // Afficher une nouvelle justification
             });
-
-            // Choisir un thème aléatoire
-            const randomIndex = Math.floor(Math.random() * justifications.length);
-            const selectedJustification = justifications[randomIndex];
-
-            // Afficher le thème dans le HTML
-            document.getElementById('justification').textContent = selectedJustification.theme;
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomJustification();
 
 function loadRandomDistinction() {
-    fetch('assets/csv/distinction_liste.csv')
-        .then(response => response.text())
+    fetch('assets/csv/distinction_liste.csv') // Charger le fichier CSV
+        .then(response => response.text()) 
         .then(data => {
-            const rows = data.split('\n').slice(1); // Ignore l'en-tête
-            const distinctions = rows.map(row => {
-                const [theme] = row.split(';');
-                return { theme };
+            const rows = data.split('\n').slice(1); // Ignore la première ligne (l'en-tête du CSV)
+
+            const distinctions = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            
+            // Fonction pour afficher une distinction aléatoire
+            function displayRandomDistinction() {
+                if (distinctions.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * distinctions.length);
+                    const randomDistinction = distinctions[randomIndex];
+                    document.getElementById('distinction').textContent = randomDistinction; // Mettre à jour le texte du H1
+                }
+            }
+
+            // Afficher une distinction lors du chargement initial
+            displayRandomDistinction();
+
+            // Ajouter un événement au clic du bouton pour générer une nouvelle distinction aléatoire
+            document.querySelector('.button').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                displayRandomDistinction(); // Afficher une nouvelle distinction
             });
-
-            // Choisir un thème aléatoire
-            const randomIndex = Math.floor(Math.random() * distinctions.length);
-            const selectedDistinction = distinctions[randomIndex];
-
-            // Afficher le thème dans le HTML
-            document.getElementById('distinction').textContent = selectedDistinction.theme;
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomDistinction();
