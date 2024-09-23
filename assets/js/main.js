@@ -282,14 +282,19 @@ function loadRandomDistinction() {
         .then(data => {
             const rows = data.split('\n');
 
-            const distinctions = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
+            // Traiter les lignes du CSV en séparant les colonnes
+            const distinctions = rows.map(row => {
+                const [title, description] = row.trim().split(';'); // Séparer les colonnes par le point-virgule
+                return { title: title.trim(), description: description.trim() }; // Retourner un objet avec le titre et la description
+            }).filter(row => row.title.length > 0 && row.description.length > 0); // Filtrer les lignes valides
             
             // Fonction pour afficher une distinction aléatoire
             function displayRandomDistinction() {
                 if (distinctions.length > 0) {
                     const randomIndex = Math.floor(Math.random() * distinctions.length);
                     const randomDistinction = distinctions[randomIndex];
-                    document.getElementById('distinction').textContent = randomDistinction; // Mettre à jour le texte du H1
+                    document.getElementById('distinction').textContent = randomDistinction.title; // Mettre à jour le texte du H1
+                    document.getElementById('distinction_texte').textContent = randomDistinction.description; // Mettre à jour la description
                 }
             }
 
