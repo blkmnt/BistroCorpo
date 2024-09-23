@@ -282,12 +282,11 @@ function loadRandomDistinction() {
         .then(data => {
             const rows = data.split('\n');
 
-            // Traiter les lignes du CSV en séparant les colonnes
             const distinctions = rows.map(row => {
-                const [title, description] = row.trim().split(';'); // Séparer les colonnes par le point-virgule
-                return { title: title.trim(), description: description.trim() }; // Retourner un objet avec le titre et la description
-            }).filter(row => row.title.length > 0 && row.description.length > 0); // Filtrer les lignes valides
-            
+                const [title, description] = row.split(';').map(item => item.trim()); // Extraire le titre et la description
+                return { title, description }; // Retourner un objet avec le titre et la description
+            }).filter(distinction => distinction.title && distinction.description); // Filtrer les lignes vides
+
             // Fonction pour afficher une distinction aléatoire
             function displayRandomDistinction() {
                 if (distinctions.length > 0) {
@@ -310,6 +309,5 @@ function loadRandomDistinction() {
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
 
-
-// Appeler la fonction pour charger et afficher un thème dès le chargement de la page
+// Appeler la fonction pour charger et afficher une distinction dès le chargement de la page
 loadRandomDistinction();
