@@ -290,6 +290,20 @@ header {
     text-align: center;
 }
 
+.tool h1a {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 4rem 0 0;
+    text-align: center;
+}
+
+.tool h1b {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 2rem;
+    text-align: center;
+}
+
 .tool h2 {
     font-size: 1.4rem;
     text-align: center;
@@ -379,9 +393,15 @@ footer {
         font-size: 2rem;
         margin: 2rem 0 2rem;
     }
+    .tool h1a {
+        font-size: 2rem;
+        margin: 2rem 0 0;
+    }
+    .tool h1b {
+        font-size: 1rem;
+    }
     .tool {
         padding: 2rem 2rem 4rem;
-
     }
     .tool p {
         font-size: 0.75rem;
@@ -396,5 +416,11 @@ footer {
     }
     .tool h1 {
         font-size: 2.5rem;
+    }
+    .tool h1a {
+        font-size: 2.5rem;
+    }
+    .tool h1b {
+        font-size: 1rem;
     }
 }
