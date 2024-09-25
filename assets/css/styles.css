@@ -345,7 +345,14 @@ header {
     object-fit: cover;
 }
 
-/* Toggle */
+
+/* Astro Pro */
+.astrology-section {
+    padding: 4rem 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
 .toggle-container {
     display: flex;
     justify-content: center;
@@ -359,7 +366,6 @@ header {
     background-color: #ddd;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .toggle-button.active {
@@ -367,18 +373,7 @@ header {
     color: #fff;
 }
 
-
-/* Astro Pro */
-.astrology-section {
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.astro-content {
-    display: block;
-}
-
-.compatibility-content {
+.astro-content, .compatibility-content {
     display: none;
 }
 
