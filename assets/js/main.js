@@ -312,35 +312,18 @@ function loadRandomDistinction() {
 // Appeler la fonction pour charger et afficher une distinction dès le chargement de la page
 loadRandomDistinction();
 
-// Ciblage des boutons de toggle
-const astroToggle = document.getElementById('astro-toggle');
-const compatibilityToggle = document.getElementById('compatibility-toggle');
-
-// Ciblage des sections
-const astroContent = document.querySelector('.astro-content');
-const compatibilityContent = document.querySelector('.compatibility-content');
-
-// Fonction pour afficher la section "Mon signe astro"
-astroToggle.addEventListener('click', function() {
-    // Ajouter la classe active à la section astrologique
-    astroContent.style.display = 'block';
-    compatibilityContent.style.display = 'none';
-    
-    // Marquer le bouton "Mon signe astro" comme actif
-    astroToggle.classList.add('active');
-    // Retirer la classe active du bouton "Ma compatibilité"
-    compatibilityToggle.classList.remove('active');
+document.getElementById('astro-toggle').addEventListener('click', function() {
+    document.getElementById('astro-content').classList.add('active');
+    document.getElementById('compatibility-content').classList.remove('active');
+    this.classList.add('active');
+    document.getElementById('compatibility-toggle').classList.remove('active');
 });
 
-// Fonction pour afficher la section "Ma compatibilité"
-compatibilityToggle.addEventListener('click', function() {
-    // Ajouter la classe active à la section compatibilité
-    compatibilityContent.style.display = 'block';
-    astroContent.style.display = 'none';
-    
-    // Marquer le bouton "Ma compatibilité" comme actif
-    compatibilityToggle.classList.add('active');
-    // Retirer la classe active du bouton "Mon signe astro"
-    astroToggle.classList.remove('active');
+document.getElementById('compatibility-toggle').addEventListener('click', function() {
+    document.getElementById('compatibility-content').classList.add('active');
+    document.getElementById('astro-content').classList.remove('active');
+    this.classList.add('active');
+    document.getElementById('astro-toggle').classList.remove('active');
 });
+
 
