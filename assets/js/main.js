@@ -326,3 +326,4 @@ document.getElementById('compatibility-toggle').addEventListener('click', functi
     this.classList.add('active');
     document.getElementById('astro-toggle').classList.remove('active');
 });
+
