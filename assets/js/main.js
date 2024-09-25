@@ -323,9 +323,8 @@ const compatibilityContent = document.querySelector('.compatibility-content');
 // Fonction pour afficher la section "Mon signe astro"
 astroToggle.addEventListener('click', function() {
     // Ajouter la classe active à la section astrologique
-    astroContent.classList.add('active');
-    // Retirer la classe active de la section compatibilité
-    compatibilityContent.classList.remove('active');
+    astroContent.style.display = 'block';
+    compatibilityContent.style.display = 'none';
     
     // Marquer le bouton "Mon signe astro" comme actif
     astroToggle.classList.add('active');
@@ -336,9 +335,8 @@ astroToggle.addEventListener('click', function() {
 // Fonction pour afficher la section "Ma compatibilité"
 compatibilityToggle.addEventListener('click', function() {
     // Ajouter la classe active à la section compatibilité
-    compatibilityContent.classList.add('active');
-    // Retirer la classe active de la section astrologique
-    astroContent.classList.remove('active');
+    compatibilityContent.style.display = 'block';
+    astroContent.style.display = 'none';
     
     // Marquer le bouton "Ma compatibilité" comme actif
     compatibilityToggle.classList.add('active');
