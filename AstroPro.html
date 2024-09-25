@@ -25,14 +25,13 @@
                 <p>Découvrez des prix originaux et fictifs à décerner à vos collègues, ajoutant une touche de fun à vos journées de travail. Avec ces distinctions loufoques, vous pourrez célébrer les talents uniques de chacun et créer des souvenirs mémorables. Faites de la concurrence aux Dundies !</p>
             </div>
             <div class="astrology-section">
-                <!-- Toggle -->
                 <div class="toggle-container">
-                    <button id="astro-toggle" class="toggle-button">Mon signe astro</button>
+                    <button id="astro-toggle" class="toggle-button active">Mon signe astro</button>
                     <button id="compatibility-toggle" class="toggle-button">Ma compatibilité</button>
                 </div>
             
-                <!-- Mon signe astro section -->
-                <div id="astro-section" class="astro-content active">
+                <!-- Section "Mon signe astro" -->
+                <div class="astro-content active">
                     <div class="astro-intro">Je suis</div>
                     <div class="astro-signs-grid">
                         <div class="astro-sign">Bélier</div>
@@ -48,13 +47,16 @@
                         <div class="astro-sign">Verseau</div>
                         <div class="astro-sign">Poissons</div>
                     </div>
-                    <div class="astro-description">Description pour le signe sélectionné...</div>
+                    <div class="astro-description">
+                        <!-- Description dynamique selon le signe astrologique -->
+                        Description du signe astrologique sélectionné.
+                    </div>
                 </div>
             
-                <!-- Compatibilité section -->
-                <div id="compatibility-section" class="compatibility-content">
+                <!-- Section "Ma compatibilité" -->
+                <div class="compatibility-content">
                     <div class="compatibility-grid">
-                        <!-- Colonne 1 -->
+                        <!-- Colonne 1 : Mon signe astro -->
                         <div class="column">
                             <div class="compatibility-intro">Je suis</div>
                             <div class="astro-signs-grid">
@@ -73,16 +75,16 @@
                             </div>
                         </div>
             
-                        <!-- Colonne 2 -->
+                        <!-- Colonne 2 : Score de compatibilité -->
                         <div class="column">
                             <div class="compatibility-score">
-                                <h3>Score de compatibilité</h3>
-                                <div class="score">##%</div>
-                                <div class="intensity">Compatibilité : Forte</div>
+                                <h2>Score de compatibilité</h2>
+                                <div class="score">85%</div>
+                                <div class="intensity">Compatibilité forte</div>
                             </div>
                         </div>
             
-                        <!-- Colonne 3 -->
+                        <!-- Colonne 3 : Signe astro de mon collègue -->
                         <div class="column">
                             <div class="compatibility-intro">Mon/ma collègue est</div>
                             <div class="astro-signs-grid">
@@ -102,8 +104,12 @@
                         </div>
                     </div>
             
-                    <div class="compatibility-description">Description de la compatibilité...</div>
+                    <div class="compatibility-description">
+                        <!-- Description dynamique selon la compatibilité -->
+                        Description de la compatibilité entre les signes sélectionnés.
+                    </div>
                 </div>
+            
             </div>
 
         </div>
