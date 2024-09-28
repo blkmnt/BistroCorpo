@@ -316,11 +316,25 @@ loadRandomDistinction();
 // Toggle Astro Pro
 document.getElementById('astro-toggle').addEventListener('click', function(event) {
     try {
-        event.preventDefault(); // Empêcher le comportement par défaut (si nécessaire)
-        document.getElementById('astro-content').classList.add('active');
-        document.getElementById('compatibility-content').classList.remove('active');
+        // Empêcher le comportement par défaut (si nécessaire)
+        event.preventDefault();
+
+        // Récupération des éléments
+        const astroContent = document.getElementById('astro-content');
+        const compatibilityContent = document.getElementById('compatibility-content');
+        const compatibilityToggle = document.getElementById('compatibility-toggle');
+
+        // Vérification que les éléments existent
+        if (!astroContent || !compatibilityContent || !compatibilityToggle) {
+            throw new Error("Un des éléments nécessaires est manquant. Vérifiez que 'astro-content', 'compatibility-content', et 'compatibility-toggle' existent dans le DOM.");
+        }
+
+        // Mise à jour des classes
+        astroContent.classList.add('active');
+        compatibilityContent.classList.remove('active');
         this.classList.add('active');
-        document.getElementById('compatibility-toggle').classList.remove('active');
+        compatibilityToggle.classList.remove('active');
+
     } catch (error) {
         console.error("Erreur lors de l'activation de la section 'Mon signe astro':", error);
     }
@@ -328,15 +342,30 @@ document.getElementById('astro-toggle').addEventListener('click', function(event
 
 document.getElementById('compatibility-toggle').addEventListener('click', function(event) {
     try {
-        event.preventDefault(); // Empêcher le comportement par défaut (si nécessaire)
-        document.getElementById('compatibility-content').classList.add('active');
-        document.getElementById('astro-content').classList.remove('active');
+        // Empêcher le comportement par défaut (si nécessaire)
+        event.preventDefault();
+
+        // Récupération des éléments
+        const astroContent = document.getElementById('astro-content');
+        const compatibilityContent = document.getElementById('compatibility-content');
+        const astroToggle = document.getElementById('astro-toggle');
+
+        // Vérification que les éléments existent
+        if (!astroContent || !compatibilityContent || !astroToggle) {
+            throw new Error("Un des éléments nécessaires est manquant. Vérifiez que 'astro-content', 'compatibility-content', et 'astro-toggle' existent dans le DOM.");
+        }
+
+        // Mise à jour des classes
+        compatibilityContent.classList.add('active');
+        astroContent.classList.remove('active');
         this.classList.add('active');
-        document.getElementById('astro-toggle').classList.remove('active');
+        astroToggle.classList.remove('active');
+
     } catch (error) {
         console.error("Erreur lors de l'activation de la section 'Ma compatibilité':", error);
     }
 });
+
 
 
 
