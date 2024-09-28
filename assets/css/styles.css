@@ -537,6 +537,15 @@ footer {
         width: 100%;
         margin-bottom: 2rem;
     }
+    .column-1 {
+        order: 1;
+    }
+    .column-2 {
+        order: 3;
+    }
+    .column-3 {
+        order: 2;
+    }    
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
