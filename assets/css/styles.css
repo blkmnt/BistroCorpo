@@ -542,25 +542,12 @@ footer {
         overflow: hidden;
     }
 
-    .astro-signs-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        gap: 1rem;
-        padding: 1rem 0;
-        width: 100%;
-    }
-
     .astro-sign {
         flex: 0 0 auto;
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 
-    .astro-signs-wrapper::-webkit-scrollbar {
-        display: none;
-    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
