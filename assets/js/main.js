@@ -435,3 +435,67 @@ function setupCompatibilitySelection() {
 setupCompatibilitySelection();
 
 
+function loadAndPopulateAstroGrids() {
+    try {
+        // Charger le fichier CSV depuis GitHub (URL brute)
+        fetch('assets/csv/SignesAstro_liste.csv')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erreur lors du chargement du fichier CSV : ${response.statusText}`);
+                }
+                return response.text(); // Retourner le contenu du texte
+            })
+            .then(csvData => {
+                // Parse CSV en un tableau d'objets
+                const astroData = csvData.trim().split('\n').map(row => {
+                    const [label, imageUrl, description] = row.split(';');
+                    return { label, imageUrl, description };
+                });
+
+                // Récupérer toutes les grilles d'astro-sign
+                const astroGrids = document.querySelectorAll('.astro-signs-grid');
+
+                // Insérer les données dans chaque grille
+                astroGrids.forEach(astroGrid => {
+                    astroGrid.innerHTML = ''; // Vider le contenu existant
+
+                    astroData.forEach(sign => {
+                        // Créer l'élément HTML pour chaque signe astrologique
+                        const astroSign = document.createElement('div');
+                        astroSign.classList.add('astro-sign');
+
+                        const astroIcon = document.createElement('div');
+                        astroIcon.classList.add('astro-icon');
+
+                        const img = document.createElement('img');
+                        img.src = sign.imageUrl;
+                        img.alt = `Icône ${sign.label}`;
+
+                        const astroLabel = document.createElement('div');
+                        astroLabel.classList.add('astro-label');
+                        astroLabel.textContent = sign.label;
+
+                        // Ajouter l'image dans l'icône
+                        astroIcon.appendChild(img);
+
+                        // Ajouter les éléments dans le signe
+                        astroSign.appendChild(astroIcon);
+                        astroSign.appendChild(astroLabel);
+
+                        // Ajouter le signe à la grille
+                        astroGrid.appendChild(astroSign);
+                    });
+                });
+            })
+            .catch(error => {
+                console.error("Erreur lors de la récupération et de l'affichage des informations du fichier CSV :", error);
+            });
+    } catch (error) {
+        console.error("Erreur lors de la récupération et de l'affichage des informations du fichier CSV :", error);
+    }
+}
+
+// Appel de la fonction pour charger et configurer les grilles astro-sign
+loadAndPopulateAstroGrids();
+
+
