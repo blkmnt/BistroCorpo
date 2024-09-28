@@ -457,36 +457,6 @@ function setupCompatibilitySelection() {
     try {
         const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
         const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
-
-        const compatibilityContent = document.querySelector('.compatibility-content');
-
-        function handleSelection(signs) {
-            signs.forEach(sign => {
-                sign.addEventListener('click', function() {
-                    if (!compatibilityContent.classList.contains('active')) {
-                        return;
-                    }
-
-                    signs.forEach(s => s.classList.remove('selected'));
-                    this.classList.add('selected');
-                });
-            });
-        }
-
-        handleSelection(column1Signs);
-        handleSelection(column3Signs);
-    } catch (error) {
-        console.error("Erreur lors de la configuration de la sélection des signes de compatibilité:", error);
-    }
-}
-
-// Appel de la fonction pour charger et configurer les grilles astro-sign
-loadAndPopulateAstroGrids();
-
-function setupCompatibilitySelection() {
-    try {
-        const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
-        const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
         const compatibilityContent = document.querySelector('.compatibility-content');
 
         // Variables pour stocker les signes sélectionnés
@@ -587,4 +557,8 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
+
+
+// Appel de la fonction pour charger et configurer les grilles astro-sign
+loadAndPopulateAstroGrids();
 
