@@ -483,5 +483,108 @@ function setupCompatibilitySelection() {
 // Appel de la fonction pour charger et configurer les grilles astro-sign
 loadAndPopulateAstroGrids();
 
+function setupCompatibilitySelection() {
+    try {
+        const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
+        const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
+        const compatibilityContent = document.querySelector('.compatibility-content');
 
+        // Variables pour stocker les signes sélectionnés
+        let selectedSign1 = null;
+        let selectedSign2 = null;
+
+        function handleSelection(signs) {
+            signs.forEach(sign => {
+                sign.addEventListener('click', function() {
+                    if (!compatibilityContent.classList.contains('active')) {
+                        return;
+                    }
+
+                    // Désélectionner tous les signes
+                    signs.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    // Enregistrer le signe sélectionné
+                    if (selectedSign1 === null) {
+                        selectedSign1 = this.getAttribute('data-sign');
+                    } else if (selectedSign2 === null) {
+                        selectedSign2 = this.getAttribute('data-sign');
+                        displayCompatibility(selectedSign1, selectedSign2);
+                        // Réinitialiser les sélections
+                        selectedSign1 = null;
+                        selectedSign2 = null;
+                    } else {
+                        // Réinitialiser les sélections si un troisième signe est cliqué
+                        selectedSign1 = this.getAttribute('data-sign');
+                        selectedSign2 = null;
+                        signs.forEach(s => s.classList.remove('selected'));
+                        this.classList.add('selected');
+                    }
+                });
+            });
+        }
+
+        handleSelection(column1Signs);
+        handleSelection(column3Signs);
+    } catch (error) {
+        console.error("Erreur lors de la configuration de la sélection des signes de compatibilité:", error);
+    }
+}
+
+// Fonction pour afficher la compatibilité
+function displayCompatibility(sign1, sign2) {
+    fetch('assets/csv/CompatibilitéAstro_liste.csv')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur lors du chargement du fichier CSV : ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(csvData => {
+            const compatibilityData = csvData.trim().split('\n').map(row => {
+                const [signeAstro1, signeAstro2, compatibilite, description] = row.split(';');
+                return { signeAstro1, signeAstro2, compatibilite, description };
+            });
+
+            // Trouver la compatibilité pour les signes sélectionnés
+            const compatibilityInfo = compatibilityData.find(item => 
+                (item.signeAstro1 === sign1 && item.signeAstro2 === sign2) ||
+                (item.signeAstro1 === sign2 && item.signeAstro2 === sign1)
+            );
+
+            if (compatibilityInfo) {
+                // Afficher les résultats
+                const intensityElement = document.getElementById("intensity");
+                const descriptionElement = document.getElementById("compatibility-description");
+                const scoreElement = document.getElementById("score");
+
+                intensityElement.textContent = compatibilityInfo.compatibilite;
+
+                // Générer un score aléatoire basé sur la compatibilité
+                let score = 0;
+                switch (compatibilityInfo.compatibilite) {
+                    case 'Très forte':
+                        score = Math.floor(Math.random() * 21) + 80; // entre 80 et 100
+                        break;
+                    case 'Forte':
+                        score = Math.floor(Math.random() * 21) + 60; // entre 60 et 80
+                        break;
+                    case 'Moyenne':
+                        score = Math.floor(Math.random() * 21) + 40; // entre 40 et 60
+                        break;
+                    case 'Faible':
+                        score = Math.floor(Math.random() * 21) + 20; // entre 20 et 40
+                        break;
+                    case 'Très faible':
+                        score = Math.floor(Math.random() * 21); // entre 0 et 20
+                        break;
+                }
+                scoreElement.textContent = `${score}%`;
+                descriptionElement.textContent = compatibilityInfo.description;
+            }
+        })
+        .catch(error => {
+            console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
+        });
+}
 
