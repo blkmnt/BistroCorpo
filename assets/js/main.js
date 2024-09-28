@@ -464,10 +464,10 @@ function setupCompatibilitySelection() {
 
         // Ajout d'attributs data-sign pour chaque signe dans la sélection
         column1Signs.forEach(sign => {
-            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent);
         });
         column3Signs.forEach(sign => {
-            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent);
         });
 
         function handleSelection(signs) {
@@ -477,23 +477,38 @@ function setupCompatibilitySelection() {
                         return;
                     }
 
-                    // Réinitialise la sélection des signes avant d'en sélectionner un nouveau
-                    signs.forEach(s => s.classList.remove('selected'));
-                    this.classList.add('selected');
+                    const clickedSign = this.getAttribute('data-sign');
 
-                    // Si aucun signe n'est sélectionné, sélectionner le premier
-                    if (selectedSign1 === null) {
-                        selectedSign1 = this.getAttribute('data-sign');
-                    } else if (selectedSign2 === null) { // Si le second signe est sélectionné
-                        selectedSign2 = this.getAttribute('data-sign');
-                        displayCompatibility(selectedSign1, selectedSign2); // Affiche la compatibilité
-                        selectedSign1 = null; // Réinitialiser pour le prochain choix
-                        selectedSign2 = null; // Réinitialiser pour le prochain choix
-                    } else { // Réinitialiser si le troisième signe est cliqué
-                        selectedSign1 = this.getAttribute('data-sign');
-                        selectedSign2 = null;
+                    // Vérifier si le signe cliqué est déjà sélectionné
+                    if (this.classList.contains('selected')) {
+                        // Si le signe cliqué est le premier sélectionné
+                        if (clickedSign === selectedSign1) {
+                            selectedSign1 = null; // Désélectionner
+                        } else if (clickedSign === selectedSign2) {
+                            selectedSign2 = null; // Désélectionner
+                        }
+                        this.classList.remove('selected'); // Désélectionner visuellement
+                    } else {
+                        // Si le signe cliqué n'est pas sélectionné
+                        if (selectedSign1 === null) {
+                            selectedSign1 = clickedSign; // Sélectionner comme premier
+                        } else if (selectedSign2 === null) {
+                            selectedSign2 = clickedSign; // Sélectionner comme second
+                            displayCompatibility(selectedSign1, selectedSign2); // Afficher la compatibilité
+                        } else {
+                            // Si deux signes sont déjà sélectionnés, réinitialiser
+                            selectedSign1 = clickedSign; // Remplacer le premier signe par le nouveau
+                            selectedSign2 = null; // Réinitialiser le second signe
+                        }
+
+                        // Réinitialise la sélection visuelle
                         signs.forEach(s => s.classList.remove('selected'));
-                        this.classList.add('selected');
+                        this.classList.add('selected'); // Sélectionner visuellement le signe cliqué
+                    }
+
+                    // Vérifier s'il y a une compatibilité à afficher après la sélection ou désélection
+                    if (selectedSign1 && selectedSign2) {
+                        displayCompatibility(selectedSign1, selectedSign2);
                     }
                 });
             });
@@ -538,7 +553,7 @@ function displayCompatibility(sign1, sign2) {
                 // Générer un score aléatoire basé sur la compatibilité
                 let score = 0;
                 switch (compatibilityInfo.compatibilite) {
-                    case 'Très Forte':
+                    case 'Très forte':
                         score = Math.floor(Math.random() * 21) + 80; // entre 80 et 100
                         break;
                     case 'Forte':
@@ -550,7 +565,7 @@ function displayCompatibility(sign1, sign2) {
                     case 'Faible':
                         score = Math.floor(Math.random() * 21) + 20; // entre 20 et 40
                         break;
-                    case 'Très Faible':
+                    case 'Très faible':
                         score = Math.floor(Math.random() * 21); // entre 0 et 20
                         break;
                 }
@@ -564,6 +579,7 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
+
 
 
 
