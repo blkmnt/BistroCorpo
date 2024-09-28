@@ -24,7 +24,7 @@ Taureau;Poissons;Moyenne;Leur sensibilité commune favorise l'empathie, mais le 
 Gémeaux;Gémeaux;Très Forte;La polyvalence et la créativité partagées favorisent un environnement dynamique, mais un risque de distraction pourrait nuire à la productivité.
 Gémeaux;Cancer;Moyenne;La sensibilité du Cancer tempère l'énergie des Gémeaux, mais les Gémeaux peuvent juger le Cancer trop émotif, ce qui peut créer des frictions.
 Gémeaux;Lion;Forte;La synergie créative et la communication entre les deux signes favorisent un bon travail d'équipe, mais le Lion peut se sentir frustré par la dispersion des Gémeaux.
-Gémeaux;Vierge;Faible;Bien que la Vierge apporte de l'ordre, les Gémeaux peuvent trouver ses critiques trop dures, ce qui peut créer une atmosphère tendue.
+Gémeaux;Vierge;Très Faible;Bien que la Vierge apporte de l'ordre, les Gémeaux peuvent trouver ses critiques trop dures, ce qui peut créer une atmosphère tendue.
 Gémeaux;Balance;Très Forte;La créativité et l'harmonie partagées favorisent une collaboration réussie, mais un manque de direction peut parfois être problématique.
 Gémeaux;Scorpion;Moyenne;Leur combinaison d'intellect et de profondeur peut être efficace, mais le Scorpion peut percevoir les Gémeaux comme trop légers, ce qui pourrait créer des malentendus.
 Gémeaux;Sagittaire;Forte;Leur ouverture d'esprit et leur échange d'idées favorisent l'innovation, mais le Sagittaire peut se sentir limité par le style de travail des Gémeaux.
@@ -36,9 +36,9 @@ Cancer;Lion;Moyenne;L'énergie du Lion peut revitaliser le Cancer, mais ce derni
 Cancer;Vierge;Forte;La structure apportée par la Vierge se marie bien avec la sensibilité du Cancer, bien qu'un trop grand souci du détail puisse parfois frustrer le Cancer.
 Cancer;Balance;Moyenne;La Balance apporte de l'harmonie et du soutien au Cancer, mais ce dernier peut se sentir négligé si la Balance devient trop préoccupée par l'équilibre social.
 Cancer;Scorpion;Forte;La profondeur émotionnelle et la compréhension mutuelle favorisent une collaboration efficace, mais le Cancer peut se sentir submergé par l'intensité du Scorpion.
-Cancer;Sagittaire;Faible;Bien que le Sagittaire puisse apporter de l'énergie, le Cancer se sentira souvent négligé par l'insouciance du Sagittaire, ce qui peut créer des frustrations.
+Cancer;Sagittaire;Très Faible;Bien que le Sagittaire puisse apporter de l'énergie, le Cancer se sentira souvent négligé par l'insouciance du Sagittaire, ce qui peut créer des frustrations.
 Cancer;Capricorne;Moyenne;La structure du Capricorne apporte une certaine stabilité, mais les différences de vision sur le travail peuvent provoquer des désaccords.
-Cancer;Verseau;Faible;Le Verseau peut apporter des idées innovantes, mais le Cancer peut trouver le Verseau trop détaché émotionnellement, ce qui peut nuire à l'harmonie.
+Cancer;Verseau;Très Faible;Le Verseau peut apporter des idées innovantes, mais le Cancer peut trouver le Verseau trop détaché émotionnellement, ce qui peut nuire à l'harmonie.
 Cancer;Poissons;Très Forte;Leur sensibilité commune et leur compréhension mutuelle favorisent un environnement de travail empathique, mais ils doivent rester ancrés dans la réalité pour éviter l'évasion.
 Lion;Lion;Très Forte;Leur énergie et leur passion communes favorisent un environnement de travail inspirant, mais le risque de rivalité peut parfois créer des tensions.
 Lion;Vierge;Moyenne;Le Lion apporte de l'énergie et de la créativité, tandis que la Vierge offre de l'organisation, mais le Lion peut trouver la Vierge trop critique, ce qui peut affecter l'harmonie.
@@ -64,7 +64,7 @@ Balance;Poissons;Moyenne;Leur sensibilité commune favorise l'harmonie, mais le 
 Scorpion;Scorpion;Très Forte;Leur compréhension mutuelle et leur capacité à résoudre des problèmes favorisent une collaboration efficace, mais des conflits émotionnels peuvent surgir si les tensions ne sont pas gérées.
 Scorpion;Sagittaire;Moyenne;Leur dynamisme partagé peut être efficace, mais le Scorpion peut percevoir le Sagittaire comme trop insouciant, ce qui pourrait créer des frictions.
 Scorpion;Capricorne;Forte;Leur détermination commune favorise une collaboration efficace, mais la rigidité du Capricorne peut parfois frustrer le Scorpion, nuisant à la créativité.
-Scorpion;Verseau;Faible;L'innovation du Verseau peut ne pas résonner avec la profondeur du Scorpion, et le dernier peut juger le Verseau trop léger, ce qui peut créer des tensions.
+Scorpion;Verseau;Très Faible;L'innovation du Verseau peut ne pas résonner avec la profondeur du Scorpion, et le dernier peut juger le Verseau trop léger, ce qui peut créer des tensions.
 Scorpion;Poissons;Très Forte;Leur profondeur émotionnelle favorise une collaboration empathique, mais le risque d'évasion des réalités pratiques peut nuire à la productivité.
 Sagittaire;Sagittaire;Très Forte;Leur amour partagé de l'aventure favorise un environnement de travail énergique, mais le risque de dispersion des efforts peut nuire à l'atteinte des objectifs.
 Sagittaire;Capricorne;Moyenne;Leur détermination commune favorise une collaboration réussie, mais le Capricorne peut juger le Sagittaire trop imprévisible, ce qui peut créer des désaccords.
@@ -72,7 +72,7 @@ Sagittaire;Verseau;Forte;Leur ouverture d'esprit favorise l'innovation, mais un 
 Sagittaire;Poissons;Moyenne;Leur créativité et leur sensibilité partagées peuvent favoriser une collaboration enrichissante, mais le Sagittaire peut se sentir limité par les émotions des Poissons.
 Capricorne;Capricorne;Très Forte;Leur détermination commune favorise un environnement de travail efficace, mais un manque de conflit peut parfois mener à une stagnation dans l'innovation.
 Capricorne;Verseau;Moyenne;Leurs approches différentes peuvent créer des synergies, mais le Capricorne peut juger le Verseau trop imprévisible, ce qui peut nuire à l'efficacité.
-Capricorne;Poissons;Faible;Bien que la sensibilité des Poissons puisse être bénéfique, le Capricorne se sentira souvent frustré par le caractère rêveur de ce dernier, ce qui peut nuire à la productivité.
+Capricorne;Poissons;Très Faible;Bien que la sensibilité des Poissons puisse être bénéfique, le Capricorne se sentira souvent frustré par le caractère rêveur de ce dernier, ce qui peut nuire à la productivité.
 Verseau;Verseau;Très Forte;Leur innovation partagée favorise un environnement créatif, mais un manque de direction pourrait créer des incertitudes.
 Verseau;Poissons;Moyenne;La créativité et la sensibilité communes favorisent une bonne dynamique, mais le Verseau peut se sentir frustré par l'émotivité des Poissons, ce qui pourrait nuire à la collaboration.
 Poissons;Poissons;Très Forte;Leur empathie et compréhension mutuelles favorisent un environnement de travail chaleureux, mais le risque d'évasion des réalités pratiques peut poser des défis.
