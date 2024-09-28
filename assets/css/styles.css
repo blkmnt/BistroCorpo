@@ -408,18 +408,19 @@ header {
 }
 
 .astro-signs-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Ajustez la taille minimale selon vos besoins */
+    gap: 1rem; /* Espace entre les signes */
 }
 
 .astro-sign {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80px; /* Augmentation de la largeur pour l'image et le texte */
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 0.5rem;
     cursor: pointer;
 }
 
@@ -435,16 +436,14 @@ header {
 }
 
 .astro-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image s'ajustera pour bien remplir l'espace */
+    width: 60px;
+    height: 60px;
 }
 
 .astro-label {
     margin-top: 0.5rem;
     font-size: 0.9rem;
     text-align: center;
-    color: #333;
 }
 
 
@@ -550,8 +549,14 @@ footer {
     }
 
     .astro-signs-grid {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; /* Pour un défilement fluide */
+    }
+
+        .astro-sign {
+        flex: 0 0 80%; /* Chaque signe prendra 80% de la largeur de l'écran */
+        scroll-snap-align: start; /* Alignement de chaque élément au début */
     }
 }
 
