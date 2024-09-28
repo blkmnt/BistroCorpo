@@ -314,8 +314,9 @@ loadRandomDistinction();
 
 
 // Toggle Astro Pro
-document.getElementById('astro-toggle').addEventListener('click', function() {
+document.getElementById('astro-toggle').addEventListener('click', function(event) {
     try {
+        event.preventDefault(); // Empêcher le comportement par défaut (si nécessaire)
         document.getElementById('astro-content').classList.add('active');
         document.getElementById('compatibility-content').classList.remove('active');
         this.classList.add('active');
@@ -325,8 +326,9 @@ document.getElementById('astro-toggle').addEventListener('click', function() {
     }
 });
 
-document.getElementById('compatibility-toggle').addEventListener('click', function() {
+document.getElementById('compatibility-toggle').addEventListener('click', function(event) {
     try {
+        event.preventDefault(); // Empêcher le comportement par défaut (si nécessaire)
         document.getElementById('compatibility-content').classList.add('active');
         document.getElementById('astro-content').classList.remove('active');
         this.classList.add('active');
