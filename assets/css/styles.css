@@ -561,9 +561,6 @@ footer {
     .column-3 {
         order: 2;
     }
-    .astro-description, .compatibility-description {
-        text-align: justify;
-    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
