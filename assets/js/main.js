@@ -371,7 +371,7 @@ function loadAstroPro() {
 loadAstroPro();
 
 
-function loadAndPopulateAstroGrids() {
+function loadAndPopulateAstroGrids() { 
     try {
         fetch('assets/csv/SignesAstro_liste.csv')
             .then(response => {
@@ -405,6 +405,9 @@ function loadAndPopulateAstroGrids() {
                         astroLabel.classList.add('astro-label');
                         astroLabel.textContent = sign.label;
 
+                        // Ajouter un attribut de données pour la description
+                        astroSign.dataset.description = sign.description;
+
                         astroIcon.appendChild(img);
                         astroSign.appendChild(astroIcon);
                         astroSign.appendChild(astroLabel);
@@ -413,7 +416,7 @@ function loadAndPopulateAstroGrids() {
                 });
 
                 // Appel des fonctions de sélection après que les éléments ont été ajoutés
-                setupAstroSelection();
+                setupAstroSelection(astroData);
                 setupCompatibilitySelection();
             })
             .catch(error => {
@@ -424,9 +427,10 @@ function loadAndPopulateAstroGrids() {
     }
 }
 
-function setupAstroSelection() {
+function setupAstroSelection(astroData) {
     try {
         const astroSigns = document.querySelectorAll('.astro-sign');
+        const descriptionField = document.getElementById('astro-description'); // Assurez-vous que cet ID est correct
 
         astroSigns.forEach(sign => {
             sign.addEventListener('click', function() {
@@ -435,8 +439,13 @@ function setupAstroSelection() {
                     return;
                 }
 
+                // Désélectionner tous les éléments précédemment sélectionnés
                 astroSigns.forEach(s => s.classList.remove('selected'));
+                // Ajouter la classe selected à l'élément cliqué
                 this.classList.add('selected');
+
+                // Mettre à jour le champ de description avec la description du signe sélectionné
+                descriptionField.textContent = this.dataset.description; // Utiliser l'attribut de données
             });
         });
     } catch (error) {
