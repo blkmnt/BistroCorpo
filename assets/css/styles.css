@@ -373,7 +373,7 @@ header {
 
 /* Astro Pro */
 .astrology-section {
-    padding: 4rem 0;
+    padding: 4rem 0 0;
     text-align: center;
     font-family: Arial, sans-serif;
 }
@@ -450,7 +450,8 @@ header {
 
 .astro-description, .compatibility-description {
     margin-top: 1.5rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    text-align: justify
 }
 
 .compatibility-grid {
