@@ -537,17 +537,6 @@ footer {
         width: 100%;
         margin-bottom: 2rem;
     }
-
-    .astro-signs-grid {
-        overflow: hidden;
-    }
-
-    .astro-sign {
-        flex: 0 0 auto;
-        width: 60px;
-        height: 60px;
-    }
-
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
