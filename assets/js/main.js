@@ -462,6 +462,14 @@ function setupCompatibilitySelection() {
         let selectedSign1 = null;
         let selectedSign2 = null;
 
+        // Ajout d'attributs data-sign pour chaque signe dans la sélection
+        column1Signs.forEach(sign => {
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
+        });
+        column3Signs.forEach(sign => {
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
+        });
+
         function handleSelection(signs) {
             signs.forEach(sign => {
                 sign.addEventListener('click', function() {
@@ -469,17 +477,19 @@ function setupCompatibilitySelection() {
                         return;
                     }
 
+                    // Réinitialise la sélection des signes avant d'en sélectionner un nouveau
                     signs.forEach(s => s.classList.remove('selected'));
                     this.classList.add('selected');
 
+                    // Si aucun signe n'est sélectionné, sélectionner le premier
                     if (selectedSign1 === null) {
                         selectedSign1 = this.getAttribute('data-sign');
-                    } else if (selectedSign2 === null) {
+                    } else if (selectedSign2 === null) { // Si le second signe est sélectionné
                         selectedSign2 = this.getAttribute('data-sign');
-                        displayCompatibility(selectedSign1, selectedSign2);
-                        selectedSign1 = null; // Réinitialiser
-                        selectedSign2 = null; // Réinitialiser
-                    } else {
+                        displayCompatibility(selectedSign1, selectedSign2); // Affiche la compatibilité
+                        selectedSign1 = null; // Réinitialiser pour le prochain choix
+                        selectedSign2 = null; // Réinitialiser pour le prochain choix
+                    } else { // Réinitialiser si le troisième signe est cliqué
                         selectedSign1 = this.getAttribute('data-sign');
                         selectedSign2 = null;
                         signs.forEach(s => s.classList.remove('selected'));
@@ -554,6 +564,7 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
+
 
 
 // Appel de la fonction pour charger et configurer les grilles astro-sign
