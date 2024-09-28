@@ -437,30 +437,24 @@ setupCompatibilitySelection();
 
 function loadAndPopulateAstroGrids() {
     try {
-        // Charger le fichier CSV depuis GitHub (URL brute)
         fetch('assets/csv/SignesAstro_liste.csv')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`Erreur lors du chargement du fichier CSV : ${response.statusText}`);
                 }
-                return response.text(); // Retourner le contenu du texte
+                return response.text();
             })
             .then(csvData => {
-                // Parse CSV en un tableau d'objets
                 const astroData = csvData.trim().split('\n').map(row => {
                     const [label, imageUrl, description] = row.split(';');
                     return { label, imageUrl, description };
                 });
 
-                // Récupérer toutes les grilles d'astro-sign
                 const astroGrids = document.querySelectorAll('.astro-signs-grid');
-
-                // Insérer les données dans chaque grille
                 astroGrids.forEach(astroGrid => {
-                    astroGrid.innerHTML = ''; // Vider le contenu existant
+                    astroGrid.innerHTML = '';
 
                     astroData.forEach(sign => {
-                        // Créer l'élément HTML pour chaque signe astrologique
                         const astroSign = document.createElement('div');
                         astroSign.classList.add('astro-sign');
 
@@ -475,17 +469,16 @@ function loadAndPopulateAstroGrids() {
                         astroLabel.classList.add('astro-label');
                         astroLabel.textContent = sign.label;
 
-                        // Ajouter l'image dans l'icône
                         astroIcon.appendChild(img);
-
-                        // Ajouter les éléments dans le signe
                         astroSign.appendChild(astroIcon);
                         astroSign.appendChild(astroLabel);
-
-                        // Ajouter le signe à la grille
                         astroGrid.appendChild(astroSign);
                     });
                 });
+
+                // Appel des fonctions de sélection après que les éléments ont été ajoutés
+                setupAstroSelection();
+                setupCompatibilitySelection();
             })
             .catch(error => {
                 console.error("Erreur lors de la récupération et de l'affichage des informations du fichier CSV :", error);
@@ -495,7 +488,55 @@ function loadAndPopulateAstroGrids() {
     }
 }
 
+function setupAstroSelection() {
+    try {
+        const astroSigns = document.querySelectorAll('.astro-sign');
+
+        astroSigns.forEach(sign => {
+            sign.addEventListener('click', function() {
+                const astroContent = document.querySelector('.astro-content');
+                if (!astroContent.classList.contains('active')) {
+                    return;
+                }
+
+                astroSigns.forEach(s => s.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+    } catch (error) {
+        console.error("Erreur lors de la configuration de la sélection des signes astro:", error);
+    }
+}
+
+function setupCompatibilitySelection() {
+    try {
+        const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
+        const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
+
+        const compatibilityContent = document.querySelector('.compatibility-content');
+
+        function handleSelection(signs) {
+            signs.forEach(sign => {
+                sign.addEventListener('click', function() {
+                    if (!compatibilityContent.classList.contains('active')) {
+                        return;
+                    }
+
+                    signs.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+        }
+
+        handleSelection(column1Signs);
+        handleSelection(column3Signs);
+    } catch (error) {
+        console.error("Erreur lors de la configuration de la sélection des signes de compatibilité:", error);
+    }
+}
+
 // Appel de la fonction pour charger et configurer les grilles astro-sign
 loadAndPopulateAstroGrids();
+
 
 
