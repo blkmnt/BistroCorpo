@@ -539,13 +539,17 @@ footer {
     }
 
     .astro-signs-grid {
+        overflow: hidden;
+    }
+
+    .astro-signs-wrapper {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
-        white-space: nowrap;
-        gap: 1rem;
         scroll-behavior: smooth;
+        gap: 1rem;
         padding: 1rem 0;
+        width: 100%;
     }
 
     .astro-sign {
@@ -554,7 +558,7 @@ footer {
         height: 80px;
     }
 
-    .astro-signs-grid::-webkit-scrollbar {
+    .astro-signs-wrapper::-webkit-scrollbar {
         display: none;
     }
 }
