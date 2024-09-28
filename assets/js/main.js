@@ -427,7 +427,6 @@ function loadAndPopulateAstroGrids() {
 function setupAstroSelection() {
     try {
         const astroSigns = document.querySelectorAll('.astro-sign');
-        const descriptionField = document.getElementById('astro-description'); // Assurez-vous que cet ID est correct
 
         astroSigns.forEach(sign => {
             sign.addEventListener('click', function() {
@@ -436,21 +435,8 @@ function setupAstroSelection() {
                     return;
                 }
 
-                // Désélectionner tous les éléments précédemment sélectionnés
                 astroSigns.forEach(s => s.classList.remove('selected'));
-                // Ajouter la classe selected à l'élément cliqué
                 this.classList.add('selected');
-
-                // Récupérer le label du signe sélectionné
-                const selectedLabel = this.querySelector('.astro-label').textContent;
-
-                // Trouver la description correspondante dans les données astrologiques
-                const selectedSign = astroData.find(sign => sign.label === selectedLabel);
-
-                // Mettre à jour le champ de description
-                if (selectedSign) {
-                    descriptionField.textContent = selectedSign.description; // Met à jour la description
-                }
             });
         });
     } catch (error) {
