@@ -370,6 +370,29 @@ function loadAstroPro() {
 // Appeler la fonction pour initialiser les événements
 loadAstroPro();
 
+// Fonction pour gérer la sélection d'un élément astro-sign
+function setupAstroSignSelection() {
+    const astroSigns = document.querySelectorAll('.astro-sign');
+    const astroContent = document.querySelector('.astro-content');
+
+    // Vérifiez si astro-content a la classe active
+    if (!astroContent.classList.contains('active')) {
+        return; // Ne rien faire si la classe active n'est pas présente
+    }
+
+    // Ajout de l'événement click à chaque élément astro-sign
+    astroSigns.forEach(sign => {
+        sign.addEventListener('click', function() {
+            // Désélectionner tous les éléments précédemment sélectionnés
+            astroSigns.forEach(s => s.classList.remove('selected'));
+            // Ajouter la classe selected à l'élément cliqué
+            this.classList.add('selected');
+        });
+    });
+}
+
+// Appel de la fonction pour configurer la sélection
+setupAstroSignSelection();
 
 
 
