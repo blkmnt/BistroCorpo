@@ -438,7 +438,7 @@ setupCompatibilitySelection();
 function loadAndPopulateAstroGrids() {
     try {
         // Charger le fichier CSV depuis GitHub (URL brute)
-        const response = await fetch('https://raw.githubusercontent.com/<your-username>/<your-repo>/main/BistroCorpo/assets/csv/SignesAstro_liste.csv');
+        const response = await fetch('assets/csv/SignesAstro_liste.csv');
         if (!response.ok) {
             throw new Error(`Erreur lors du chargement du fichier CSV : ${response.statusText}`);
         }
