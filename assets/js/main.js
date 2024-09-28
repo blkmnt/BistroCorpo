@@ -314,7 +314,7 @@ loadRandomDistinction();
 
 
 function loadAstroPro() {
-    document.getElementById('astro-toggle').addEventListener('click', function(event) {
+    document.getElementById('astro-segmented').addEventListener('click', function(event) {
         try {
             // Empêcher le comportement par défaut (si nécessaire)
             event.preventDefault();
@@ -322,25 +322,25 @@ function loadAstroPro() {
             // Récupération des éléments
             const astroContent = document.getElementById('astro-content');
             const compatibilityContent = document.getElementById('compatibility-content');
-            const compatibilityToggle = document.getElementById('compatibility-toggle');
+            const compatibilitySegmented = document.getElementById('compatibility-segmented');
 
             // Vérification que les éléments existent
-            if (!astroContent || !compatibilityContent || !compatibilityToggle) {
-                throw new Error("Un des éléments nécessaires est manquant. Vérifiez que 'astro-content', 'compatibility-content', et 'compatibility-toggle' existent dans le DOM.");
+            if (!astroContent || !compatibilityContent || !compatibilitySegmented) {
+                throw new Error("Un des éléments nécessaires est manquant. Vérifiez que 'astro-content', 'compatibility-content', et 'compatibility-segmented' existent dans le DOM.");
             }
 
             // Mise à jour des classes
             astroContent.classList.add('active');
             compatibilityContent.classList.remove('active');
             this.classList.add('active');
-            compatibilityToggle.classList.remove('active');
+            compatibilitySegmented.classList.remove('active');
 
         } catch (error) {
             console.error("Erreur lors de l'activation de la section 'Mon signe astro':", error);
         }
     });
 
-    document.getElementById('compatibility-toggle').addEventListener('click', function(event) {
+    document.getElementById('compatibility-segmented').addEventListener('click', function(event) {
         try {
             // Empêcher le comportement par défaut (si nécessaire)
             event.preventDefault();
@@ -348,18 +348,18 @@ function loadAstroPro() {
             // Récupération des éléments
             const astroContent = document.getElementById('astro-content');
             const compatibilityContent = document.getElementById('compatibility-content');
-            const astroToggle = document.getElementById('astro-toggle');
+            const astroSegmented = document.getElementById('astro-segmented');
 
             // Vérification que les éléments existent
-            if (!astroContent || !compatibilityContent || !astroToggle) {
-                throw new Error("Un des éléments nécessaires est manquant. Vérifiez que 'astro-content', 'compatibility-content', et 'astro-toggle' existent dans le DOM.");
+            if (!astroContent || !compatibilityContent || !astroSegmented) {
+                throw new Error("Un des éléments nécessaires est manquant. Vérifiez que 'astro-content', 'compatibility-content', et 'astro-segmented' existent dans le DOM.");
             }
 
             // Mise à jour des classes
             compatibilityContent.classList.add('active');
             astroContent.classList.remove('active');
             this.classList.add('active');
-            astroToggle.classList.remove('active');
+            astroSegmented.classList.remove('active');
 
         } catch (error) {
             console.error("Erreur lors de l'activation de la section 'Ma compatibilité':", error);
