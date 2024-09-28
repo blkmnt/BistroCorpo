@@ -538,7 +538,7 @@ function displayCompatibility(sign1, sign2) {
                 // Générer un score aléatoire basé sur la compatibilité
                 let score = 0;
                 switch (compatibilityInfo.compatibilite) {
-                    case 'Très forte':
+                    case 'Très Forte':
                         score = Math.floor(Math.random() * 21) + 80; // entre 80 et 100
                         break;
                     case 'Forte':
@@ -550,7 +550,7 @@ function displayCompatibility(sign1, sign2) {
                     case 'Faible':
                         score = Math.floor(Math.random() * 21) + 20; // entre 20 et 40
                         break;
-                    case 'Très faible':
+                    case 'Très Faible':
                         score = Math.floor(Math.random() * 21); // entre 0 et 20
                         break;
                 }
