@@ -386,7 +386,7 @@ header {
     display: block;
 }
 
-.astro-intro, .compatibility-intro, .score-intro {
+.astro-intro, .compatibility-intro, {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
