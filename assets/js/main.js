@@ -372,17 +372,16 @@ loadAstroPro();
 
 function setupAstroSelection() {
     try {
-        const astroContent = document.querySelector('.astro-content');
-
-        // Vérifier si astro-content a la classe active
-        if (!astroContent.classList.contains('active')) {
-            return; // Ne rien faire si la classe active n'est pas présente
-        }
-
         const astroSigns = document.querySelectorAll('.astro-sign');
 
         astroSigns.forEach(sign => {
             sign.addEventListener('click', function() {
+                // Vérifier si astro-content est active
+                const astroContent = document.querySelector('.astro-content');
+                if (!astroContent.classList.contains('active')) {
+                    return; // Ne rien faire si astro-content n'est pas active
+                }
+
                 // Désélectionner tous les éléments précédemment sélectionnés
                 astroSigns.forEach(s => s.classList.remove('selected'));
                 // Ajouter la classe selected à l'élément cliqué
@@ -400,20 +399,19 @@ setupAstroSelection();
 
 function setupCompatibilitySelection() {
     try {
-        const compatibilityContent = document.querySelector('.compatibility-content');
-
-        // Vérifiez si compatibility-content a la classe active
-        if (!compatibilityContent.classList.contains('active')) {
-            return; // Ne rien faire si la classe active n'est pas présente
-        }
-
+        // Sélectionnez les éléments de chaque colonne
         const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
         const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
 
-        // Fonction pour gérer la sélection dans une colonne
-        function handleSelection(signs) {
+        // Fonction pour gérer la sélection dans une colonne spécifique
+        function handleSelection(signs, compatibilityContent) {
             signs.forEach(sign => {
                 sign.addEventListener('click', function() {
+                    // Vérifiez si compatibility-content a la classe active
+                    if (!compatibilityContent.classList.contains('active')) {
+                        return; // Ne rien faire si compatibility-content n'est pas active
+                    }
+
                     // Désélectionner tous les éléments précédemment sélectionnés dans cette colonne
                     signs.forEach(s => s.classList.remove('selected'));
                     // Ajouter la classe selected à l'élément cliqué
@@ -422,9 +420,12 @@ function setupCompatibilitySelection() {
             });
         }
 
-        // Configurer la sélection pour chaque colonne
-        handleSelection(column1Signs);
-        handleSelection(column3Signs);
+        // Configurer la sélection pour chaque colonne, si .compatibility-content est active
+        const compatibilityContent = document.querySelector('.compatibility-content');
+
+        handleSelection(column1Signs, compatibilityContent);
+        handleSelection(column3Signs, compatibilityContent);
+        
     } catch (error) {
         console.error("Erreur lors de la configuration de la sélection des signes de compatibilité:", error);
     }
@@ -432,6 +433,7 @@ function setupCompatibilitySelection() {
 
 // Appel de la fonction pour configurer la sélection
 setupCompatibilitySelection();
+
 
 
 
