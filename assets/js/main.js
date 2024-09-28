@@ -459,7 +459,6 @@ function setupCompatibilitySelection() {
         const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
         const compatibilityContent = document.querySelector('.compatibility-content');
 
-        // Variables pour stocker les signes sélectionnés
         let selectedSign1 = null;
         let selectedSign2 = null;
 
@@ -470,21 +469,17 @@ function setupCompatibilitySelection() {
                         return;
                     }
 
-                    // Désélectionner tous les signes
                     signs.forEach(s => s.classList.remove('selected'));
                     this.classList.add('selected');
 
-                    // Enregistrer le signe sélectionné
                     if (selectedSign1 === null) {
                         selectedSign1 = this.getAttribute('data-sign');
                     } else if (selectedSign2 === null) {
                         selectedSign2 = this.getAttribute('data-sign');
                         displayCompatibility(selectedSign1, selectedSign2);
-                        // Réinitialiser les sélections
-                        selectedSign1 = null;
-                        selectedSign2 = null;
+                        selectedSign1 = null; // Réinitialiser
+                        selectedSign2 = null; // Réinitialiser
                     } else {
-                        // Réinitialiser les sélections si un troisième signe est cliqué
                         selectedSign1 = this.getAttribute('data-sign');
                         selectedSign2 = null;
                         signs.forEach(s => s.classList.remove('selected'));
@@ -551,6 +546,8 @@ function displayCompatibility(sign1, sign2) {
                 }
                 scoreElement.textContent = `${score}%`;
                 descriptionElement.textContent = compatibilityInfo.description;
+            } else {
+                console.error("Aucune compatibilité trouvée pour les signes :", sign1, sign2);
             }
         })
         .catch(error => {
