@@ -436,6 +436,17 @@ header {
     text-align: center;
 }
 
+.astro-sign.selected .astro-label {
+    color: #3a86ff;
+}
+
+.astro-sign.selected .astro-icon {
+    background-color: #3a86ff;
+}
+
+.astro-sign.selected .astro-icon img {
+    filter: brightness(0) invert(1);
+}
 
 .astro-description, .compatibility-description {
     margin-top: 1.5rem;
