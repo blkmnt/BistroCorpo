@@ -312,18 +312,29 @@ function loadRandomDistinction() {
 // Appeler la fonction pour charger et afficher une distinction dès le chargement de la page
 loadRandomDistinction();
 
+
+// Toggle Astro Pro
 document.getElementById('astro-toggle').addEventListener('click', function() {
-    document.getElementById('astro-content').classList.add('active');
-    document.getElementById('compatibility-content').classList.remove('active');
-    this.classList.add('active');
-    document.getElementById('compatibility-toggle').classList.remove('active');
+    try {
+        document.getElementById('astro-content').classList.add('active');
+        document.getElementById('compatibility-content').classList.remove('active');
+        this.classList.add('active');
+        document.getElementById('compatibility-toggle').classList.remove('active');
+    } catch (error) {
+        console.error("Erreur lors de l'activation de la section 'Mon signe astro':", error);
+    }
 });
 
 document.getElementById('compatibility-toggle').addEventListener('click', function() {
-    document.getElementById('compatibility-content').classList.add('active');
-    document.getElementById('astro-content').classList.remove('active');
-    this.classList.add('active');
-    document.getElementById('astro-toggle').classList.remove('active');
+    try {
+        document.getElementById('compatibility-content').classList.add('active');
+        document.getElementById('astro-content').classList.remove('active');
+        this.classList.add('active');
+        document.getElementById('astro-toggle').classList.remove('active');
+    } catch (error) {
+        console.error("Erreur lors de l'activation de la section 'Ma compatibilité':", error);
+    }
 });
+
 
 
