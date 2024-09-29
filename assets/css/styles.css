@@ -459,10 +459,14 @@ header {
 }
 
 .column {
-    width: 30%;
+    width: 33%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.column-2 {
+    widht: 30%;
 }
 
 .compatibility-score {
