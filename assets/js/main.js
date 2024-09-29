@@ -464,10 +464,10 @@ function setupCompatibilitySelection() {
 
         // Ajout d'attributs data-sign pour chaque signe dans la sélection
         column1Signs.forEach(sign => {
-            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent);
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
         });
         column3Signs.forEach(sign => {
-            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent);
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
         });
 
         function handleSelection(signs) {
@@ -477,38 +477,23 @@ function setupCompatibilitySelection() {
                         return;
                     }
 
-                    const clickedSign = this.getAttribute('data-sign');
+                    // Réinitialise la sélection des signes avant d'en sélectionner un nouveau
+                    signs.forEach(s => s.classList.remove('selected'));
+                    this.classList.add('selected');
 
-                    // Vérifier si le signe cliqué est déjà sélectionné
-                    if (this.classList.contains('selected')) {
-                        // Si le signe cliqué est le premier sélectionné
-                        if (clickedSign === selectedSign1) {
-                            selectedSign1 = null; // Désélectionner
-                        } else if (clickedSign === selectedSign2) {
-                            selectedSign2 = null; // Désélectionner
-                        }
-                        this.classList.remove('selected'); // Désélectionner visuellement
-                    } else {
-                        // Si le signe cliqué n'est pas sélectionné
-                        if (selectedSign1 === null) {
-                            selectedSign1 = clickedSign; // Sélectionner comme premier
-                        } else if (selectedSign2 === null) {
-                            selectedSign2 = clickedSign; // Sélectionner comme second
-                            displayCompatibility(selectedSign1, selectedSign2); // Afficher la compatibilité
-                        } else {
-                            // Si deux signes sont déjà sélectionnés, réinitialiser
-                            selectedSign1 = clickedSign; // Remplacer le premier signe par le nouveau
-                            selectedSign2 = null; // Réinitialiser le second signe
-                        }
-
-                        // Réinitialise la sélection visuelle
+                    // Si aucun signe n'est sélectionné, sélectionner le premier
+                    if (selectedSign1 === null) {
+                        selectedSign1 = this.getAttribute('data-sign');
+                    } else if (selectedSign2 === null) { // Si le second signe est sélectionné
+                        selectedSign2 = this.getAttribute('data-sign');
+                        displayCompatibility(selectedSign1, selectedSign2); // Affiche la compatibilité
+                        selectedSign1 = null; // Réinitialiser pour le prochain choix
+                        selectedSign2 = null; // Réinitialiser pour le prochain choix
+                    } else { // Réinitialiser si le troisième signe est cliqué
+                        selectedSign1 = this.getAttribute('data-sign');
+                        selectedSign2 = null;
                         signs.forEach(s => s.classList.remove('selected'));
-                        this.classList.add('selected'); // Sélectionner visuellement le signe cliqué
-                    }
-
-                    // Vérifier s'il y a une compatibilité à afficher après la sélection ou désélection
-                    if (selectedSign1 && selectedSign2) {
-                        displayCompatibility(selectedSign1, selectedSign2);
+                        this.classList.add('selected');
                     }
                 });
             });
@@ -526,7 +511,7 @@ function displayCompatibility(sign1, sign2) {
     fetch('assets/csv/CompatibilitéAstro_liste.csv')
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Erreur lors du chargement du fichier CSV : ${response.statusText}`);
+                throw new Error(Erreur lors du chargement du fichier CSV : ${response.statusText});
             }
             return response.text();
         })
@@ -569,7 +554,7 @@ function displayCompatibility(sign1, sign2) {
                         score = Math.floor(Math.random() * 21); // entre 0 et 20
                         break;
                 }
-                scoreElement.textContent = `${score}%`;
+                scoreElement.textContent = ${score}%;
                 descriptionElement.textContent = compatibilityInfo.description;
             } else {
                 console.error("Aucune compatibilité trouvée pour les signes :", sign1, sign2);
