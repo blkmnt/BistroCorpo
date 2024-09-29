@@ -418,8 +418,8 @@ header {
 }
 
 .astro-icon img {
-    width: 75%;
-    height: 75%;
+    width: 66%;
+    height: 66%;
     object-fit: cover; /* L'image s'ajustera pour bien remplir l'espace */
 }
 
