@@ -641,7 +641,6 @@ function initBullshitTranslator() {
             if (textToCopy) {
                 navigator.clipboard.writeText(textToCopy)
                     .then(() => {
-                        alert("Texte copié !");
                         flashButton(copyButton); // Animation pour le statut selected
                     })
                     .catch(err => {
