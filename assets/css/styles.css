@@ -199,6 +199,14 @@ header {
     background-color: #FFBE0B;
 }
 
+.button:hover {
+    filter: brightness(90%);
+}
+
+.button-small {
+    width: auto;
+}
+
 .card:nth-child(4n+1) .button {
     background-color: #3A86FF;
 }
@@ -213,10 +221,6 @@ header {
 
 .card:nth-child(4n+4) .button {
     background-color: #FFBE0B;
-}
-
-.button:hover {
-    filter: brightness(90%);
 }
 
 /* Carte inactive */
@@ -488,21 +492,12 @@ header {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    padding: 4rem 0 0;
+    width: 100%
 }
 
 .input-block, .output-block {
     flex: 1;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.input-block {
-    background: white;
-}
-
-.output-block {
-    background: #ebebeb;
 }
 
 textarea {
