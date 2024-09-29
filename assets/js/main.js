@@ -457,7 +457,6 @@ function setupCompatibilitySelection() {
     try {
         const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
         const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
-        const compatibilityContent = document.getElementById('compatibility-content');
 
         // Réinitialisation de la sélection des signes
         let selectedSign1 = null;
@@ -475,27 +474,29 @@ function setupCompatibilitySelection() {
         function handleSelection(signs, column) {
             signs.forEach(sign => {
                 sign.addEventListener('click', function () {
+                    // Si l'élément cliqué est déjà sélectionné, ne rien faire
+                    if (this.classList.contains('selected')) {
+                        return;
+                    }
+
                     const clickedSign = this.getAttribute('data-sign');
 
                     // Gestion de la sélection des signes
                     if (column === 'column1') {
-                        // Si déjà sélectionné, ne rien faire
-                        if (clickedSign === selectedSign1) {
-                            return;
-                        }
                         // Mettre à jour le signe sélectionné
                         selectedSign1 = clickedSign;
                         column1Signs.forEach(s => s.classList.remove('selected')); // Enlever la sélection visuelle des autres signes
                         this.classList.add('selected'); // Ajouter la classe "selected" au signe cliqué
                     } else if (column === 'column3') {
-                        // Si déjà sélectionné, ne rien faire
-                        if (clickedSign === selectedSign2) {
-                            return;
-                        }
                         // Mettre à jour le signe sélectionné
                         selectedSign2 = clickedSign;
                         column3Signs.forEach(s => s.classList.remove('selected')); // Enlever la sélection visuelle des autres signes
                         this.classList.add('selected'); // Ajouter la classe "selected" au signe cliqué
+                    }
+
+                    // Vérifier si deux signes sont sélectionnés et afficher la compatibilité
+                    if (selectedSign1 && selectedSign2) {
+                        displayCompatibility(selectedSign1, selectedSign2);
                     }
                 });
             });
@@ -505,13 +506,6 @@ function setupCompatibilitySelection() {
         handleSelection(column1Signs, 'column1');
         handleSelection(column3Signs, 'column3');
 
-        // Fonction pour afficher la compatibilité
-        compatibilityContent.addEventListener('click', function () {
-            // Vérifier si deux signes sont sélectionnés
-            if (selectedSign1 && selectedSign2) {
-                displayCompatibility(selectedSign1, selectedSign2);
-            }
-        });
     } catch (error) {
         console.error("Erreur lors de la configuration de la sélection des signes de compatibilité:", error);
     }
@@ -575,6 +569,7 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
+
 
 // Appel de la fonction pour charger et configurer les grilles astro-sign
 loadAndPopulateAstroGrids();
