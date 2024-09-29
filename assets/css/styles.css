@@ -208,8 +208,8 @@ header {
 }
 
 .icon-button {
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     background-color: rgba(58, 134, 255, 0.3);
     border-radius: 99px;
     display: flex;
@@ -222,6 +222,14 @@ header {
     width: 66%;
     height: 66%;
     object-fit: cover;
+}
+
+.icon-button-green {
+    background-color: rgba(122, 231, 199, 0.3);
+}
+
+.icon-button:hover {
+    filter: brightness(90%);
 }
 
 .card:nth-child(4n+1) .button {
