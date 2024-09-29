@@ -517,6 +517,12 @@ textarea {
     font-size: 1rem;
 }
 
+textarea:focus {
+    border-color: #7AE7C7;
+    outline: none;
+}
+
+
 .input-footer, .output-footer {
     display: flex;
     justify-content: flex-end;
