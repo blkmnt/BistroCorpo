@@ -610,7 +610,7 @@ function initBullshitTranslator() {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer sk-RXuzkBtOjbJlL7c54olDi-AcP0E7aoslqFVzo3XE-RT3BlbkFJyIXhFkyklSo-cZM5XyMjEImOd5y83gGz8tk2l_hXYA`,
+                            "Authorization": `Bearer sk-fPGJShVHT6P6mWA--yIughnI1eDbFdR8Un7R5l7-K4T3BlbkFJegX-xncViSMOZw2-z_2eXzBA1WY5cq3WRcFhLCOgAA`,
                         },
                         body: JSON.stringify({
                             model: "text-davinci-004",
