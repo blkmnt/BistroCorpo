@@ -207,6 +207,23 @@ header {
     width: auto;
 }
 
+.icon-button {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(58, 134, 255, 0.3);
+    border-radius: 99px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.icon-button img {
+    width: 66%;
+    height: 66%;
+    object-fit: cover;
+}
+
 .card:nth-child(4n+1) .button {
     background-color: #3A86FF;
 }
