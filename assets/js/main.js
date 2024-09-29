@@ -599,30 +599,32 @@ function initBullshitTranslator() {
         // Fonction pour envoyer la requête à ChatGPT
         translateButton.addEventListener("click", async function () {
             const userInput = inputText.value.trim();
-
+        
             if (userInput) {
-                // Prompt pour l'API ChatGPT
-                const prompt = `Le bullshit corporate se caractérise par Vocabulaire Flou, Buzzwords, Phrases Longues, Abstraction, Évitement de la Responsabilité, Formalité Excessive, Langage de Vente, Utilisation d'Acronymes, Surutilisation de Mots Anglais. Traduit en bullshit corporate des consultants la phrase : "${userInput}". En réponse donne moi uniquement la phrase traduite et rien d'autre.`;
-
+                // Créez le tableau de messages pour le modèle de chat
+                const messages = [
+                    { role: "user", content: `Le bullshit corporate se caractérise par Vocabulaire Flou, Buzzwords, Phrases Longues, Abstraction, Évitement de la Responsabilité, Formalité Excessive, Langage de Vente, Utilisation d'Acronymes, Surutilisation de Mots Anglais. Traduit en bullshit corporate des consultants la phrase : "${userInput}". En réponse donne moi uniquement la phrase traduite et rien d'autre.` }
+                ];
+        
                 try {
-                    // Appel de l'API OpenAI
-                    const response = await fetch("https://api.openai.com/v1/completions", {
+                    // Appel de l'API OpenAI avec le modèle GPT-3.5 Turbo
+                    const response = await fetch("https://api.openai.com/v1/chat/completions", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer sk-fPGJShVHT6P6mWA--yIughnI1eDbFdR8Un7R5l7-K4T3BlbkFJegX-xncViSMOZw2-z_2eXzBA1WY5cq3WRcFhLCOgAA`,
+                            "Authorization": `Bearer sk-fPGJShVHT6P6mWA--yIughnI1eDbFdR8Un7R5l7-K4T3BlbkFJegX-xncViSMOZw2-z_2eXzBA1WY5cq3WRcFhLCOgAA`, // Remplacez par votre clé API
                         },
                         body: JSON.stringify({
-                            model: "text-davinci-004",
-                            prompt: prompt,
+                            model: "gpt-3.5-turbo", // Utilisation du modèle GPT-3.5 Turbo
+                            messages: messages,
                             max_tokens: 150,
                             temperature: 0.7,
                         }),
                     });
-
+        
                     const data = await response.json();
                     if (response.ok && data.choices && data.choices.length > 0) {
-                        outputText.textContent = data.choices[0].text.trim();
+                        outputText.textContent = data.choices[0].message.content.trim(); // Utilisez message.content pour accéder à la réponse
                     } else {
                         outputText.textContent = "Erreur : Impossible de traduire le texte.";
                     }
@@ -630,10 +632,11 @@ function initBullshitTranslator() {
                     console.error("Erreur lors de l'appel à l'API :", error);
                     outputText.textContent = "Erreur : Une erreur s'est produite.";
                 }
-
+        
                 flashButton(translateButton); // Animation pour le statut selected
             }
         });
+
 
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
