@@ -610,7 +610,7 @@ function initBullshitTranslator() {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer YOUR_OPENAI_API_KEY`, // Remplacez par votre clé API OpenAI
+                            "Authorization": `Bearer sk-RXuzkBtOjbJlL7c54olDi-AcP0E7aoslqFVzo3XE-RT3BlbkFJyIXhFkyklSo-cZM5XyMjEImOd5y83gGz8tk2l_hXYA`,
                         },
                         body: JSON.stringify({
                             model: "text-davinci-004",
