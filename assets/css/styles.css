@@ -555,7 +555,8 @@ footer {
     .astro-signs-grid {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
-        justify-items: center
+        justify-items: center;
+        gap: 1rem 0.5rem;
     }
     .astro-sign {
         width: 40px;
