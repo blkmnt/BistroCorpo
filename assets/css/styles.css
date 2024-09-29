@@ -233,6 +233,14 @@ header {
     filter: brightness(90%);
 }
 
+.icon-button.selected {
+    background-color: #7AE7C7;
+}
+
+.icon-button.selected img {
+    filter: brightness(0) invert(1);
+}
+
 .card:nth-child(4n+1) .button {
     background-color: #3A86FF;
 }
