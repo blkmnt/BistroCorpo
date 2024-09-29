@@ -509,11 +509,13 @@ textarea {
     resize: none;
 }
 
-.input-footer {
+.input-footer, .output-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+    flex-direction: row;
     align-items: center;
-    margin-top: 10px;
+    gap: 0.5rem;
 }
 
 .output-text {
