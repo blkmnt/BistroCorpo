@@ -466,7 +466,8 @@ header {
 }
 
 .column-2 {
-    widht: 30%;
+    width: 30%;
+    margin: 0 1rem;
 }
 
 .compatibility-score {
@@ -481,6 +482,7 @@ header {
 .intensity {
     font-size: 1.5rem;
     font-weight: 700;
+    color: #3a86ff;
 }
 
 
