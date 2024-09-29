@@ -612,7 +612,7 @@ function initBullshitTranslator() {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer sk-fPGJShVHT6P6mWA--yIughnI1eDbFdR8Un7R5l7-K4T3BlbkFJegX-xncViSMOZw2-z_2eXzBA1WY5cq3WRcFhLCOgAA`, // Remplacez par votre clé API
+                            "Authorization": `Bearer CLE_API`, // Remplacez par votre clé API
                         },
                         body: JSON.stringify({
                             model: "gpt-3.5-turbo", // Utilisation du modèle GPT-3.5 Turbo
