@@ -574,3 +574,91 @@ function displayCompatibility(sign1, sign2) {
 // Appel de la fonction pour charger et configurer les grilles astro-sign
 loadAndPopulateAstroGrids();
 
+function initBullshitTranslator() {
+    document.addEventListener("DOMContentLoaded", function () {
+        const inputText = document.getElementById("inputText");
+        const charCount = document.getElementById("charCount");
+        const clearButton = document.getElementById("clearButton");
+        const translateButton = document.getElementById("translateButton");
+        const outputText = document.getElementById("outputText");
+        const copyButton = document.getElementById("copyButton");
+
+        // Met à jour le compteur de caractères
+        inputText.addEventListener("input", function () {
+            charCount.textContent = `${inputText.value.length}/1000`;
+        });
+
+        // Efface le texte de l'entrée quand on clique sur le bouton "clear"
+        clearButton.addEventListener("click", function () {
+            inputText.value = "";
+            charCount.textContent = "0/1000";
+            outputText.textContent = "Le deliverable textuel sera visible ici une fois la transformation effectuée.";
+            flashButton(clearButton); // Animation pour le statut selected
+        });
+
+        // Fonction pour envoyer la requête à ChatGPT
+        translateButton.addEventListener("click", async function () {
+            const userInput = inputText.value.trim();
+
+            if (userInput) {
+                // Prompt pour l'API ChatGPT
+                const prompt = `Le bullshit corporate se caractérise par Vocabulaire Flou, Buzzwords, Phrases Longues, Abstraction, Évitement de la Responsabilité, Formalité Excessive, Langage de Vente, Utilisation d'Acronymes, Surutilisation de Mots Anglais. Traduit en bullshit corporate des consultants la phrase : "${userInput}". En réponse donne moi uniquement la phrase traduite et rien d'autre.`;
+
+                try {
+                    // Appel de l'API OpenAI
+                    const response = await fetch("https://api.openai.com/v1/completions", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer YOUR_OPENAI_API_KEY`, // Remplacez par votre clé API OpenAI
+                        },
+                        body: JSON.stringify({
+                            model: "text-davinci-004",
+                            prompt: prompt,
+                            max_tokens: 150,
+                            temperature: 0.7,
+                        }),
+                    });
+
+                    const data = await response.json();
+                    if (response.ok && data.choices && data.choices.length > 0) {
+                        outputText.textContent = data.choices[0].text.trim();
+                    } else {
+                        outputText.textContent = "Erreur : Impossible de traduire le texte.";
+                    }
+                } catch (error) {
+                    console.error("Erreur lors de l'appel à l'API :", error);
+                    outputText.textContent = "Erreur : Une erreur s'est produite.";
+                }
+
+                flashButton(translateButton); // Animation pour le statut selected
+            }
+        });
+
+        // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
+        copyButton.addEventListener("click", function () {
+            const textToCopy = outputText.textContent;
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => {
+                        alert("Texte copié !");
+                        flashButton(copyButton); // Animation pour le statut selected
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors de la copie :", err);
+                    });
+            }
+        });
+
+        // Fonction pour animer le statut "selected" des boutons
+        function flashButton(button) {
+            button.classList.add("selected");
+            setTimeout(() => {
+                button.classList.remove("selected");
+            }, 250);
+        }
+    });
+}
+
+// Appeler la fonction pour initialiser l'outil de traduction
+initBullshitTranslator();
