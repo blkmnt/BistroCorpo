@@ -585,13 +585,13 @@ function initBullshitTranslator() {
 
         // Met à jour le compteur de caractères
         inputText.addEventListener("input", function () {
-            charCount.textContent = `${inputText.value.length}/1000`;
+            charCount.textContent = `${inputText.value.length}/500`;
         });
 
         // Efface le texte de l'entrée quand on clique sur le bouton "clear"
         clearButton.addEventListener("click", function () {
             inputText.value = "";
-            charCount.textContent = "0/1000";
+            charCount.textContent = "0/500";
             outputText.textContent = "Le deliverable textuel sera visible ici une fois la transformation effectuée.";
             flashButton(clearButton); // Animation pour le statut selected
         });
