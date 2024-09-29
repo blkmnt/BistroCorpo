@@ -375,7 +375,6 @@ header {
 .astrology-section {
     padding: 4rem 0 0;
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 
 .astro-content, .compatibility-content {
@@ -411,7 +410,7 @@ header {
     width: 60px;
     height: 60px;
     background-color: rgba(58, 134, 255, 0.3);
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -548,11 +547,31 @@ footer {
         font-size: 0.75rem;
         text-align: justify;
     }
+    .astro-intro, .compatibility-intro {
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .astro-signs-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        justify-items: center
+    }
+    .astro-sign {
+        width: 40px;
+    }
+    .astro-icon {
+        width: 40px;
+        height: 40px;
+    }
+    .astro-label {
+        font-size: 0.5rem;
+        font-weight: 700;
+    }
     .compatibility-grid {
         flex-direction: column;
         align-items: center;
     }
-
     .column {
         width: 100%;
         margin-bottom: 2rem;
@@ -562,6 +581,7 @@ footer {
     }
     .column-2 {
         order: 3;
+        margin-bottom: 0;
     }
     .column-3 {
         order: 2;
