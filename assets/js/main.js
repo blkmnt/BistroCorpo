@@ -457,50 +457,61 @@ function setupCompatibilitySelection() {
     try {
         const column1Signs = document.querySelectorAll('.column.column-1 .astro-sign');
         const column3Signs = document.querySelectorAll('.column.column-3 .astro-sign');
-        const compatibilityContent = document.querySelector('.compatibility-content');
+        const compatibilityContent = document.getElementById('compatibility-content');
 
+        // Réinitialisation de la sélection des signes
         let selectedSign1 = null;
         let selectedSign2 = null;
 
         // Ajout d'attributs data-sign pour chaque signe dans la sélection
         column1Signs.forEach(sign => {
-            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent);
         });
         column3Signs.forEach(sign => {
-            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent); // Utilise l'astrologue label
+            sign.setAttribute('data-sign', sign.querySelector('.astro-label').textContent);
         });
 
-        function handleSelection(signs) {
+        // Fonction de gestion de la sélection des signes
+        function handleSelection(signs, column) {
             signs.forEach(sign => {
-                sign.addEventListener('click', function() {
-                    if (!compatibilityContent.classList.contains('active')) {
-                        return;
-                    }
+                sign.addEventListener('click', function () {
+                    const clickedSign = this.getAttribute('data-sign');
 
-                    // Réinitialise la sélection des signes avant d'en sélectionner un nouveau
-                    signs.forEach(s => s.classList.remove('selected'));
-                    this.classList.add('selected');
-
-                    // Si aucun signe n'est sélectionné, sélectionner le premier
-                    if (selectedSign1 === null) {
-                        selectedSign1 = this.getAttribute('data-sign');
-                    } else if (selectedSign2 === null) { // Si le second signe est sélectionné
-                        selectedSign2 = this.getAttribute('data-sign');
-                        displayCompatibility(selectedSign1, selectedSign2); // Affiche la compatibilité
-                        selectedSign1 = null; // Réinitialiser pour le prochain choix
-                        selectedSign2 = null; // Réinitialiser pour le prochain choix
-                    } else { // Réinitialiser si le troisième signe est cliqué
-                        selectedSign1 = this.getAttribute('data-sign');
-                        selectedSign2 = null;
-                        signs.forEach(s => s.classList.remove('selected'));
-                        this.classList.add('selected');
+                    // Gestion de la sélection des signes
+                    if (column === 'column1') {
+                        // Si déjà sélectionné, ne rien faire
+                        if (clickedSign === selectedSign1) {
+                            return;
+                        }
+                        // Mettre à jour le signe sélectionné
+                        selectedSign1 = clickedSign;
+                        column1Signs.forEach(s => s.classList.remove('selected')); // Enlever la sélection visuelle des autres signes
+                        this.classList.add('selected'); // Ajouter la classe "selected" au signe cliqué
+                    } else if (column === 'column3') {
+                        // Si déjà sélectionné, ne rien faire
+                        if (clickedSign === selectedSign2) {
+                            return;
+                        }
+                        // Mettre à jour le signe sélectionné
+                        selectedSign2 = clickedSign;
+                        column3Signs.forEach(s => s.classList.remove('selected')); // Enlever la sélection visuelle des autres signes
+                        this.classList.add('selected'); // Ajouter la classe "selected" au signe cliqué
                     }
                 });
             });
         }
 
-        handleSelection(column1Signs);
-        handleSelection(column3Signs);
+        // Gestion de la sélection des signes pour les deux colonnes
+        handleSelection(column1Signs, 'column1');
+        handleSelection(column3Signs, 'column3');
+
+        // Fonction pour afficher la compatibilité
+        compatibilityContent.addEventListener('click', function () {
+            // Vérifier si deux signes sont sélectionnés
+            if (selectedSign1 && selectedSign2) {
+                displayCompatibility(selectedSign1, selectedSign2);
+            }
+        });
     } catch (error) {
         console.error("Erreur lors de la configuration de la sélection des signes de compatibilité:", error);
     }
@@ -511,7 +522,7 @@ function displayCompatibility(sign1, sign2) {
     fetch('assets/csv/CompatibilitéAstro_liste.csv')
         .then(response => {
             if (!response.ok) {
-                throw new Error(Erreur lors du chargement du fichier CSV : ${response.statusText});
+                throw new Error(`Erreur lors du chargement du fichier CSV : ${response.statusText}`);
             }
             return response.text();
         })
@@ -554,7 +565,7 @@ function displayCompatibility(sign1, sign2) {
                         score = Math.floor(Math.random() * 21); // entre 0 et 20
                         break;
                 }
-                scoreElement.textContent = ${score}%;
+                scoreElement.textContent = `${score}%`;
                 descriptionElement.textContent = compatibilityInfo.description;
             } else {
                 console.error("Aucune compatibilité trouvée pour les signes :", sign1, sign2);
@@ -564,7 +575,6 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
-
 
 // Appel de la fonction pour charger et configurer les grilles astro-sign
 loadAndPopulateAstroGrids();
