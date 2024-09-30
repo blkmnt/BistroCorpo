@@ -600,6 +600,9 @@ function initBullshitTranslator() {
         translateButton.addEventListener("click", async function () {
             const userInput = inputText.value.trim();
         
+            // Debug: Vérifiez la valeur de userInput
+            console.log("User Input:", userInput);
+        
             if (userInput) {
                 try {
                     // Appel à l'API Gateway (qui appelle Lambda en backend)
@@ -608,32 +611,28 @@ function initBullshitTranslator() {
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ userInput: userInput }),
+                        body: JSON.stringify({ userInput: userInput }), // Vérifiez que c'est bien formaté
                     });
         
                     const data = await response.json();
+                    console.log("API Response:", data); // Debug: Vérifiez la réponse de l'API
         
-                    if (response.ok) {
-                        // Si la requête est réussie, afficher le texte traduit
-                        if (data.translatedText) {
-                            outputText.textContent = data.translatedText;
-                        } else {
-                            outputText.textContent = "Erreur : Aucune réponse traduite reçue.";
-                        }
+                    if (response.ok && data.translatedText) {
+                        outputText.textContent = data.translatedText;
                     } else {
-                        // Gestion des erreurs selon le code d'état
-                        outputText.textContent = "Erreur : " + (data.error || "Impossible de traduire le texte.");
-                        console.error("Erreur de l'API :", data.error);
+                        outputText.textContent = "Erreur : Impossible de traduire le texte.";
                     }
                 } catch (error) {
-                    // Gestion des erreurs de requête
                     console.error("Erreur lors de l'appel à l'API :", error);
                     outputText.textContent = "Erreur : Une erreur s'est produite.";
                 }
         
                 flashButton(translateButton); // Animation pour le statut selected
+            } else {
+                outputText.textContent = "Erreur : Veuillez entrer un texte.";
             }
         });
+
         
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
