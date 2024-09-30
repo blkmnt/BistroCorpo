@@ -596,33 +596,24 @@ function initBullshitTranslator() {
             flashButton(clearButton); // Animation pour le statut selected
         });
 
-        // Fonction pour envoyer la requête à ChatGPT
+        // Fonction pour envoyer la requête à votre API
         translateButton.addEventListener("click", async function () {
             const userInput = inputText.value.trim();
-
+        
             if (userInput) {
-                // Prompt pour l'API ChatGPT
-                const prompt = `Le bullshit corporate se caractérise par Vocabulaire Flou, Buzzwords, Phrases Longues, Abstraction, Évitement de la Responsabilité, Formalité Excessive, Langage de Vente, Utilisation d'Acronymes, Surutilisation de Mots Anglais. Traduit en bullshit corporate des consultants la phrase : "${userInput}". En réponse donne moi uniquement la phrase traduite et rien d'autre.`;
-
                 try {
-                    // Appel de l'API OpenAI
-                    const response = await fetch("https://api.openai.com/v1/completions", {
+                    // Appel à l'API Gateway (qui appelle Lambda en backend)
+                    const response = await fetch("https://x5n9wjpvf1.execute-api.eu-north-1.amazonaws.com/Prod", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
-                            "Authorization": `Bearer YOUR_OPENAI_API_KEY`, // Remplacez par votre clé API OpenAI
                         },
-                        body: JSON.stringify({
-                            model: "text-davinci-004",
-                            prompt: prompt,
-                            max_tokens: 150,
-                            temperature: 0.7,
-                        }),
+                        body: JSON.stringify({ userInput: userInput }),
                     });
-
+        
                     const data = await response.json();
-                    if (response.ok && data.choices && data.choices.length > 0) {
-                        outputText.textContent = data.choices[0].text.trim();
+                    if (response.ok && data.translatedText) {
+                        outputText.textContent = data.translatedText;
                     } else {
                         outputText.textContent = "Erreur : Impossible de traduire le texte.";
                     }
@@ -630,7 +621,7 @@ function initBullshitTranslator() {
                     console.error("Erreur lors de l'appel à l'API :", error);
                     outputText.textContent = "Erreur : Une erreur s'est produite.";
                 }
-
+        
                 flashButton(translateButton); // Animation pour le statut selected
             }
         });
