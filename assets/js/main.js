@@ -612,12 +612,21 @@ function initBullshitTranslator() {
                     });
         
                     const data = await response.json();
-                    if (response.ok && data.translatedText) {
-                        outputText.textContent = data.translatedText;
+        
+                    if (response.ok) {
+                        // Si la requête est réussie, afficher le texte traduit
+                        if (data.translatedText) {
+                            outputText.textContent = data.translatedText;
+                        } else {
+                            outputText.textContent = "Erreur : Aucune réponse traduite reçue.";
+                        }
                     } else {
-                        outputText.textContent = "Erreur : Impossible de traduire le texte.";
+                        // Gestion des erreurs selon le code d'état
+                        outputText.textContent = "Erreur : " + (data.error || "Impossible de traduire le texte.");
+                        console.error("Erreur de l'API :", data.error);
                     }
                 } catch (error) {
+                    // Gestion des erreurs de requête
                     console.error("Erreur lors de l'appel à l'API :", error);
                     outputText.textContent = "Erreur : Une erreur s'est produite.";
                 }
@@ -625,7 +634,7 @@ function initBullshitTranslator() {
                 flashButton(translateButton); // Animation pour le statut selected
             }
         });
-
+        
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
             const textToCopy = outputText.textContent;
@@ -639,7 +648,7 @@ function initBullshitTranslator() {
                     });
             }
         });
-
+        
         // Fonction pour animer le statut "selected" des boutons
         function flashButton(button) {
             button.classList.add("selected");
