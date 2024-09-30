@@ -603,7 +603,7 @@ function initBullshitTranslator() {
             if (userInput) {
                 try {
                     // Appel à l'API Gateway (qui appelle Lambda en backend)
-                    const response = await fetch("https://x5n9wjpvf1.execute-api.eu-north-1.amazonaws.com/Prod", {
+                    const response = await fetch("https://x5n9wjpvf1.execute-api.eu-north-1.amazonaws.com/Prod/BullshitTradAPI", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
