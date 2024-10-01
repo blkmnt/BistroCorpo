@@ -620,8 +620,9 @@ function initBullshitTranslator() {
                     console.log("API Response:", data); // Debug: Vérifiez la réponse de l'API
         
                     if (response.ok) {
-                        if (data.translatedText) {
-                            outputText.textContent = data.translatedText;
+                        const bodyData = JSON.parse(data.body);
+                        if (bodyData.translatedText) {
+                            outputText.textContent = bodyData.translatedText;
                         } else {
                             outputText.textContent = "Erreur : Impossible d'obtenir le texte traduit.";
                         }
