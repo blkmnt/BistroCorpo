@@ -673,7 +673,7 @@ function initBullshitTranslator() {
             button.classList.add("selected");
             setTimeout(() => {
                 button.classList.remove("selected");
-            }, 250);
+            }, 750);
         }
     });
 }
