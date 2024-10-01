@@ -204,7 +204,7 @@ header {
 }
 
 .button-small {
-    width: auto;
+    width: fit-content;
 }
 
 .icon-button {
@@ -332,6 +332,17 @@ header {
     align-items: center;
 }
 
+.tool-section {
+    padding: 4rem 0 0;
+    text-align: center;
+}
+
+.tool-text {
+    padding: 0 0 2rem;
+    font-size: 3rem;
+    font-weight: bold;
+}
+    
 .tool h1 {
     font-size: 3rem;
     font-weight: bold;
