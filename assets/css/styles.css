@@ -346,24 +346,17 @@ header {
     font-weight: bold;
 }
     
-.tool h1 {
+.tool-text-awards1 {
     font-size: 3rem;
     font-weight: bold;
-    margin: 4rem 0 2rem;
+    padding: 0 0 0.25rem;
     text-align: center;
 }
 
-.tool h1a {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 4rem 0 0.25rem;
-    text-align: center;
-}
-
-.tool h1b {
+.tool-text-awards2 {
     font-size: 1.5rem;
     font-weight: bold;
-    margin: 0 0 2rem;
+    padding: 0 0 2rem;
     text-align: center;
 }
 
@@ -678,15 +671,11 @@ footer {
         font-size: 2rem;
         padding: 0 0 2rem;
     }
-    .tool h1 {
-        font-size: 2rem;
-        margin: 2rem 0 2rem;
-    }
-    .tool h1a {
+    .tool-text-awards1 {
         font-size: 2rem;
         margin: 2rem 0 0.25rem;
     }
-    .tool h1b {
+    .tool-text-awards1 {
         font-size: 1rem;
     }
     .tool {
@@ -753,13 +742,10 @@ footer {
     .tool-text {
         font-size: 2.5rem;
     }
-    .tool h1 {
+    .tool-text-awards1 {
         font-size: 2.5rem;
     }
-    .tool h1a {
-        font-size: 2.5rem;
-    }
-    .tool h1b {
+    .tool-text-awards2 {
         font-size: 1rem;
     }
 }
