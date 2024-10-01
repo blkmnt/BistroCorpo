@@ -658,11 +658,9 @@ function initBullshitTranslator() {
                         flashButton(copyButton); // Animation pour le statut selected
                         const copyMessage = document.getElementById("copyMessage");
                         copyMessage.style.display = "block"; 
-        
-                        // Cache le message après 0,25 seconde (250 millisecondes)
                         setTimeout(() => {
                             copyMessage.style.display = "none"; 
-                        }, 250);                        
+                        }, 750);                        
                     })
                     .catch(err => {
                         console.error("Erreur lors de la copie :", err);
