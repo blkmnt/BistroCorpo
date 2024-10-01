@@ -675,6 +675,9 @@ footer {
         font-size: 0.75rem;
         text-align: justify;
     }
+    .astrology-section {
+        padding: 2rem 0 0;
+    }
     .astro-intro, .compatibility-intro {
         font-size: 1rem;
         font-weight: 700;
@@ -717,6 +720,7 @@ footer {
     }
     .translate-section {
         flex-direction: column;
+        padding: 2rem 0 0;
     }
 }
 
