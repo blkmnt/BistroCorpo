@@ -657,6 +657,13 @@ footer {
     .hero p {
         font-size: 0.75rem;
     }
+    .tool-section {
+        padding: 2rem 0 0;
+    }
+    .tool-text {
+        font-size: 2rem;
+        padding: 0 0 2rem;
+    }
     .tool h1 {
         font-size: 2rem;
         margin: 2rem 0 2rem;
@@ -728,6 +735,9 @@ footer {
     .content {
         grid-template-columns: repeat(2, 1fr);
         padding: 0rem 2rem 2rem 2rem;
+    }
+    .tool-text {
+        font-size: 2.5rem;
     }
     .tool h1 {
         font-size: 2.5rem;
