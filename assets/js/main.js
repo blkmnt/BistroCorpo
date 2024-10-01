@@ -614,13 +614,19 @@ function initBullshitTranslator() {
                         body: JSON.stringify({ userInput: userInput }), // Vérifiez que c'est bien formaté
                     });
         
+                    console.log("Response Status:", response.status); // Ajouté pour voir le statut de la réponse
+        
                     const data = await response.json();
                     console.log("API Response:", data); // Debug: Vérifiez la réponse de l'API
         
-                    if (response.ok && data.translatedText) {
-                        outputText.textContent = data.translatedText;
+                    if (response.ok) {
+                        if (data.translatedText) {
+                            outputText.textContent = data.translatedText;
+                        } else {
+                            outputText.textContent = "Erreur : Impossible d'obtenir le texte traduit.";
+                        }
                     } else {
-                        outputText.textContent = "Erreur : Impossible de traduire le texte.";
+                        outputText.textContent = "Erreur : " + (data.error ? data.error : "Impossible de traduire le texte.");
                     }
                 } catch (error) {
                     console.error("Erreur lors de l'appel à l'API :", error);
