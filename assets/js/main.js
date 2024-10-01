@@ -604,6 +604,11 @@ function initBullshitTranslator() {
             console.log("User Input:", userInput);
         
             if (userInput) {
+                // Affiche le loader
+                const loader = document.getElementById("loader");
+                loader.style.display = "block";
+                outputText.textContent = ""; // Clear output text while loading
+        
                 try {
                     // Appel à l'API Gateway (qui appelle Lambda en backend)
                     const response = await fetch("https://x5n9wjpvf1.execute-api.eu-north-1.amazonaws.com/Prod", {
@@ -632,6 +637,9 @@ function initBullshitTranslator() {
                 } catch (error) {
                     console.error("Erreur lors de l'appel à l'API :", error);
                     outputText.textContent = "Erreur : Une erreur s'est produite.";
+                } finally {
+                    // Cache le loader après la réponse ou l'erreur
+                    loader.style.display = "none";
                 }
         
                 flashButton(translateButton); // Animation pour le statut selected
