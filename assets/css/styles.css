@@ -581,18 +581,21 @@ textarea:focus {
     font-size: 1rem;
 }
 
-.loader {
+.loaderContainer {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+}
+
+.loader {
+    border: 4px solid #ffffff00;
+    border-top: 4px solid #7AE7C7;
+    border-radius: 100%;
+    width: 36px;
+    height: 36px;
     animation: spin 1s linear infinite;
-    display: none; /* Caché par défaut */
+    display: none;
 }
 
 @keyframes spin {
