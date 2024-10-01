@@ -248,6 +248,9 @@ header {
     color: initial;
 }
 
+.button-snack:hover {
+}
+
 .card:nth-child(4n+1) .button {
     background-color: #3A86FF;
 }
