@@ -417,10 +417,7 @@ select {
 
 select:focus {
     border: 1px solid #FF006E;
-}
-
-select:focus-visible {
-    border: 1px solid #FF006E;
+    outline: none;
 }
 
 /* Segmented Control */
