@@ -408,14 +408,14 @@ header {
 }
 
 /* Dropdown */
-selected {
+select {
     border-radius: 8px;
     padding: 0.5rem;
     border: 1px solid #ccc;
     font-size: 1rem;
 }
 
-selected:focus {
+select:focus {
     border: 1px solid #FF006E;
 }
 
