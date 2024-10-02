@@ -401,6 +401,24 @@ header {
     object-fit: cover;
 }
 
+.tool-selectionBar {
+    display: flex;
+    padding: 0 0 2rem;
+    font-weight: 700;
+}
+
+/* Dropdown */
+selected {
+    border-radius: 8px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+selected:focus {
+    border: 1px solid #FF006E;
+}
+
 /* Segmented Control */
 .segmented-control {
     display: inline-flex;
@@ -640,7 +658,13 @@ footer {
     text-align: center;
     font-size: 0.75rem;
     justify-content: center;
+}
 
+/* Compliment */
+.compliment-dropdown {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 /* Responsive Design */
