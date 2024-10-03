@@ -405,6 +405,7 @@ header {
     display: flex;
     padding: 0 0 2rem;
     font-weight: 700;
+    font-size: 1.5rem;
 }
 
 /* Dropdown */
@@ -412,7 +413,7 @@ select {
     border-radius: 8px;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 select:focus {
@@ -709,6 +710,15 @@ footer {
     .tool p {
         font-size: 0.75rem;
         text-align: justify;
+    }
+    .tool-selectionBar {
+        font-size: 1rem;
+    }
+    select {
+        font-size: 1rem;
+    }
+    .compliment-dropdown {
+        flex-direction: column;
     }
     .astrology-section {
         padding: 2rem 0 0;
