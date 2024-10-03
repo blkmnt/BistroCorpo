@@ -416,6 +416,12 @@ header {
     font-size: 1.5rem;
 }
 
+.tool-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
 /* Dropdown */
 select {
     border-radius: 8px;
