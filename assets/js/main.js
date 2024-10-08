@@ -655,12 +655,20 @@ function initBullshitTranslator() {
             if (textToCopy) {
                 navigator.clipboard.writeText(textToCopy)
                     .then(() => {
+                        // Animation pour le statut selected
                         flashButton(copyButton); // Animation pour le statut selected
-                        const copyMessage = document.getElementById("copyMessage");
-                        copyMessage.style.display = "block"; 
+        
+                        // Remplacer l'image du bouton par une image de "check"
+                        const checkImage = document.createElement("img");
+                        checkImage.src = "assets/images/icons/check.png"; 
+                        checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                        copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                        copyButton.appendChild(checkImage); // Ajouter l'image "check"
+        
+                        // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
                         setTimeout(() => {
-                            copyMessage.style.display = "none"; 
-                        }, 750);                        
+                            copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                        }, 750);
                     })
                     .catch(err => {
                         console.error("Erreur lors de la copie :", err);
