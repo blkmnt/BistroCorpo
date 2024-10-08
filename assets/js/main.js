@@ -894,3 +894,96 @@ function initBullshitTranslator() {
 
 // Appeler la fonction pour initialiser l'outil de traduction
 initBullshitTranslator();
+
+
+
+function loadCompliments() {
+    fetch('assets/csv/flatterie_liste.csv') // Charger le fichier CSV
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n');
+            const compliments = rows.map(row => {
+                const [quality, compliment] = row.split(';').map(item => item.trim()); // Extraire la qualité et le compliment
+                return { quality, compliment }; // Retourner un objet avec la qualité et le compliment
+            }).filter(item => item.quality && item.compliment); // Filtrer les lignes vides
+            
+            // Gérer le changement de sélection dans le dropdown
+            const dropdown = document.getElementById('colleagueDropdown');
+            const outputText = document.getElementById('flatterie'); // L'élément qui affiche le compliment
+
+            dropdown.addEventListener('change', function() {
+                const selectedQuality = dropdown.value;
+
+                // Réinitialiser l'état selected sur toutes les options
+                Array.from(dropdown.options).forEach(option => {
+                    option.selected = (option.value === selectedQuality);
+                });
+
+                // Afficher un compliment si une qualité est sélectionnée
+                if (selectedQuality) {
+                    displayRandomCompliment(selectedQuality);
+                } else {
+                    outputText.textContent = 'Choisissez une qualité...'; // Afficher le texte par défaut
+                }
+            });
+
+            // Fonction pour afficher un compliment aléatoire
+            function displayRandomCompliment(selectedQuality) {
+                const filteredCompliments = compliments.filter(item => item.quality === selectedQuality);
+                
+                if (filteredCompliments.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * filteredCompliments.length);
+                    const randomCompliment = filteredCompliments[randomIndex].compliment;
+                    outputText.textContent = randomCompliment; // Mettre à jour le texte du compliment
+                }
+            }
+
+            // Ajouter un événement au clic du bouton pour générer un autre compliment
+            document.querySelector('.button.button-pink').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le comportement par défaut du lien
+                const selectedQuality = dropdown.value;
+
+                if (selectedQuality) {
+                    displayRandomCompliment(selectedQuality); // Afficher un nouveau compliment
+                }
+            });
+
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = outputText.textContent;
+                if (textToCopy && textToCopy !== 'Choisissez une qualité...') {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
+
+        })
+        .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
+}
+
+// Appeler la fonction pour charger et afficher un compliment dès le chargement de la page
+loadCompliments();
+
