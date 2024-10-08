@@ -1058,7 +1058,7 @@ function displayCompatibility(sign1, sign2) {
                     if (textToShare) {
                         if (navigator.share) { // Si le navigateur supporte l'API native
                             navigator.share({
-                                title: `Compatibilité entre ${sign1} et ${sign2}`by Bistro Corpo,
+                                title: `Compatibilité entre ${sign1} et ${sign2}`,
                                 text: textToShare,
                                 url: window.location.href, // Lien de la page actuelle ou d'un autre site
                             })
@@ -1088,6 +1088,7 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
+
 
 
 
