@@ -131,6 +131,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .card:nth-child(4n+1) .card-image-container {
