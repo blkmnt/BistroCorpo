@@ -125,6 +125,40 @@ function loadChallenges() {
             const rows = data.split('\n');
             challenges = rows.map(row => row.trim()).filter(row => row !== ''); // Filtrer les lignes vides
             displayRandomChallenge(); // Afficher un défi au chargement
+            
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const outputText = document.getElementById('défi'); // Assurez-vous que l'ID est correct
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = outputText.textContent;
+                if (textToCopy) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
@@ -217,7 +251,6 @@ function loadRandomEchappatoire() {
         .then(response => response.text()) 
         .then(data => {
             const rows = data.split('\n');
-
             const echappatoire = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
             // Fonction pour afficher une tâche aléatoire
@@ -237,9 +270,44 @@ function loadRandomEchappatoire() {
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
                 displayRandomEchappatoire(); // Afficher une nouvelle tâche
             });
+
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const outputText = document.getElementById('echappatoire'); // L'élément qui affiche l'echappatoire
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = outputText.textContent;
+                if (textToCopy) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomEchappatoire();
@@ -249,7 +317,6 @@ function loadRandomUrgentTask() {
         .then(response => response.text()) 
         .then(data => {
             const rows = data.split('\n');
-
             const tasks = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
             // Fonction pour afficher une tâche aléatoire
@@ -269,6 +336,40 @@ function loadRandomUrgentTask() {
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
                 displayRandomTask(); // Afficher une nouvelle tâche
             });
+
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const outputText = document.getElementById('urgence'); // L'élément qui affiche l'urgence
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = outputText.textContent;
+                if (textToCopy) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
@@ -282,7 +383,6 @@ function loadRandomJustification() {
         .then(response => response.text()) 
         .then(data => {
             const rows = data.split('\n').slice(1);
-
             const justifications = rows.map(row => row.trim()).filter(row => row.length > 0); // Traiter les lignes du CSV
             
             // Fonction pour afficher une justification aléatoire
@@ -302,9 +402,44 @@ function loadRandomJustification() {
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
                 displayRandomJustification(); // Afficher une nouvelle justification
             });
+
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const outputText = document.getElementById('justification'); // L'élément qui affiche la justification
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = outputText.textContent;
+                if (textToCopy) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
@@ -339,9 +474,46 @@ function loadRandomDistinction() {
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
                 displayRandomDistinction(); // Afficher une nouvelle distinction
             });
+
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const titleElement = document.getElementById('distinction'); // L'élément qui affiche le titre
+            const descriptionElement = document.getElementById('distinction_texte'); // L'élément qui affiche la description
+
+            copyButton.addEventListener("click", function () {
+                const titleToCopy = titleElement.textContent;
+                const descriptionToCopy = descriptionElement.textContent;
+                if (titleToCopy && descriptionToCopy) {
+                    const textToCopy = `${titleToCopy} - ${descriptionToCopy}`;
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher une distinction dès le chargement de la page
 loadRandomDistinction();
