@@ -171,9 +171,43 @@ function loadRandomMeetingTheme() {
                 event.preventDefault(); // Empêcher le comportement par défaut du lien
                 displayRandomTheme(); // Afficher un nouveau thème
             });
+
+            // Ajout du gestionnaire d'événements pour le bouton de copie
+            const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const outputText = document.getElementById('réunion'); // Assurez-vous que l'ID est correct
+
+            copyButton.addEventListener("click", function () {
+                const textToCopy = outputText.textContent;
+                if (textToCopy) {
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                }
+            });
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomMeetingTheme();
