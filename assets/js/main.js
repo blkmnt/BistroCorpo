@@ -823,8 +823,8 @@ function setupAstroSelection(astroData) {
     try {
         const astroSigns = document.querySelectorAll('.astro-sign');
         const descriptionField = document.getElementById('astro-description'); // Assurez-vous que cet ID est correct
-        const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
-        const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID est correct
+        const copyButton = document.getElementById('astro-copyButton'); // Assurez-vous que l'ID est correct
+        const shareButton = document.getElementById('astro-shareButton'); // Assurez-vous que l'ID est correct
 
         astroSigns.forEach(sign => {
             sign.addEventListener('click', function() {
@@ -994,8 +994,8 @@ function displayCompatibility(sign1, sign2) {
                 const intensityElement = document.getElementById("intensity");
                 const descriptionElement = document.getElementById("compatibility-description");
                 const scoreElement = document.getElementById("score");
-                const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
-                const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID est correct
+                const copyButton = document.getElementById('compatibility-copyButton'); // Assurez-vous que l'ID est correct
+                const shareButton = document.getElementById('compatibility-shareButton'); // Assurez-vous que l'ID est correct
 
                 intensityElement.textContent = compatibilityInfo.compatibilite;
 
