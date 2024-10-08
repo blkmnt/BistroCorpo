@@ -668,7 +668,7 @@ function initBullshitTranslator() {
                         // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
                         setTimeout(() => {
                             copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
-                        }, 750);
+                        }, 1000);
                     })
                     .catch(err => {
                         console.error("Erreur lors de la copie :", err);
@@ -681,7 +681,7 @@ function initBullshitTranslator() {
             button.classList.add("selected");
             setTimeout(() => {
                 button.classList.remove("selected");
-            }, 750);
+            }, 1000);
         }
     });
 }
