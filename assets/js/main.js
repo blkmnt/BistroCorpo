@@ -135,7 +135,7 @@ function loadChallenges() {
             displayRandomChallenge();
 
             // Ajouter un événement au clic du bouton pour générer un autre défi aléatoire
-            document.querySelector('.tool-button a').addEventListener('click', function(event) {
+            document.querySelector('.button').addEventListener('click', function(event) {
                 event.preventDefault(); // Empêcher le rechargement de la page
                 displayRandomChallenge(); // Afficher un nouveau défi
             });
