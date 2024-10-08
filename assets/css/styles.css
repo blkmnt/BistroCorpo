@@ -433,6 +433,7 @@ header {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 /* Dropdown */
@@ -550,7 +551,7 @@ select:focus {
 }
 
 .astro-description, .compatibility-description {
-    margin-top: 1.5rem;
+    margin: 1.5rem 0 1rem;
     font-size: 1rem;
 }
 
