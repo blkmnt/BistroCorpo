@@ -242,7 +242,19 @@ header {
 }
 
 .icon-button.selected {
+    background-color: #3A86FF;
+}
+
+.icon-button-pink.selected {
+    background-color: #FF006E;
+}
+
+.icon-button-green.selected {
     background-color: #7AE7C7;
+}
+
+.icon-button-yellow.selected {
+    background-color: #FFBE0B;
 }
 
 .icon-button.selected img {
