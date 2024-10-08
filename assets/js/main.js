@@ -114,18 +114,32 @@ loadCSV();
 
 
 
-
-let challenges = [];
-
 // Fonction pour charger les défis depuis le CSV
 function loadChallenges() {
-    fetch('assets/csv/MissionFun_liste.csv')
-        .then(response => response.text())
+    fetch('assets/csv/MissionFun_liste.csv') // Charger le fichier CSV
+        .then(response => response.text()) 
         .then(data => {
             const rows = data.split('\n');
             challenges = rows.map(row => row.trim()).filter(row => row !== ''); // Filtrer les lignes vides
-            displayRandomChallenge(); // Afficher un défi au chargement
             
+            // Fonction pour afficher un défi aléatoire
+            function displayRandomChallenge() {
+                if (challenges.length > 0) {
+                    const randomIndex = Math.floor(Math.random() * challenges.length);
+                    const selectedChallenge = challenges[randomIndex];
+                    document.getElementById('défi').textContent = selectedChallenge; // Mettre à jour le texte du H1
+                }
+            }
+
+            // Afficher un défi lors du chargement initial
+            displayRandomChallenge();
+
+            // Ajouter un événement au clic du bouton pour générer un autre défi aléatoire
+            document.querySelector('.tool-button a').addEventListener('click', function(event) {
+                event.preventDefault(); // Empêcher le rechargement de la page
+                displayRandomChallenge(); // Afficher un nouveau défi
+            });
+
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
             const outputText = document.getElementById('défi'); // Assurez-vous que l'ID est correct
@@ -148,7 +162,7 @@ function loadChallenges() {
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
 
-                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                             }, 1000);
@@ -158,23 +172,9 @@ function loadChallenges() {
                         });
                 }
             });
-
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
-
-// Fonction pour afficher un défi aléatoire
-function displayRandomChallenge() {
-    const randomIndex = Math.floor(Math.random() * challenges.length);
-    const selectedChallenge = challenges[randomIndex];
-    document.getElementById('défi').textContent = selectedChallenge;
-}
-
-// Événement pour le bouton "Un autre challenge"
-document.querySelector('.tool-button a').addEventListener('click', (event) => {
-    event.preventDefault(); // Empêcher le rechargement de la page
-    displayRandomChallenge(); // Afficher un nouveau défi
-});
 
 // Appel de la fonction pour charger les défis
 loadChallenges();
