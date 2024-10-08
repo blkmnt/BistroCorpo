@@ -950,6 +950,7 @@ function loadCompliments() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Bouton partager
 
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
@@ -980,9 +981,37 @@ function loadCompliments() {
                 }
             });
 
+            // Ajout du gestionnaire d'événements pour le bouton de partage
+            shareButton.addEventListener('click', function () {
+                const textToShare = outputText.textContent;
+
+                if (textToShare && textToShare !== 'Choisissez une qualité...') {
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'Compliment surprenant',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Compliment partagé avec succès');
+                        })
+                        .catch(err => console.error('Erreur lors du partage:', err));
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appeler la fonction pour charger et afficher un compliment dès le chargement de la page
 loadCompliments();
