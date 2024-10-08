@@ -142,8 +142,10 @@ function loadChallenges() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID du bouton partager est correct
             const outputText = document.getElementById('défi'); // Assurez-vous que l'ID est correct
 
+            // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
                 if (textToCopy) {
@@ -172,9 +174,38 @@ function loadChallenges() {
                         });
                 }
             });
+
+            // Gestion du bouton de partage
+            shareButton.addEventListener("click", function () {
+                const textToShare = outputText.textContent;
+                if (textToShare) {
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'Défi by Bistro Corpo',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Défi partagé avec succès');
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors du partage :", err);
+                        });
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
+                }
+            });
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 // Appel de la fonction pour charger les défis
 loadChallenges();
@@ -208,8 +239,10 @@ function loadRandomMeetingTheme() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID du bouton partager est correct
             const outputText = document.getElementById('réunion'); // Assurez-vous que l'ID est correct
 
+            // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
                 if (textToCopy) {
@@ -228,7 +261,7 @@ function loadRandomMeetingTheme() {
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
 
-                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                             }, 1000);
@@ -238,13 +271,42 @@ function loadRandomMeetingTheme() {
                         });
                 }
             });
+
+            // Gestion du bouton de partage
+            shareButton.addEventListener("click", function () {
+                const textToShare = outputText.textContent;
+                if (textToShare) {
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'ODJ de Réunion by Bistro Corpo',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Thème de réunion partagé avec succès');
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors du partage :", err);
+                        });
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
+                }
+            });
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
 
-
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomMeetingTheme();
+
+
 
 function loadRandomEchappatoire() {
     fetch('assets/csv/echappatoire_liste.csv') // Charger le fichier CSV
@@ -273,8 +335,10 @@ function loadRandomEchappatoire() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID du bouton de partage est correct
             const outputText = document.getElementById('echappatoire'); // L'élément qui affiche l'echappatoire
 
+            // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
                 if (textToCopy) {
@@ -301,6 +365,34 @@ function loadRandomEchappatoire() {
                         .catch(err => {
                             console.error("Erreur lors de la copie :", err);
                         });
+                }
+            });
+
+            // Gestion du bouton de partage
+            shareButton.addEventListener("click", function () {
+                const textToShare = outputText.textContent;
+                if (textToShare) {
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'Excuse by Bistro Corpo',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Échappatoire partagé avec succès');
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors du partage :", err);
+                        });
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
                 }
             });
 
@@ -339,8 +431,10 @@ function loadRandomUrgentTask() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID du bouton de partage est correct
             const outputText = document.getElementById('urgence'); // L'élément qui affiche l'urgence
 
+            // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
                 if (textToCopy) {
@@ -367,6 +461,34 @@ function loadRandomUrgentTask() {
                         .catch(err => {
                             console.error("Erreur lors de la copie :", err);
                         });
+                }
+            });
+
+            // Gestion du bouton de partage
+            shareButton.addEventListener("click", function () {
+                const textToShare = outputText.textContent;
+                if (textToShare) {
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'Tâche Urgente by Bistro Corpo',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Tâche urgente partagée avec succès');
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors du partage :", err);
+                        });
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
                 }
             });
 
@@ -405,8 +527,10 @@ function loadRandomJustification() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID du bouton de partage est correct
             const outputText = document.getElementById('justification'); // L'élément qui affiche la justification
 
+            // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
                 if (textToCopy) {
@@ -436,14 +560,42 @@ function loadRandomJustification() {
                 }
             });
 
+            // Gestion du bouton de partage
+            shareButton.addEventListener("click", function () {
+                const textToShare = outputText.textContent;
+                if (textToShare) {
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'Justification by Bistro Corpo',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Justification partagée avec succès');
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors du partage :", err);
+                        });
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
 
-
-
 // Appeler la fonction pour charger et afficher un thème dès le chargement de la page
 loadRandomJustification();
+
+
 
 function loadRandomDistinction() {
     fetch('assets/csv/distinction_liste.csv') // Charger le fichier CSV
@@ -477,9 +629,11 @@ function loadRandomDistinction() {
 
             // Ajout du gestionnaire d'événements pour le bouton de copie
             const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+            const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID du bouton de partage est correct
             const titleElement = document.getElementById('distinction'); // L'élément qui affiche le titre
             const descriptionElement = document.getElementById('distinction_texte'); // L'élément qui affiche la description
 
+            // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const titleToCopy = titleElement.textContent;
                 const descriptionToCopy = descriptionElement.textContent;
@@ -510,9 +664,41 @@ function loadRandomDistinction() {
                         });
                 }
             });
+
+            // Gestion du bouton de partage
+            shareButton.addEventListener("click", function () {
+                const titleToShare = titleElement.textContent;
+                const descriptionToShare = descriptionElement.textContent;
+                if (titleToShare && descriptionToShare) {
+                    const textToShare = `${titleToShare} - ${descriptionToShare}`;
+                    if (navigator.share) { // Si le navigateur supporte l'API native
+                        navigator.share({
+                            title: 'Award by Bistro Corpo',
+                            text: textToShare,
+                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                        })
+                        .then(() => {
+                            // Animation pour le statut selected
+                            shareButton.classList.add("selected");
+                            setTimeout(() => {
+                                shareButton.classList.remove("selected");
+                            }, 1000);
+
+                            console.log('Distinction partagée avec succès');
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors du partage :", err);
+                        });
+                    } else {
+                        alert('Le partage n’est pas supporté sur ce navigateur.');
+                    }
+                }
+            });
+
         })
         .catch(error => console.error('Erreur lors du chargement du fichier CSV:', error));
 }
+
 
 
 // Appeler la fonction pour charger et afficher une distinction dès le chargement de la page
@@ -788,6 +974,7 @@ function initBullshitTranslator() {
         const translateButton = document.getElementById("translateButton");
         const outputText = document.getElementById("outputText");
         const copyButton = document.getElementById("copyButton");
+        const shareButton = document.getElementById("shareButton"); // Assurez-vous que l'ID du bouton de partage est correct
 
         // Met à jour le compteur de caractères
         inputText.addEventListener("input", function () {
@@ -854,7 +1041,6 @@ function initBullshitTranslator() {
             }
         });
 
-        
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
             const textToCopy = outputText.textContent;
@@ -881,6 +1067,30 @@ function initBullshitTranslator() {
                     });
             }
         });
+
+        // Gestion du bouton de partage
+        shareButton.addEventListener("click", function () {
+            const textToShare = outputText.textContent;
+            if (textToShare) {
+                if (navigator.share) { // Si le navigateur supporte l'API native
+                    navigator.share({
+                        title: 'Traduction by Bistro Corpo',
+                        text: textToShare,
+                        url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                    })
+                    .then(() => {
+                        // Animation pour le statut selected
+                        flashButton(shareButton);
+                        console.log('Texte partagé avec succès');
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du partage :", err);
+                    });
+                } else {
+                    alert('Le partage n’est pas supporté sur ce navigateur.');
+                }
+            }
+        });
         
         // Fonction pour animer le statut "selected" des boutons
         function flashButton(button) {
@@ -891,6 +1101,7 @@ function initBullshitTranslator() {
         }
     });
 }
+
 
 // Appeler la fonction pour initialiser l'outil de traduction
 initBullshitTranslator();
@@ -988,9 +1199,9 @@ function loadCompliments() {
                 if (textToShare && textToShare !== 'Choisissez une qualité...') {
                     if (navigator.share) { // Si le navigateur supporte l'API native
                         navigator.share({
-                            title: 'Compliment surprenant',
+                            title: 'Compliment by Bistro Corpo',
                             text: textToShare,
-                            url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                            url: window.location.href,
                         })
                         .then(() => {
                             // Animation pour le statut selected
