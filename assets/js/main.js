@@ -823,6 +823,8 @@ function setupAstroSelection(astroData) {
     try {
         const astroSigns = document.querySelectorAll('.astro-sign');
         const descriptionField = document.getElementById('astro-description'); // Assurez-vous que cet ID est correct
+        const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+        const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID est correct
 
         astroSigns.forEach(sign => {
             sign.addEventListener('click', function() {
@@ -838,12 +840,75 @@ function setupAstroSelection(astroData) {
 
                 // Mettre à jour le champ de description avec la description du signe sélectionné
                 descriptionField.textContent = this.dataset.description; // Utiliser l'attribut de données
+
+                // Mettre à jour le bouton de partage
+                shareButton.dataset.text = this.dataset.description; // Stocker la description pour le partage
             });
         });
+
+        // Gestion du bouton de copie
+        copyButton.addEventListener("click", function() {
+            const textToCopy = descriptionField.textContent; // Récupérer le texte à copier
+            if (textToCopy) {
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => {
+                        // Animation pour le statut selected
+                        copyButton.classList.add("selected");
+                        setTimeout(() => {
+                            copyButton.classList.remove("selected");
+                        }, 1000);
+
+                        // Remplacer l'image du bouton par une image de "check"
+                        const checkImage = document.createElement("img");
+                        checkImage.src = "assets/images/icons/check.png"; 
+                        checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                        copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                        copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                        // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+                        setTimeout(() => {
+                            copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                        }, 1000);
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors de la copie :", err);
+                    });
+            }
+        });
+
+        // Gestion du bouton de partage
+        shareButton.addEventListener("click", function() {
+            const textToShare = descriptionField.textContent; // Récupérer le texte à partager
+            if (textToShare) {
+                if (navigator.share) { // Si le navigateur supporte l'API native
+                    navigator.share({
+                        title: 'Astrologie by Bistro Corpo',
+                        text: textToShare,
+                        url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                    })
+                    .then(() => {
+                        // Animation pour le statut selected
+                        shareButton.classList.add("selected");
+                        setTimeout(() => {
+                            shareButton.classList.remove("selected");
+                        }, 1000);
+
+                        console.log('Texte partagé avec succès');
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors du partage :", err);
+                    });
+                } else {
+                    alert('Le partage n’est pas supporté sur ce navigateur.');
+                }
+            }
+        });
+
     } catch (error) {
         console.error("Erreur lors de la configuration de la sélection des signes astro:", error);
     }
 }
+
 
 function setupCompatibilitySelection() {
     try {
@@ -929,6 +994,8 @@ function displayCompatibility(sign1, sign2) {
                 const intensityElement = document.getElementById("intensity");
                 const descriptionElement = document.getElementById("compatibility-description");
                 const scoreElement = document.getElementById("score");
+                const copyButton = document.getElementById('copyButton'); // Assurez-vous que l'ID est correct
+                const shareButton = document.getElementById('shareButton'); // Assurez-vous que l'ID est correct
 
                 intensityElement.textContent = compatibilityInfo.compatibilite;
 
@@ -953,6 +1020,66 @@ function displayCompatibility(sign1, sign2) {
                 }
                 scoreElement.textContent = `${score}%`;
                 descriptionElement.textContent = compatibilityInfo.description;
+
+                // Mise à jour du texte pour le partage
+                shareButton.dataset.text = `Compatibilité entre ${sign1} et ${sign2}: ${compatibilityInfo.compatibilite} (${score}%) - ${compatibilityInfo.description}`;
+
+                // Gestion du bouton de copie
+                copyButton.addEventListener("click", function() {
+                    const textToCopy = `Compatibilité entre ${sign1} et ${sign2}: ${compatibilityInfo.compatibilite} (${score}%) - ${compatibilityInfo.description}`;
+                    navigator.clipboard.writeText(textToCopy)
+                        .then(() => {
+                            // Animation pour le statut selected
+                            copyButton.classList.add("selected");
+                            setTimeout(() => {
+                                copyButton.classList.remove("selected");
+                            }, 1000);
+
+                            // Remplacer l'image du bouton par une image de "check"
+                            const checkImage = document.createElement("img");
+                            checkImage.src = "assets/images/icons/check.png"; 
+                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
+
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                            }, 1000);
+                        })
+                        .catch(err => {
+                            console.error("Erreur lors de la copie :", err);
+                        });
+                });
+
+                // Gestion du bouton de partage
+                shareButton.addEventListener("click", function() {
+                    const textToShare = shareButton.dataset.text; // Récupérer le texte à partager
+                    if (textToShare) {
+                        if (navigator.share) { // Si le navigateur supporte l'API native
+                            navigator.share({
+                                title: `Compatibilité entre ${sign1} et ${sign2}`by Bistro Corpo,
+                                text: textToShare,
+                                url: window.location.href, // Lien de la page actuelle ou d'un autre site
+                            })
+                            .then(() => {
+                                // Animation pour le statut selected
+                                shareButton.classList.add("selected");
+                                setTimeout(() => {
+                                    shareButton.classList.remove("selected");
+                                }, 1000);
+
+                                console.log('Texte partagé avec succès');
+                            })
+                            .catch(err => {
+                                console.error("Erreur lors du partage :", err);
+                            });
+                        } else {
+                            alert('Le partage n’est pas supporté sur ce navigateur.');
+                        }
+                    }
+                });
+
             } else {
                 console.error("Aucune compatibilité trouvée pour les signes :", sign1, sign2);
             }
@@ -961,6 +1088,7 @@ function displayCompatibility(sign1, sign2) {
             console.error("Erreur lors de la récupération et de l'affichage des informations de compatibilité :", error);
         });
 }
+
 
 
 // Appel de la fonction pour charger et configurer les grilles astro-sign
