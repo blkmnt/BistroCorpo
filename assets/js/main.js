@@ -1058,7 +1058,7 @@ function displayCompatibility(sign1, sign2) {
                     if (textToShare) {
                         if (navigator.share) { // Si le navigateur supporte l'API native
                             navigator.share({
-                                title: `Compatibilité entre ${sign1} et ${sign2}`,
+                                title: `Compatibilité entre ${sign1} et ${sign2} by Bistro Corpo`,
                                 text: textToShare,
                                 url: window.location.href, // Lien de la page actuelle ou d'un autre site
                             })
