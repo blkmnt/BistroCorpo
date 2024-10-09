@@ -730,16 +730,6 @@ textarea:focus {
     margin-bottom: 0.5rem;
 }
 
-textarea.mail-inputs {
-    height: 40px;
-    padding: 0.6rem;
-}
-
-textarea.mail-inputs:focus {
-    border-color: #FFBE0B;
-    outline: none;
-}
-
 select.mail-inputs {
     font-size: 1rem;
 }
@@ -755,6 +745,7 @@ select.mail-inputs:focus {
 input.mail-inputs {
     font-size: 1rem;
     width: -webkit-fill-available;
+    height: 40px;
 }
 
 input.mail-inputs:focus {
