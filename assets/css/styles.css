@@ -262,6 +262,11 @@ header {
     filter: brightness(0) invert(1);
 }
 
+.icon-button-disabled {
+    background-color: unset;
+    opacity: 0.5;
+}
+
 .button-snack {
     width: auto;
     background-color: white;
@@ -623,7 +628,7 @@ textarea:focus {
 }
 
 
-.input-footer, .output-footer {
+.input-footer, .output-footer, .mail-window-icons {
     display: flex;
     justify-content: flex-end;
     margin-top: 0.5rem;
@@ -702,7 +707,13 @@ textarea:focus {
     margin: 0.5rem auto;
 }
 
+.mail-sender, .mail-object {
+    font-weight: 700;
+}
 
+.mail-content {
+    min-height: 10rem;
+}
 
 
 
