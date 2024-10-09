@@ -26,10 +26,6 @@ h1, h2, .card h2, .tool h2 {
     font-weight: 900;
 }
 
-bold-text {
-    font-weight: 700;
-}
-
 /* Header */
 header {
     background-color: #0E1116;
