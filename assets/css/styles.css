@@ -455,6 +455,19 @@ select:focus {
     outline: none;
 }
 
+/* Input */
+input {
+    border-radius: 8px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1.5rem;
+}
+
+input:focus {
+    border: 1px solid #FF006E;
+    outline: none;
+}
+
 /* Segmented Control */
 .segmented-control {
     display: inline-flex;
@@ -734,6 +747,15 @@ select.mail-inputs:focus {
     border: 1px solid #FFBE0B;
 }
 
+input.mail-inputs {
+    font-size: 1rem;
+    width: -webkit-fill-available;
+}
+
+input.mail-inputs:focus {
+    border: 1px solid #FFBE0B;
+}
+
 .mail-card {
     background-color: white;
     padding: 1.5rem;
@@ -742,7 +764,6 @@ select.mail-inputs:focus {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 100%;
 }
 
 .mail-window-icons {
