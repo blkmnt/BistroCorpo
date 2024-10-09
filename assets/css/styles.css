@@ -697,6 +697,19 @@ textarea:focus {
     margin-bottom: 1rem;
 }
 
+.mail-infoLocation, .mail-infoDates, .mail-infoBackUp {
+    display: flex;
+}
+
+textarea.mail-inputs {
+    height: 1rem;
+}
+
+textarea.mail-inputs:focus {
+    border-color: #FFBE0B;
+    outline: none;
+}
+
 .mail-card {
     background-color: white;
     padding: 1.5rem;
