@@ -744,6 +744,10 @@ select.mail-inputs {
     font-size: 1rem;
 }
 
+select.mail-inputs-large {
+    width: -webkit-fill-available;
+}
+
 select.mail-inputs:focus {
     border: 1px solid #FFBE0B;
 }
