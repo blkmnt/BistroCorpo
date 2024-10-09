@@ -825,7 +825,7 @@ footer {
     .column-3 {
         order: 2;
     }
-    .translate-section {
+    .translate-section, .mail-section {
         flex-direction: column;
         padding: 2rem 0 0;
     }
