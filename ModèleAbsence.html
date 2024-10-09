@@ -37,7 +37,22 @@
                             </select>
                         </div>
                         <div class="mail-info">
-                            <div class="mail-infoTitle">Lieu</div>
+                            <div class="mail-infoTitle">Période</div>
+                            <div class="mail-infoDates">
+                                <label for="startDate">Du</label>
+                                <input class="mail-inputs" type="date" id="startDate" name="startDate">
+                                <label for="endDate">Au</label>
+                                <input class="mail-inputs" type="date" id="endDate" name="endDate">
+                            </div>
+                        </div>
+                        <div class="mail-info">
+                            <div class="mail-infoTitle">
+                                Lieu
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
                             <div class="mail-infoLocation">
                                 <select class="mail-inputs" id="Dropdown">
                                     <option value="" disabled selected></option>
@@ -50,23 +65,26 @@
                             </div>
                         </div>
                         <div class="mail-info">
-                            <div class="mail-infoTitle">Période</div>
-                            <div class="mail-infoDates">
-                                <label for="startDate">Du</label>
-                                <input class="mail-inputs" type="date" id="startDate" name="startDate">
-                                <label for="endDate">Au</label>
-                                <input class="mail-inputs" type="date" id="endDate" name="endDate">
+                            <div class="mail-infoTitle">
+                                Back-up
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
                             </div>
-                        </div>
-                        <div class="mail-info">
-                            <div class="mail-infoTitle">Back-up</div>
                             <div class="mail-infoBackUp">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer coordonnée">
                             </div>
                         </div>
                         <div class="mail-info">
-                            <div class="mail-infoTitle">Signature</div>
+                            <div class="mail-infoTitle">
+                                Signature
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
                             <div class="mail-infoSignature">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
                             </div>
