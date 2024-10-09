@@ -694,7 +694,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .mail-infoLocation, .mail-infoDates, .mail-infoBackUp {
@@ -710,7 +710,8 @@ textarea:focus {
 }
 
 textarea.mail-inputs {
-    height: auto;
+    height: 40px;
+    padding: 0.6rem;
 }
 
 textarea.mail-inputs:focus {
