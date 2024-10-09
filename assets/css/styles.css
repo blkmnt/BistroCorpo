@@ -699,9 +699,16 @@ textarea:focus {
 
 .mail-infoLocation, .mail-infoDates, .mail-infoBackUp {
     display: flex;
-    flex-direction: row;
     gap: 0.5rem;
     width: 100%;
+}
+
+.mail-infoLocation, .mail-infoDates {
+    flex-direction: row;
+}
+
+.mail-infoBackUp {
+    flex-direction: column;
 }
 
 .mail-infoTitle {
