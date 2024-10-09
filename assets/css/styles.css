@@ -677,17 +677,11 @@ textarea:focus {
 
 /* Mail Absence */
 .mail-section {
-    padding: 4rem 0 0;
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-}
-
-.mail-column {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 2rem;
+    padding: 4rem 0 0;
+    width: 100%
 }
 
 .mail-card {
