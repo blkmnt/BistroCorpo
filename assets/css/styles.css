@@ -629,7 +629,7 @@ textarea:focus {
 }
 
 
-.input-footer, .output-footer, .mail-window-icons {
+.input-footer, .output-footer, {
     display: flex;
     justify-content: flex-end;
     margin-top: 0.5rem;
