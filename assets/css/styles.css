@@ -593,7 +593,7 @@ select:focus {
     flex-direction: row;
     gap: 2rem;
     padding: 4rem 0 0;
-    width: 100%
+    width: 100%;
 }
 
 .translate-intro {
@@ -681,7 +681,7 @@ textarea:focus {
     flex-direction: row;
     gap: 2rem;
     padding: 4rem 0 0;
-    width: 100%
+    width: 100%;
 }
 
 .mail-card {
