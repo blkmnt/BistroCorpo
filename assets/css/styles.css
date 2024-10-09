@@ -698,7 +698,7 @@ textarea:focus {
 .mail-section {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 6rem;
     padding: 4rem 0 0;
     width: 100%;
 }
@@ -910,6 +910,9 @@ footer {
     .translate-section, .mail-section {
         flex-direction: column;
         padding: 2rem 0 0;
+    }
+    .mail-section {
+    gap: 2rem;
     }
 }
 
