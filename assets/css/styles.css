@@ -167,7 +167,7 @@ header {
     margin-bottom: 2.5rem
 }
 
-.card:hover {
+.card:hover, .mail-card:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
