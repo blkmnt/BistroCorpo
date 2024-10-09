@@ -26,6 +26,10 @@ h1, h2, .card h2, .tool h2 {
     font-weight: 900;
 }
 
+bold-text {
+    font-weight: 700;
+}
+
 /* Header */
 header {
     background-color: #0E1116;
@@ -713,10 +717,6 @@ textarea:focus {
     height: 1px;
     background-color: #cccccc;
     margin: 0.5rem auto;
-}
-
-.mail-sender, .mail-object {
-    font-weight: 700;
 }
 
 .mail-content {
