@@ -688,6 +688,12 @@ textarea:focus {
     
 }
 
+.subline-separator {
+            width: 100%;
+            height: 1px;
+            background-color: #cccccc;
+            margin: 0.5rem;
+}
 
 
 
