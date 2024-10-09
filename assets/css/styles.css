@@ -265,6 +265,7 @@ header {
 .icon-button-disabled {
     background-color: unset;
     opacity: 0.5;
+    cursor: unset;
 }
 
 .button-snack {
@@ -698,6 +699,13 @@ textarea:focus {
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
+}
+
+.mail-window-icons {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
 }
 
 .subline-separator {
