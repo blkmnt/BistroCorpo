@@ -706,6 +706,7 @@ textarea:focus {
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
+    margin-botton: 0.5rem;
 }
 
 .subline-separator {
