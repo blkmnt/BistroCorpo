@@ -668,6 +668,38 @@ textarea:focus {
     100% { transform: rotate(360deg); }
 }
 
+/* Compliment */
+.compliment-dropdown {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* Mail Absence */
+.mail-section {
+    padding: 4rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.mail-column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mail-card {
+    
+}
+
+
+
+
+
+
+
 /* Footer */
 footer {
     background-color: #0E1116;
@@ -690,12 +722,7 @@ footer {
     justify-content: center;
 }
 
-/* Compliment */
-.compliment-dropdown {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
