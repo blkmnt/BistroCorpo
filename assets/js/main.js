@@ -1370,11 +1370,13 @@ function setupToggleMailSections() {
     function toggleSection(toggle, section) {
         toggle.addEventListener('change', function() {
             if (toggle.checked) {
-                // Annule le display: none en le commentant
-                section.style.cssText = section.style.cssText.replace('display: none;', '/* display: none; */');
+                // Désactive display: none en le commentant
+                if (section.style.display === 'none' || section.style.display === '') {
+                    section.style.display = ''; // Reset display
+                }
             } else {
-                // Rétablit display: none
-                section.style.cssText = section.style.cssText.replace('/* display: none; */', 'display: none;');
+                // Réactive display: none
+                section.style.display = 'none';
             }
         });
     }
@@ -1384,4 +1386,5 @@ function setupToggleMailSections() {
     toggleSection(backupToggle, backupSection);
     toggleSection(signatureToggle, signatureSection);
 }
+
 
