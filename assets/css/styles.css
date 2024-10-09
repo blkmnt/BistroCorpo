@@ -730,6 +730,9 @@ textarea:focus {
 .mail-infoTitle {
     font-weight: 700;
     margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 select.mail-inputs {
