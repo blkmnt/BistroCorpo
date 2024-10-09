@@ -49,11 +49,11 @@
                             <div class="mail-infoTitle">
                                 Lieu
                                 <label class="switch">
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="locationToggle">
                                     <span class="slider slider-yellow"></span>
                                 </label>
                             </div>
-                            <div class="mail-infoLocation" style="display: none;">
+                            <div id="mail-infoLocation" style="display: none;">
                                 <select class="mail-inputs" id="Dropdown">
                                     <option value="" disabled selected></option>
                                     <option value="à">À</option>
@@ -61,18 +61,18 @@
                                     <option value="au">Au</option>
                                     <option value="aux">Aux</option>
                                 </select>
-                                <input class="mail-inputs" id="inputText" maxlength="30" placeholder="Indiquer le lieu">
+                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer le lieu">
                             </div>
                         </div>
                         <div class="mail-info">
                             <div class="mail-infoTitle">
                                 Back-up
                                 <label class="switch">
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="backupToggle">
                                     <span class="slider slider-yellow"></span>
                                 </label>
                             </div>
-                            <div class="mail-infoBackUp" style="display: none;">
+                            <div id="mail-infoBackUp" style="display: none;">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer coordonnée">
                             </div>
@@ -81,11 +81,11 @@
                             <div class="mail-infoTitle">
                                 Signature
                                 <label class="switch">
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="signatureToggle">
                                     <span class="slider slider-yellow"></span>
                                 </label>
                             </div>
-                            <div class="mail-infoSignature" style="display: none;">
+                            <div id="mail-infoSignature" style="display: none;">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
                             </div>
                         </div>
@@ -147,7 +147,7 @@
     </footer>
     <script src="assets/js/main.js"></script>
     <script>
-        randomCard();
+        randomCard(); setupToggleMailSections();
     </script>
 </body>
 </html>
