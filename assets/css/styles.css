@@ -710,7 +710,7 @@ textarea:focus {
     margin-bottom: 1.5rem;
 }
 
-.mail-infoLocation, .mail-infoDates, .mail-infoBackUp {
+.mail-infoLocation, .mail-infoDates, .mail-infoBackUp, .mail-infoSignature {
     display: flex;
     gap: 0.5rem;
     width: 100%;
@@ -720,7 +720,7 @@ textarea:focus {
     flex-direction: row;
 }
 
-.mail-infoBackUp {
+.mail-infoBackUp, .mail-infoSignature {
     flex-direction: column;
 }
 
