@@ -690,6 +690,13 @@ textarea:focus {
     width: 100%;
 }
 
+.mail-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
 .mail-card {
     background-color: white;
     padding: 1.5rem;
