@@ -702,12 +702,20 @@ textarea:focus {
 }
 
 textarea.mail-inputs {
-    height: 1rem;
+    height: auto;
 }
 
 textarea.mail-inputs:focus {
     border-color: #FFBE0B;
     outline: none;
+}
+
+select.mail-inputs {
+    font-size: 1rem;
+}
+
+select.mail-inputs:focus {
+    border: 1px solid #FFBE0B;
 }
 
 .mail-card {
