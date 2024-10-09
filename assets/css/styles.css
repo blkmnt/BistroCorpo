@@ -714,6 +714,7 @@ textarea:focus {
     display: flex;
     gap: 0.5rem;
     width: 100%;
+    align-items: center;
 }
 
 .mail-infoLocation, .mail-infoDates {
