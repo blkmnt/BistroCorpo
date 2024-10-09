@@ -1356,3 +1356,25 @@ function loadCompliments() {
 // Appeler la fonction pour charger et afficher un compliment dès le chargement de la page
 loadCompliments();
 
+function setupToggleMailSections() {
+    // Sélectionner les toggles et les sections correspondantes
+    const locationToggle = document.getElementById("locationToggle");
+    const backupToggle = document.getElementById("backupToggle");
+    const signatureToggle = document.getElementById("signatureToggle");
+
+    const locationSection = document.getElementById("mail-infoLocation");
+    const backupSection = document.getElementById("mail-infoBackUp");
+    const signatureSection = document.getElementById("mail-infoSignature");
+
+    // Fonction pour changer la visibilité des sections en fonction des toggles
+    function toggleSection(toggle, section) {
+        toggle.addEventListener('change', function() {
+            section.style.display = toggle.checked ? 'block' : 'none';
+        });
+    }
+
+    // Activer les toggles pour chaque section
+    toggleSection(locationToggle, locationSection);
+    toggleSection(backupToggle, backupSection);
+    toggleSection(signatureToggle, signatureSection);
+}
