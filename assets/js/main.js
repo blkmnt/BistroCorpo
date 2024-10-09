@@ -1366,10 +1366,16 @@ function setupToggleMailSections() {
     const backupSection = document.getElementById("mail-infoBackUp");
     const signatureSection = document.getElementById("mail-infoSignature");
 
-    // Fonction pour changer la visibilité des sections en fonction des toggles
+    // Fonction pour modifier la visibilité en commentant ou décommentant "display: none;"
     function toggleSection(toggle, section) {
         toggle.addEventListener('change', function() {
-            section.style.display = toggle.checked ? 'block' : 'none';
+            if (toggle.checked) {
+                // Annule le display: none en le commentant
+                section.style.cssText = section.style.cssText.replace('display: none;', '/* display: none; */');
+            } else {
+                // Rétablit display: none
+                section.style.cssText = section.style.cssText.replace('/* display: none; */', 'display: none;');
+            }
         });
     }
 
@@ -1378,3 +1384,4 @@ function setupToggleMailSections() {
     toggleSection(backupToggle, backupSection);
     toggleSection(signatureToggle, signatureSection);
 }
+
