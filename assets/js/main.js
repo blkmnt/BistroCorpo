@@ -1405,6 +1405,15 @@ function loadMailContent() {
     const mailContent = document.getElementById("mailContent");
     const sender = document.getElementById("sender");
 
+    // Fonction pour formater la date au format français
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // Les mois commencent à 0
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    };
+
     // Fonction pour générer le contenu du mail
     const generateMailContent = () => {
         // Vérifier que les champs obligatoires sont remplis
@@ -1423,10 +1432,10 @@ function loadMailContent() {
                 const filteredLines = lines.filter(line => line[0] === typeDropdown.value);
                 const randomLine = filteredLines[Math.floor(Math.random() * filteredLines.length)][1];
                 
-                // Remplacement des dates
+                // Remplacement des dates avec format français
                 let finalMail = randomLine
-                    .replace("[date de début]", startDate.value)
-                    .replace("[date de fin]", endDate.value);
+                    .replace("[date de début]", formatDate(startDate.value))
+                    .replace("[date de fin]", formatDate(endDate.value));
                 
                 // Si locationToggle est activé, ajouter la destination
                 if (locationToggle.checked && location.value) {
@@ -1441,7 +1450,7 @@ function loadMailContent() {
                     const randomBackupLine = backupLines[Math.floor(Math.random() * backupLines.length)][1];
                     let backupText = randomBackupLine.replace("[backup]", nameBackUp.value);
                     if (infoBackUp.value) {
-                        backupText += ` (${infoBackUp.value})`;
+                        backupText = backupText.replace("[backup]", `${nameBackUp.value} (${infoBackUp.value})`);
                     }
                     finalMail += ` ${backupText}`;
                 }
@@ -1512,4 +1521,5 @@ function loadMailContent() {
         }
     });
 }
+
 
