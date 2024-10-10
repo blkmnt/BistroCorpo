@@ -1528,7 +1528,7 @@ function loadMailContent() {
     copyButton.addEventListener("click", function () {
         const textToCopy = mailContent.innerText;
         const siteName = "Message d'absence by Bistro Corpo"; // Nom du site
-        const siteLink = "https://www.bistrocorpo.fr/Mod%C3%A8leAbsence.html"; // Lien de la page
+        const siteLink = "https://www.bistrocorpo.fr/ModèleAbsence.html"; // Lien de la page
     
         // Concaténer le texte à copier avec le nom et le lien du site
         const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
