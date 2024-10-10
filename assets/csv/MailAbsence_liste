@@ -1,0 +1,11 @@
+soleil;Je suis au soleil [destination] du [date de début] au [date de fin].
+soleil;Je suis actuellement au soleil [destination] et je serai absent du [date de début] au [date de fin].
+soleil;Actuellement, je suis au soleil [destination] et je serai absent du [date de début] au [date de fin].
+mer;Je suis à la mer [destination] du [date de début] au [date de fin].
+mer;Je suis actuellement à la mer [destination] et je serai absent du [date de début] au [date de fin].
+mer;Actuellement, je suis à la mer [destination] et je serai absent du [date de début] au [date de fin].
+montagne;Je suis à la montagne [destination] du [date de début] au [date de fin].
+montagne;Je suis actuellement à la montagne [destination] et je serai absent du [date de début] au [date de fin].
+montagne;Actuellement, je suis à la montagne [destination] et je serai absent du [date de début] au [date de fin].
+backup;Mon back-up est [backup].
+conclusion;Je vous répondrai à mon retour.
