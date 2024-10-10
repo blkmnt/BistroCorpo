@@ -1421,7 +1421,7 @@ function loadMailContent() {
             mailContent.innerHTML = "Renseignez les informations dans le formulaire et cliquez sur \"Rédiger\"";
             return;
         }
-
+    
         // Lire le CSV et sélectionner les lignes correspondant au type de congé
         fetch("assets/csv/MailAbsence_liste.csv")
             .then(response => response.text())
@@ -1433,9 +1433,10 @@ function loadMailContent() {
                 const randomLine = filteredLines[Math.floor(Math.random() * filteredLines.length)][1];
                 
                 // Remplacement des dates avec format français
-                let finalMail = randomLine
-                    .replace("[date de début]", formatDate(startDate.value))
-                    .replace("[date de fin]", formatDate(endDate.value));
+                let finalMail = `Bonjour,<br><br>` + // Ajout de "Bonjour," avec un saut de ligne
+                    randomLine
+                        .replace("[date de début]", formatDate(startDate.value))
+                        .replace("[date de fin]", formatDate(endDate.value));
                 
                 // Si locationToggle est activé, ajouter la destination
                 if (locationToggle.checked && location.value) {
@@ -1443,7 +1444,7 @@ function loadMailContent() {
                 } else {
                     finalMail = finalMail.replace("[destination]", "");
                 }
-
+    
                 // Si backupToggle est activé, ajouter le backup
                 if (backupToggle.checked && nameBackUp.value) {
                     const backupLines = lines.filter(line => line[0] === "backup");
@@ -1459,18 +1460,18 @@ function loadMailContent() {
                     
                     finalMail += ` ${backupText}`;
                 }
-
+    
                 // Ajouter une conclusion
                 const conclusionLines = lines.filter(line => line[0] === "conclusion");
                 const randomConclusionLine = conclusionLines[Math.floor(Math.random() * conclusionLines.length)][1];
                 finalMail += ` ${randomConclusionLine}`;
-
+    
                 // Si signatureToggle est activé, ajouter la signature
                 if (signatureToggle.checked && signature.value) {
                     finalMail += `<br><br>${signature.value}`;
                     sender.textContent = signature.value;
                 }
-
+    
                 // Mettre à jour le contenu du mail
                 mailContent.innerHTML = finalMail;
             });
