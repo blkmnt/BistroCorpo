@@ -795,6 +795,8 @@ textarea:focus {
 
 .mail-infoSubtitle {
     font-size: 0.75rem;
+    display: contents;
+    font-weight: normal;
 }
 
 select.mail-inputs {
