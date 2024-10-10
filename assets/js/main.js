@@ -1449,10 +1449,12 @@ function loadMailContent() {
                     const backupLines = lines.filter(line => line[0] === "backup");
                     const randomBackupLine = backupLines[Math.floor(Math.random() * backupLines.length)][1];
                     let backupText = randomBackupLine.replace("[backup]", nameBackUp.value);
+                    
+                    // Vérifier si infoBackUp est renseigné et l'ajouter avant le point
                     if (infoBackUp.value) {
                         backupText = backupText.replace("[backup]", `${nameBackUp.value} (${infoBackUp.value})`);
                     }
-                    finalMail += ` ${backupText}`;
+                    finalMail += ` ${backupText}`; // Ajouter le texte de backup
                 }
 
                 // Ajouter une conclusion
@@ -1472,10 +1474,16 @@ function loadMailContent() {
     };
 
     // Gérer le clic sur le bouton "Rédiger"
-    document.getElementById("mail").addEventListener("click", generateMailContent);
+    document.getElementById("mail").addEventListener("click", function(event) {
+        event.preventDefault(); // Empêcher le comportement par défaut
+        generateMailContent();
+    });
 
     // Gérer le clic sur le bouton "Un autre mail"
-    document.getElementById("mailNew").addEventListener("click", generateMailContent);
+    document.getElementById("mailNew").addEventListener("click", function(event) {
+        event.preventDefault(); // Empêcher le comportement par défaut
+        generateMailContent();
+    });
 
     // Fonctionnalité pour le bouton "clear"
     const clearButton = document.getElementById("clearButton");
@@ -1507,10 +1515,10 @@ function loadMailContent() {
     // Fonctionnalité pour le bouton "share"
     const shareButton = document.getElementById("shareButton");
     shareButton.addEventListener("click", function () {
-        const textToShare = mailContent.innerText;
+        const formattedTextToShare = `Message d'absence by Bistro Corpo\n\n${textToShare}\n\n${window.location.href}`;
         if (navigator.share) {
             navigator.share({
-                title: 'Message d\'absence',
+                title: 'Message d\'absence by Bistro Corpo',
                 text: textToShare,
                 url: window.location.href,
             })
