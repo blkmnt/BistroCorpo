@@ -1500,7 +1500,7 @@ function loadMailContent() {
         nameBackUp.value = "";
         infoBackUp.value = "";
         signature.value = "";
-        mailContent.innerHTML = "Renseignez les informations dans le formulaire et cliquez sur \"Rédiger\"";
+        mailContent.innerHTML = "1. Renseignez <b>Mon Type de Congés</b> et <b>Ma Période d'Absence</b> dans le formulaire<br><br>2. Cliquez sur <b>Rédiger</b>";
     
         // Animation pour le bouton clear
         clearButton.classList.add("selected");
