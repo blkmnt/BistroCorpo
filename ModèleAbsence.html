@@ -29,7 +29,7 @@
                         <div class="mail-info">
                             <div class="mail-infoTitle">Mon Type de Congés</div>
                             <div class="mail-infoType">
-                                <select class="mail-inputs mail-inputs-large" id="Dropdown">
+                                <select class="mail-inputs mail-inputs-large" id="typeDropdown">
                                     <option value="soleil">Au soleil</option>
                                     <option value="mer">À la mer</option>
                                     <option value="campagne">À la campagne</option>
@@ -59,13 +59,13 @@
                                 </label>
                             </div>
                             <div class="mail-infoLocation" id="mail-infoLocation" style="display: none;">
-                                <select class="mail-inputs" id="Dropdown">
+                                <select class="mail-inputs" id="preLocationDropdown">
                                     <option value="à">À</option>
                                     <option value="en">En</option>
                                     <option value="au">Au</option>
                                     <option value="aux">Aux</option>
                                 </select>
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez la destination">
+                                <input class="mail-inputs" id="location" maxlength="100" placeholder="Indiquez la destination">
                             </div>
                         </div>
                         <div class="mail-info">
@@ -80,8 +80,8 @@
                                 </label>
                             </div>
                             <div class="mail-infoBackUp" id="mail-infoBackUp" style="display: none;">
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez son nom">
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez son mail ou n° de tel">
+                                <input class="mail-inputs" id="nameBackUp" maxlength="100" placeholder="Indiquez son nom">
+                                <input class="mail-inputs" id="infoBackUp" maxlength="100" placeholder="Indiquez son mail ou n° de tel">
                             </div>
                         </div>
                         <div class="mail-info">
@@ -96,7 +96,7 @@
                                 </label>
                             </div>
                             <div class="mail-infoSignature" id="mail-infoSignature" style="display: none;">
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez votre nom">
+                                <input class="mail-inputs" id="signature" maxlength="100" placeholder="Indiquez votre nom">
                             </div>
                         </div>
                         <div class="input-footer">
