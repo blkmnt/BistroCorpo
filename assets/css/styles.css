@@ -770,11 +770,12 @@ textarea:focus {
     margin-bottom: 1.5rem;
 }
 
-.mail-infoLocation, .mail-infoDates, .mail-infoBackUp, .mail-infoSignature {
+.mail-infoType, .mail-infoLocation, .mail-infoDates, .mail-infoBackUp, .mail-infoSignature {
     display: flex;
     gap: 0.5rem;
     width: 100%;
     align-items: center;
+    margin-top: 0.5rem;
 }
 
 .mail-infoLocation, .mail-infoDates {
@@ -787,10 +788,13 @@ textarea:focus {
 
 .mail-infoTitle {
     font-weight: 700;
-    margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.mail-infoSubtitle {
+    font-size: 0.75rem;
 }
 
 select.mail-inputs {
