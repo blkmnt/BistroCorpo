@@ -28,13 +28,15 @@
                 <div class="input-block">
                         <div class="mail-info">
                             <div class="mail-infoTitle">Type congés</div>
-                            <select class="mail-inputs mail-inputs-large" id="Dropdown">
-                                <option value="" disabled selected></option>
-                                <option value="soleil">Au soleil</option>
-                                <option value="mer">À la mer</option>
-                                <option value="campagne">À la campagne</option>
-                                <option value="montagne">À la montagne</option>
-                            </select>
+                            <div class="mail-infoType">
+                                <select class="mail-inputs mail-inputs-large" id="Dropdown">
+                                    <option value="" disabled selected></option>
+                                    <option value="soleil">Au soleil</option>
+                                    <option value="mer">À la mer</option>
+                                    <option value="campagne">À la campagne</option>
+                                    <option value="montagne">À la montagne</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="mail-info">
                             <div class="mail-infoTitle">Période</div>
@@ -52,6 +54,9 @@
                                     <input type="checkbox" id="locationToggle">
                                     <span class="slider slider-yellow"></span>
                                 </label>
+                            </div>
+                            <div class="mail-infoSubtitle">
+                                (Pour flexer ou pour faire découvrir un petit village breton)
                             </div>
                             <div class="mail-infoLocation" id="mail-infoLocation" style="display: none;">
                                 <select class="mail-inputs" id="Dropdown">
@@ -72,6 +77,9 @@
                                     <span class="slider slider-yellow"></span>
                                 </label>
                             </div>
+                            <div class="mail-infoSubtitle">
+                                (Pour refiler votre boulot)
+                            </div>
                             <div class="mail-infoBackUp" id="mail-infoBackUp" style="display: none;">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer coordonnée">
@@ -84,6 +92,9 @@
                                     <input type="checkbox" id="signatureToggle">
                                     <span class="slider slider-yellow"></span>
                                 </label>
+                            </div>
+                            <div class="mail-infoSubtitle">
+                                (Pour la politesse)
                             </div>
                             <div class="mail-infoSignature" id="mail-infoSignature" style="display: none;">
                                 <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
