@@ -27,19 +27,20 @@
             <div class="mail-section">
                 <div class="input-block">
                         <div class="mail-info">
-                            <div class="mail-infoTitle">Type congés</div>
+                            <div class="mail-infoTitle">Mon Type de Congés</div>
                             <div class="mail-infoType">
                                 <select class="mail-inputs mail-inputs-large" id="Dropdown">
-                                    <option value="" disabled selected></option>
                                     <option value="soleil">Au soleil</option>
                                     <option value="mer">À la mer</option>
                                     <option value="campagne">À la campagne</option>
                                     <option value="montagne">À la montagne</option>
+                                    <option value="maison">Chez moi</option>
+                                    <option value="formation">En formation</option>
                                 </select>
                             </div>
                         </div>
                         <div class="mail-info">
-                            <div class="mail-infoTitle">Période</div>
+                            <div class="mail-infoTitle">Ma Période d'Absence</div>
                             <div class="mail-infoDates">
                                 <label for="startDate">Du</label>
                                 <input class="mail-inputs" type="date" id="startDate" name="startDate">
@@ -49,7 +50,7 @@
                         </div>
                         <div class="mail-info">
                             <div class="mail-infoTitle">
-                                Lieu
+                                Ma Destination
                                 <div class="mail-infoSubtitle">
                                     (Pour flexer auprès des collègues)
                                 </div>
@@ -60,18 +61,17 @@
                             </div>
                             <div class="mail-infoLocation" id="mail-infoLocation" style="display: none;">
                                 <select class="mail-inputs" id="Dropdown">
-                                    <option value="" disabled selected></option>
                                     <option value="à">À</option>
                                     <option value="en">En</option>
                                     <option value="au">Au</option>
                                     <option value="aux">Aux</option>
                                 </select>
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer le lieu">
+                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez la destination">
                             </div>
                         </div>
                         <div class="mail-info">
                             <div class="mail-infoTitle">
-                                Back-up
+                                Mon Back-Up
                                 <div class="mail-infoSubtitle">
                                     (Pour refiler votre boulot)
                                 </div>
@@ -81,13 +81,13 @@
                                 </label>
                             </div>
                             <div class="mail-infoBackUp" id="mail-infoBackUp" style="display: none;">
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer nom">
-                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquer coordonnée">
+                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez son nom">
+                                <input class="mail-inputs" id="inputText" maxlength="100" placeholder="Indiquez son mail ou son numéro de tel">
                             </div>
                         </div>
                         <div class="mail-info">
                             <div class="mail-infoTitle">
-                                Signature
+                                Ma Signature
                                 <div class="mail-infoSubtitle">
                                     (Pour la politesse)
                                 </div>
@@ -131,7 +131,7 @@
                         <div class="subline-separator">
                         </div>
                         <div class="mail-content">
-                            Renseigner les informations dans le formulaire
+                            Renseignez les informations dans le formulaire et cliquez sur "Rédiger"
                         </div>
                         <div class="subline-separator">
                         </div>
