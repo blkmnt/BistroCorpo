@@ -1090,8 +1090,6 @@ function displayCompatibility(sign1, sign2) {
 }
 
 
-
-
 // Appel de la fonction pour charger et configurer les grilles astro-sign
 loadAndPopulateAstroGrids();
 
@@ -1172,30 +1170,38 @@ function initBullshitTranslator() {
 
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
-            const textToCopy = outputText.textContent;
-            if (textToCopy) {
-                navigator.clipboard.writeText(textToCopy)
-                    .then(() => {
-                        // Animation pour le statut selected
-                        flashButton(copyButton); // Animation pour le statut selected
-        
-                        // Remplacer l'image du bouton par une image de "check"
-                        const checkImage = document.createElement("img");
-                        checkImage.src = "assets/images/icons/check.png"; 
-                        checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
-                        copyButton.innerHTML = ""; // Supprimer l'image actuelle
-                        copyButton.appendChild(checkImage); // Ajouter l'image "check"
-        
-                        // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
-                        setTimeout(() => {
-                            copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
-                        }, 1000);
-                    })
-                    .catch(err => {
-                        console.error("Erreur lors de la copie :", err);
-                    });
-            }
-        });
+        const textToCopy = outputText.textContent;
+        const siteName = "Traduction by Bistro Corpo"; // Nom du site
+        const siteLink = "https://www.bistrocorpo.fr/BullshitTrad.html"; // Lien de la page
+    
+        // Vérifier si le texte à copier est valide
+        if (textToCopy) {
+            // Concaténer le texte à copier avec le nom et le lien du site
+            const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+    
+            navigator.clipboard.writeText(fullTextToCopy)
+                .then(() => {
+                    // Animation pour le statut selected
+                    flashButton(copyButton); // Animation pour le statut selected
+    
+                    // Remplacer l'image du bouton par une image de "check"
+                    const checkImage = document.createElement("img");
+                    checkImage.src = "assets/images/icons/check.png"; 
+                    checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                    copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                    copyButton.appendChild(checkImage); // Ajouter l'image "check"
+    
+                    // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
+                    setTimeout(() => {
+                        copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                    }, 1000);
+                })
+                .catch(err => {
+                    console.error("Erreur lors de la copie :", err);
+                });
+        }
+    });
+
 
         // Gestion du bouton de partage
         shareButton.addEventListener("click", function () {
@@ -1293,33 +1299,41 @@ function loadCompliments() {
             const shareButton = document.getElementById('shareButton'); // Bouton partager
 
             copyButton.addEventListener("click", function () {
-                const textToCopy = outputText.textContent;
-                if (textToCopy && textToCopy !== 'Choisissez une qualité...') {
-                    navigator.clipboard.writeText(textToCopy)
-                        .then(() => {
-                            // Animation pour le statut selected
-                            copyButton.classList.add("selected");
-                            setTimeout(() => {
-                                copyButton.classList.remove("selected");
-                            }, 1000);
+            const textToCopy = outputText.textContent;
+            const siteName = "Compliment by Bistro Corpo"; // Nom du site
+            const siteLink = "https://www.bistrocorpo.fr/FlatterieSurprenante.html"; // Lien de la page
+        
+            // Vérifier si le texte à copier est valide
+            if (textToCopy && textToCopy !== 'Choisissez une qualité...') {
+                // Concaténer le texte à copier avec le nom et le lien du site
+                const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+        
+                navigator.clipboard.writeText(fullTextToCopy)
+                    .then(() => {
+                        // Animation pour le statut selected
+                        copyButton.classList.add("selected");
+                        setTimeout(() => {
+                            copyButton.classList.remove("selected");
+                        }, 1000);
+        
+                        // Remplacer l'image du bouton par une image de "check"
+                        const checkImage = document.createElement("img");
+                        checkImage.src = "assets/images/icons/check.png"; 
+                        checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                        copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                        copyButton.appendChild(checkImage); // Ajouter l'image "check"
+        
+                        // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
+                        setTimeout(() => {
+                            copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
+                        }, 1000);
+                    })
+                    .catch(err => {
+                        console.error("Erreur lors de la copie :", err);
+                    });
+            }
+        });
 
-                            // Remplacer l'image du bouton par une image de "check"
-                            const checkImage = document.createElement("img");
-                            checkImage.src = "assets/images/icons/check.png"; 
-                            checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
-                            copyButton.innerHTML = ""; // Supprimer l'image actuelle
-                            copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
-                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
-                            setTimeout(() => {
-                                copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
-                            }, 1000);
-                        })
-                        .catch(err => {
-                            console.error("Erreur lors de la copie :", err);
-                        });
-                }
-            });
 
             // Ajout du gestionnaire d'événements pour le bouton de partage
             shareButton.addEventListener('click', function () {
@@ -1513,7 +1527,13 @@ function loadMailContent() {
     const copyButton = document.getElementById("copyButton");
     copyButton.addEventListener("click", function () {
         const textToCopy = mailContent.innerText;
-        navigator.clipboard.writeText(textToCopy)
+        const siteName = "Message d'absence by Bistro Corpo"; // Nom du site
+        const siteLink = "https://www.bistrocorpo.fr/Mod%C3%A8leAbsence.html"; // Lien de la page
+    
+        // Concaténer le texte à copier avec le nom et le lien du site
+        const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+    
+        navigator.clipboard.writeText(fullTextToCopy)
             .then(() => {
                 // Animation pour le bouton de copie
                 copyButton.classList.add("selected");
@@ -1533,6 +1553,7 @@ function loadMailContent() {
             })
             .catch(err => console.error("Erreur lors de la copie:", err));
     });
+
     
     // Fonctionnalité pour le bouton "share"
     const shareButton = document.getElementById("shareButton");
