@@ -1526,13 +1526,13 @@ function loadMailContent() {
                         backupText = backupText.replace(nameBackUp.value, `${nameBackUp.value} (${infoBackUp.value})`);
                     }
                     
-                    finalMail += ` ${backupText}`;
+                    finalMail += `<br><br>${backupText}`;
                 }
     
                 // Ajouter une conclusion
                 const conclusionLines = lines.filter(line => line[0] === "conclusion");
                 const randomConclusionLine = conclusionLines[Math.floor(Math.random() * conclusionLines.length)][1];
-                finalMail += ` ${randomConclusionLine}`;
+                finalMail += `<br><br>${randomConclusionLine}`;
     
                 // Si signatureToggle est activé, ajouter la signature
                 if (signatureToggle.checked && signature.value) {
