@@ -1448,13 +1448,16 @@ function loadMailContent() {
                 if (backupToggle.checked && nameBackUp.value) {
                     const backupLines = lines.filter(line => line[0] === "backup");
                     const randomBackupLine = backupLines[Math.floor(Math.random() * backupLines.length)][1];
+                
+                    // Remplacer [backup] par le nom du backup
                     let backupText = randomBackupLine.replace("[backup]", nameBackUp.value);
                     
-                    // Vérifier si infoBackUp est renseigné et l'ajouter avant le point
+                    // Vérifier si les coordonnées sont renseignées
                     if (infoBackUp.value) {
-                        backupText = backupText.replace("[backup]", `${nameBackUp.value} (${infoBackUp.value})`);
+                        backupText = backupText.replace(nameBackUp.value, `${nameBackUp.value} (${infoBackUp.value})`);
                     }
-                    finalMail += ` ${backupText}`; // Ajouter le texte de backup
+                    
+                    finalMail += ` ${backupText}`;
                 }
 
                 // Ajouter une conclusion
@@ -1488,6 +1491,7 @@ function loadMailContent() {
     // Fonctionnalité pour le bouton "clear"
     const clearButton = document.getElementById("clearButton");
     clearButton.addEventListener("click", function() {
+        // Réinitialiser les valeurs des champs
         typeDropdown.value = "default";
         startDate.value = "";
         endDate.value = "";
@@ -1496,38 +1500,58 @@ function loadMailContent() {
         infoBackUp.value = "";
         signature.value = "";
         mailContent.innerHTML = "Renseignez les informations dans le formulaire et cliquez sur \"Rédiger\"";
+    
+        // Animation pour le bouton clear
+        clearButton.classList.add("selected");
+        setTimeout(() => {
+            clearButton.classList.remove("selected");
+        }, 1000);
     });
-
+    
     // Fonctionnalité pour le bouton "copy"
     const copyButton = document.getElementById("copyButton");
     copyButton.addEventListener("click", function () {
         const textToCopy = mailContent.innerText;
         navigator.clipboard.writeText(textToCopy)
             .then(() => {
+                // Animation pour le bouton de copie
                 copyButton.classList.add("selected");
+                
+                // Remplacer l'image du bouton par une image de "check"
+                const checkImage = document.createElement("img");
+                checkImage.src = "assets/images/icons/check.png"; 
+                checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
+                copyButton.innerHTML = ""; // Supprimer l'image actuelle
+                copyButton.appendChild(checkImage); // Ajouter l'image "check"
+    
+                // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                 setTimeout(() => {
+                    copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">'; // Remettre l'image d'origine
                     copyButton.classList.remove("selected");
                 }, 1000);
             })
             .catch(err => console.error("Erreur lors de la copie:", err));
     });
-
+    
     // Fonctionnalité pour le bouton "share"
     const shareButton = document.getElementById("shareButton");
     shareButton.addEventListener("click", function () {
-        const formattedTextToShare = `Message d'absence by Bistro Corpo\n\n${textToShare}\n\n${window.location.href}`;
+        const textToShare = mailContent.innerText;
         if (navigator.share) {
             navigator.share({
                 title: 'Message d\'absence by Bistro Corpo',
                 text: textToShare,
                 url: window.location.href,
             })
-            .then(() => console.log('Message partagé avec succès'))
+            .then(() => {
+                console.log('Message partagé avec succès');
+            })
             .catch(err => console.error('Erreur lors du partage:', err));
         } else {
             alert('Le partage n’est pas supporté sur ce navigateur.');
         }
     });
+
 }
 
 
