@@ -1387,4 +1387,129 @@ function setupToggleMailSections() {
     toggleSection(signatureToggle, signatureSection);
 }
 
+function loadMailContent() {
+    // Récupérer les éléments du DOM
+    const typeDropdown = document.getElementById("typeDropdown");
+    const startDate = document.getElementById("startDate");
+    const endDate = document.getElementById("endDate");
+    const locationToggle = document.getElementById("locationToggle");
+    const backupToggle = document.getElementById("backupToggle");
+    const signatureToggle = document.getElementById("signatureToggle");
+
+    const location = document.getElementById("location");
+    const preLocationDropdown = document.getElementById("preLocationDropdown");
+    const nameBackUp = document.getElementById("nameBackUp");
+    const infoBackUp = document.getElementById("infoBackUp");
+    const signature = document.getElementById("signature");
+    
+    const mailContent = document.getElementById("mailContent");
+    const sender = document.getElementById("sender");
+
+    // Fonction pour générer le contenu du mail
+    const generateMailContent = () => {
+        // Vérifier que les champs obligatoires sont remplis
+        if (typeDropdown.value === "default" || !startDate.value || !endDate.value) {
+            mailContent.innerHTML = "Renseignez les informations dans le formulaire et cliquez sur \"Rédiger\"";
+            return;
+        }
+
+        // Lire le CSV et sélectionner les lignes correspondant au type de congé
+        fetch("assets/csv/MailAbsence_liste.csv")
+            .then(response => response.text())
+            .then(data => {
+                const lines = data.split("\n").map(line => line.split(";"));
+                
+                // Filtrer les lignes correspondant au type sélectionné
+                const filteredLines = lines.filter(line => line[0] === typeDropdown.value);
+                const randomLine = filteredLines[Math.floor(Math.random() * filteredLines.length)][1];
+                
+                // Remplacement des dates
+                let finalMail = randomLine
+                    .replace("[date de début]", startDate.value)
+                    .replace("[date de fin]", endDate.value);
+                
+                // Si locationToggle est activé, ajouter la destination
+                if (locationToggle.checked && location.value) {
+                    finalMail = finalMail.replace("[destination]", `${preLocationDropdown.value} ${location.value}`);
+                } else {
+                    finalMail = finalMail.replace("[destination]", "");
+                }
+
+                // Si backupToggle est activé, ajouter le backup
+                if (backupToggle.checked && nameBackUp.value) {
+                    const backupLines = lines.filter(line => line[0] === "backup");
+                    const randomBackupLine = backupLines[Math.floor(Math.random() * backupLines.length)][1];
+                    let backupText = randomBackupLine.replace("[backup]", nameBackUp.value);
+                    if (infoBackUp.value) {
+                        backupText += ` (${infoBackUp.value})`;
+                    }
+                    finalMail += ` ${backupText}`;
+                }
+
+                // Ajouter une conclusion
+                const conclusionLines = lines.filter(line => line[0] === "conclusion");
+                const randomConclusionLine = conclusionLines[Math.floor(Math.random() * conclusionLines.length)][1];
+                finalMail += ` ${randomConclusionLine}`;
+
+                // Si signatureToggle est activé, ajouter la signature
+                if (signatureToggle.checked && signature.value) {
+                    finalMail += `<br><br>${signature.value}`;
+                    sender.textContent = signature.value;
+                }
+
+                // Mettre à jour le contenu du mail
+                mailContent.innerHTML = finalMail;
+            });
+    };
+
+    // Gérer le clic sur le bouton "Rédiger"
+    document.getElementById("mail").addEventListener("click", generateMailContent);
+
+    // Gérer le clic sur le bouton "Un autre mail"
+    document.getElementById("mailNew").addEventListener("click", generateMailContent);
+
+    // Fonctionnalité pour le bouton "clear"
+    const clearButton = document.getElementById("clearButton");
+    clearButton.addEventListener("click", function() {
+        typeDropdown.value = "default";
+        startDate.value = "";
+        endDate.value = "";
+        location.value = "";
+        nameBackUp.value = "";
+        infoBackUp.value = "";
+        signature.value = "";
+        mailContent.innerHTML = "Renseignez les informations dans le formulaire et cliquez sur \"Rédiger\"";
+    });
+
+    // Fonctionnalité pour le bouton "copy"
+    const copyButton = document.getElementById("copyButton");
+    copyButton.addEventListener("click", function () {
+        const textToCopy = mailContent.innerText;
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                copyButton.classList.add("selected");
+                setTimeout(() => {
+                    copyButton.classList.remove("selected");
+                }, 1000);
+            })
+            .catch(err => console.error("Erreur lors de la copie:", err));
+    });
+
+    // Fonctionnalité pour le bouton "share"
+    const shareButton = document.getElementById("shareButton");
+    shareButton.addEventListener("click", function () {
+        const textToShare = mailContent.innerText;
+        if (navigator.share) {
+            navigator.share({
+                title: 'Message d\'absence',
+                text: textToShare,
+                url: window.location.href,
+            })
+            .then(() => console.log('Message partagé avec succès'))
+            .catch(err => console.error('Erreur lors du partage:', err));
+        } else {
+            alert('Le partage n’est pas supporté sur ce navigateur.');
+        }
+    });
+}
 
