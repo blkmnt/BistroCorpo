@@ -148,22 +148,29 @@ function loadChallenges() {
             // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
+                const siteName = "Défi by Bistro Corpo"; // Nom du site
+                const siteLink = "https://www.bistrocorpo.fr/MissionFun.html"; // Lien de la page
+            
+                // Vérifier si le texte à copier est valide
                 if (textToCopy) {
-                    navigator.clipboard.writeText(textToCopy)
+                    // Concaténer le texte à copier avec le nom et le lien du site
+                    const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+            
+                    navigator.clipboard.writeText(fullTextToCopy)
                         .then(() => {
                             // Animation pour le statut selected
                             copyButton.classList.add("selected");
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+            
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
+            
                             // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
@@ -174,6 +181,7 @@ function loadChallenges() {
                         });
                 }
             });
+
 
             // Gestion du bouton de partage
             shareButton.addEventListener("click", function () {
@@ -245,22 +253,29 @@ function loadRandomMeetingTheme() {
             // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
+                const siteName = "ODJ de Réunion by Bistro Corpo"; // Nom du site
+                const siteLink = "https://www.bistrocorpo.fr/RéunionsSurréalistes.html"; // Lien de la page
+            
+                // Vérifier si le texte à copier est valide
                 if (textToCopy) {
-                    navigator.clipboard.writeText(textToCopy)
+                    // Concaténer le texte à copier avec le nom et le lien du site
+                    const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+            
+                    navigator.clipboard.writeText(fullTextToCopy)
                         .then(() => {
                             // Animation pour le statut selected
                             copyButton.classList.add("selected");
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+            
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
+            
                             // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
@@ -271,6 +286,7 @@ function loadRandomMeetingTheme() {
                         });
                 }
             });
+
 
             // Gestion du bouton de partage
             shareButton.addEventListener("click", function () {
@@ -341,23 +357,30 @@ function loadRandomEchappatoire() {
             // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
+                const siteName = "Excuse by Bistro Corpo"; // Nom du site
+                const siteLink = "https://www.bistrocorpo.fr/Echappatoire.html"; // Lien de la page
+            
+                // Vérifier si le texte à copier est valide
                 if (textToCopy) {
-                    navigator.clipboard.writeText(textToCopy)
+                    // Concaténer le texte à copier avec le nom et le lien du site
+                    const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+            
+                    navigator.clipboard.writeText(fullTextToCopy)
                         .then(() => {
                             // Animation pour le statut selected
                             copyButton.classList.add("selected");
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+            
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
-                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+            
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                             }, 1000);
@@ -437,23 +460,30 @@ function loadRandomUrgentTask() {
             // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
+                const siteName = "Tâche Urgente by Bistro Corpo"; // Nom du site
+                const siteLink = "https://www.bistrocorpo.fr/UrgenceEtrange.html"; // Lien de la page
+            
+                // Vérifier si le texte à copier est valide
                 if (textToCopy) {
-                    navigator.clipboard.writeText(textToCopy)
+                    // Concaténer le texte à copier avec le nom et le lien du site
+                    const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+            
+                    navigator.clipboard.writeText(fullTextToCopy)
                         .then(() => {
                             // Animation pour le statut selected
                             copyButton.classList.add("selected");
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+            
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
-                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+            
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                             }, 1000);
@@ -533,23 +563,30 @@ function loadRandomJustification() {
             // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
                 const textToCopy = outputText.textContent;
+                const siteName = "Justification by Bistro Corpo"; // Nom du site
+                const siteLink = "https://www.bistrocorpo.fr/JustificationCréative.html"; // Lien de la page
+            
+                // Vérifier si le texte à copier est valide
                 if (textToCopy) {
-                    navigator.clipboard.writeText(textToCopy)
+                    // Concaténer le texte à copier avec le nom et le lien du site
+                    const fullTextToCopy = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+            
+                    navigator.clipboard.writeText(fullTextToCopy)
                         .then(() => {
                             // Animation pour le statut selected
                             copyButton.classList.add("selected");
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+            
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
-                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+            
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                             }, 1000);
@@ -635,10 +672,16 @@ function loadRandomDistinction() {
 
             // Gestion du bouton de copie
             copyButton.addEventListener("click", function () {
-                const titleToCopy = titleElement.textContent;
-                const descriptionToCopy = descriptionElement.textContent;
+                const titleToCopy = titleElement.textContent; // Récupérer le titre
+                const descriptionToCopy = descriptionElement.textContent; // Récupérer la description
+                const siteName = "Award by Bistro Corpo"; // Nom du site
+                const siteLink = "https://www.bistrocorpo.fr/DistinctionsAbsurdes.html"; // Lien de la page
+            
+                // Vérifier si le titre et la description sont valides
                 if (titleToCopy && descriptionToCopy) {
-                    const textToCopy = `${titleToCopy} - ${descriptionToCopy}`;
+                    // Concaténer le titre, la description, le nom et le lien du site
+                    const textToCopy = `${titleToCopy} - ${descriptionToCopy}\n\n${siteName}\n${siteLink}`;
+            
                     navigator.clipboard.writeText(textToCopy)
                         .then(() => {
                             // Animation pour le statut selected
@@ -646,15 +689,15 @@ function loadRandomDistinction() {
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+            
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
-                            // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+            
+                            // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                             }, 1000);
@@ -849,23 +892,29 @@ function setupAstroSelection(astroData) {
         // Gestion du bouton de copie
         copyButton.addEventListener("click", function() {
             const textToCopy = descriptionField.textContent; // Récupérer le texte à copier
+            const siteName = "Astrologie by Bistro Corpo"; // Nom du site
+            const siteLink = "https://www.bistrocorpo.fr/AstroPro.html"; // Lien de la page
+        
             if (textToCopy) {
-                navigator.clipboard.writeText(textToCopy)
+                // Concaténer le texte avec le nom du site et le lien
+                const finalText = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+        
+                navigator.clipboard.writeText(finalText)
                     .then(() => {
                         // Animation pour le statut selected
                         copyButton.classList.add("selected");
                         setTimeout(() => {
                             copyButton.classList.remove("selected");
                         }, 1000);
-
+        
                         // Remplacer l'image du bouton par une image de "check"
                         const checkImage = document.createElement("img");
                         checkImage.src = "assets/images/icons/check.png"; 
                         checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                         copyButton.innerHTML = ""; // Supprimer l'image actuelle
                         copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
-                        // Réinitialiser le bouton après 750 ms pour revenir à l'image de copie
+        
+                        // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                         setTimeout(() => {
                             copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
                         }, 1000);
@@ -1027,21 +1076,27 @@ function displayCompatibility(sign1, sign2) {
                 // Gestion du bouton de copie
                 copyButton.addEventListener("click", function() {
                     const textToCopy = `Compatibilité entre ${sign1} et ${sign2}: ${compatibilityInfo.compatibilite} (${score}%) - ${compatibilityInfo.description}`;
-                    navigator.clipboard.writeText(textToCopy)
+                    const siteName = "Compatibilité Astrologique by Bistro Corpo"; // Nom du site
+                    const siteLink = "https://www.bistrocorpo.fr/AstroPro.html"; // Lien de la page
+                
+                    // Concaténer le texte avec le nom du site et le lien
+                    const finalText = `${textToCopy}\n\n${siteName}\n${siteLink}`;
+                
+                    navigator.clipboard.writeText(finalText)
                         .then(() => {
                             // Animation pour le statut selected
                             copyButton.classList.add("selected");
                             setTimeout(() => {
                                 copyButton.classList.remove("selected");
                             }, 1000);
-
+                
                             // Remplacer l'image du bouton par une image de "check"
                             const checkImage = document.createElement("img");
                             checkImage.src = "assets/images/icons/check.png"; 
                             checkImage.alt = "Copié !"; // Ajoutez un texte alternatif si nécessaire
                             copyButton.innerHTML = ""; // Supprimer l'image actuelle
                             copyButton.appendChild(checkImage); // Ajouter l'image "check"
-
+                
                             // Réinitialiser le bouton après 1000 ms pour revenir à l'image de copie
                             setTimeout(() => {
                                 copyButton.innerHTML = '<img src="assets/images/icons/copy.png" alt="Copier">';
@@ -1051,7 +1106,6 @@ function displayCompatibility(sign1, sign2) {
                             console.error("Erreur lors de la copie :", err);
                         });
                 });
-
                 // Gestion du bouton de partage
                 shareButton.addEventListener("click", function() {
                     const textToShare = shareButton.dataset.text; // Récupérer le texte à partager
