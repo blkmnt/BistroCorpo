@@ -1417,7 +1417,20 @@ function loadMailContent() {
     // Fonction pour générer le contenu du mail
     const generateMailContent = () => {
         // Vérifier que les champs obligatoires sont remplis
-        if (typeDropdown.value === "default" || !startDate.value || !endDate.value) {
+        const requiredFields = [typeDropdown, startDate, endDate]; // Liste des champs obligatoires
+        let hasEmptyFields = false;
+    
+        requiredFields.forEach(field => {
+            if (field.value === "default" || !field.value) {
+                hasEmptyFields = true;
+                field.classList.add("mail-inputs:focus"); // Ajouter la classe de focus
+                setTimeout(() => {
+                    field.classList.remove("mail-inputs:focus"); // Retirer la classe après un délai
+                }, 1000); // Ajustez le délai selon vos besoins
+            }
+        });
+    
+        if (hasEmptyFields) {
             mailContent.innerHTML = "Renseignez les informations dans le formulaire et cliquez sur \"Rédiger\"";
             return;
         }
