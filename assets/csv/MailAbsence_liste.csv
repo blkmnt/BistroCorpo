@@ -158,23 +158,23 @@ montagne;Je suis occupé à rencontrer des gens formidables sur les pistes [dest
 montagne;Je savoure la tranquillité des montagnes enneigées [destination] du [date de début] au [date de fin]. Je reviendrai reposé et motivé !
 montagne;Je suis en train de profiter des plaisirs de la glisse [destination] du [date de début] au [date de fin]. À mon retour, je serai ressourcé et plein de vitalité !
 montagne;Je suis dans un monde de douceur enneigée [destination] du [date de début] au [date de fin]. Attendez-vous à un retour avec le sourire et des souvenirs plein la tête !
-étranger;Je m'envole pour [destination] du [date de début] au [date de fin]. Mes emails seront en pause pendant que je découvre le monde !
-étranger;Je pars à l'aventure à [destination] du [date de début] au [date de fin]. Je ne pourrai pas consulter mes emails en explorant de nouveaux horizons !
-étranger;Je suis en voyage à [destination] du [date de début] au [date de fin]. Les emails devront attendre que je revienne à la réalité !
-étranger;Je m'évade à [destination] du [date de début] au [date de fin]. Pas de Wi-Fi ici, je me concentre sur les découvertes !
-étranger;Je suis en pleine immersion à [destination] du [date de début] au [date de fin]. Mes emails seront déconnectés pour un temps !
-étranger;Je me lance dans une escapade à [destination] du [date de début] au [date de fin]. Aucune connexion, juste des souvenirs à créer !
-étranger;Je découvre [destination] du [date de début] au [date de fin]. Mes emails ne seront pas les bienvenus pendant cette aventure !
+étranger;Je m'envole [destination] du [date de début] au [date de fin]. Mes emails seront en pause pendant que je découvre le monde !
+étranger;Je pars à l'aventure [destination] du [date de début] au [date de fin]. Je ne pourrai pas consulter mes emails en explorant de nouveaux horizons !
+étranger;Je suis en voyage [destination] du [date de début] au [date de fin]. Les emails devront attendre que je revienne à la réalité !
+étranger;Je m'évade [destination] du [date de début] au [date de fin]. Pas de Wi-Fi ici, je me concentre sur les découvertes !
+étranger;Je suis en pleine immersion [destination] du [date de début] au [date de fin]. Mes emails seront déconnectés pour un temps !
+étranger;Je me lance dans une escapade [destination] du [date de début] au [date de fin]. Aucune connexion, juste des souvenirs à créer !
+étranger;Je pars en pleine découverte [destination] du [date de début] au [date de fin]. Mes emails ne seront pas les bienvenus pendant cette aventure !
 étranger;Je suis en voyage [destination] du [date de début] au [date de fin]. Les emails attendront mon retour, promis !
 étranger;Je profite de chaque instant [destination] du [date de début] au [date de fin]. Pas de temps pour les emails, juste l'aventure !
 étranger;Je pars à la découverte [destination] du [date de début] au [date de fin]. Mes emails prendront des vacances eux aussi !
-étranger;Je suis en train d'explorer [destination] du [date de début] au [date de fin]. Pas d'emails à traiter, juste des paysages à admirer !
+étranger;Je pars en exploration [destination] du [date de début] au [date de fin]. Pas d'emails à traiter, juste des paysages à admirer !
 étranger;Je me rends [destination] du [date de début] au [date de fin]. Je ne serai pas disponible par email, mais je vous enverrai des cartes postales !
 étranger;Je m'immerge dans une nouvelle culture [destination] du [date de début] au [date de fin]. Mes emails se reposent pendant que je découvre !
 étranger;Je fais une pause [destination] du [date de début] au [date de fin]. Mes emails attendront que je revienne sur terre !
 étranger;Je savoure chaque moment [destination] du [date de début] au [date de fin]. Pas d'emails en vue, juste la beauté du voyage !
 étranger;Je suis en pleine exploration [destination] du [date de début] au [date de fin]. Mes emails seront hors service pendant cette aventure !
-étranger;Je découvre les merveilles [destination] du [date de début] au [date de fin]. Aucune connexion, juste la magie de l’exploration !
+étranger;Je découvre des merveilles [destination] du [date de début] au [date de fin]. Aucune connexion, juste la magie de l’exploration !
 étranger;Je me laisse porter par l'ambiance [destination] du [date de début] au [date de fin]. Mes emails prendront un repos bien mérité !
 étranger;Je savoure chaque instant [destination] du [date de début] au [date de fin]. Les emails ne feront pas partie de ce voyage !
 étranger;Je pars à la rencontre de nouvelles cultures [destination] du [date de début] au [date de fin]. Mes emails resteront en veille pendant cette aventure !
@@ -195,7 +195,7 @@ montagne;Je suis dans un monde de douceur enneigée [destination] du [date de d�
 étranger;Je m'aventure [destination] du [date de début] au [date de fin]. Je reviendrai, plein de souvenirs et de bonne humeur !
 étranger;Je pars à la rencontre de nouveaux horizons [destination] du [date de début] au [date de fin]. Je reviens avec des histoires passionnantes !
 étranger;Je me ressource [destination] du [date de début] au [date de fin]. J'espère revenir avec le sourire et des souvenirs plein la tête !
-étranger;Je fais l'expérience de la culture [destination] du [date de début] au [date de fin]. Je reviendrai, le cœur plein de gratitude et de joie !
+étranger;Je fais l'expérience d'une nouvelle culture [destination] du [date de début] au [date de fin]. Je reviendrai, le cœur plein de gratitude et de joie !
 étranger;Je suis en voyage [destination] du [date de début] au [date de fin]. Je reviens avec des souvenirs à partager et des expériences à raconter !
 étranger;Je me laisse envoûter [destination] du [date de début] au [date de fin]. Hâte de revenir avec des histoires et des sourires à offrir !
 maison;Je me ressource [destination] du [date de début] au [date de fin]. Promis, je reviens totalement zen !
