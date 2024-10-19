@@ -899,10 +899,6 @@ footer {
     .card-image-container {
         height: 125px;
     }
-    .card h1 {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
-    }
     .card p {
         font-size: 0.75rem;
         margin-bottom: 1.5rem;
