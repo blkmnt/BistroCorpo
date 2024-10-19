@@ -22,7 +22,7 @@ p, .card p {
     font-weight: 400;
 }
 
-h1, h2, .card h2, .tool h1 {
+h1, h2, .card h1, .tool h1 {
     font-weight: 900;
 }
 
@@ -149,7 +149,7 @@ header {
     object-fit: cover;
 }
 
-.card h2 {
+.card h1 {
     font-size: 1.4rem;
     margin-bottom: 0.75rem;
 }
