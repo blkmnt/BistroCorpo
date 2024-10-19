@@ -526,6 +526,10 @@ input:focus {
     border-radius: 99px;
 }
 
+.slider:focus {
+    filter: brightness(90%);
+}
+
 .slider:before {
     position: absolute;
     content: "";
