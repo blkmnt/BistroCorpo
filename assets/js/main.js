@@ -1221,6 +1221,21 @@ function initBullshitTranslator() {
                 outputText.textContent = "Erreur : Veuillez entrer un texte.";
             }
         });
+        
+        // Gérer l'appui sur la touche Tab pour sélectionner le bouton
+        inputText.addEventListener("keydown", function(event) {
+            if (event.key === "Tab") {
+                event.preventDefault(); // Empêche le comportement par défaut de la touche Tab
+                translateButton.focus(); // Met le focus sur le bouton "Traduire"
+            }
+        });
+        
+        // Gérer l'appui sur la touche Entrée lorsque le bouton est sélectionné
+        translateButton.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                translateButton.click(); // Simule un clic sur le bouton "Traduire"
+            }
+        });
 
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
