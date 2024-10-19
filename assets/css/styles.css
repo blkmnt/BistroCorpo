@@ -79,7 +79,7 @@ header {
 }
 
 .hero h1 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-transform: uppercase;
     padding-top: 2rem;
     text-align: center;
@@ -895,6 +895,17 @@ footer {
     }
     .hero h1 {
         font-size: 0.75rem;
+    }
+    .card-image-container {
+        height: 125px;
+    }
+    .card h1 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+    .card p {
+        font-size: 0.75rem;
+        margin-bottom: 1.5rem;
     }
     .tool-section {
         padding: 2rem 0 0;
