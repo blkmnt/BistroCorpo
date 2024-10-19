@@ -1236,6 +1236,11 @@ function initBullshitTranslator() {
                 translateButton.click(); // Simule un clic sur le bouton "Traduire"
             }
         });
+        
+        // Gérer le focus sur le bouton pour permettre l'activation avec Entrée
+        translateButton.addEventListener("focus", function() {
+            translateButton.setAttribute("tabindex", "0"); // Assurez-vous que le bouton est focusable
+        });
 
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
