@@ -1461,8 +1461,7 @@ function loadCompliments() {
 // Appeler la fonction pour charger et afficher un compliment dès le chargement de la page
 loadCompliments();
 
-function setupToggleMailSections() {
-    // Sélectionner les toggles et les sections correspondantes
+// Sélectionner les toggles et les sections correspondantes
     const locationToggle = document.getElementById("locationToggle");
     const backupToggle = document.getElementById("backupToggle");
     const signatureToggle = document.getElementById("signatureToggle");
@@ -1471,17 +1470,22 @@ function setupToggleMailSections() {
     const backupSection = document.getElementById("mail-infoBackUp");
     const signatureSection = document.getElementById("mail-infoSignature");
 
-    // Fonction pour modifier la visibilité en commentant ou décommentant "display: none;"
+    // Fonction pour modifier la visibilité
     function toggleSection(toggle, section) {
+        // Gérer le changement d'état via l'événement change
         toggle.addEventListener('change', function() {
             if (toggle.checked) {
-                // Désactive display: none en le commentant
-                if (section.style.display === 'none' || section.style.display === '') {
-                    section.style.display = ''; // Reset display
-                }
+                section.style.display = ''; // Afficher la section
             } else {
-                // Réactive display: none
-                section.style.display = 'none';
+                section.style.display = 'none'; // Masquer la section
+            }
+        });
+
+        // Gérer l'appui sur la touche Entrée lorsque le toggle est en focus
+        toggle.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                toggle.checked = !toggle.checked; // Changer l'état du toggle
+                toggle.dispatchEvent(new Event('change')); // Déclencher l'événement change
             }
         });
     }
@@ -1585,7 +1589,19 @@ function loadMailContent() {
     // Gérer le clic sur le bouton "Rédiger"
     document.getElementById("mail").addEventListener("click", function(event) {
         event.preventDefault(); // Empêcher le comportement par défaut
-        generateMailContent();
+        generateMailContent(); // Appel de votre fonction de génération de contenu
+    
+        // Défilement vers la section mailContent
+        const mailContent = document.getElementById("mailContent");
+        const rect = mailContent.getBoundingClientRect();
+    
+        // Vérifiez si la section mailContent est complètement visible
+        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    
+        if (!isVisible) {
+            // Si mailContent n'est pas visible, faites défiler jusqu'à l'élément
+            mailContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     });
 
     // Gérer le clic sur le bouton "Un autre mail"
