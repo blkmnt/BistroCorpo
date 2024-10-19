@@ -22,7 +22,7 @@ p, .card p {
     font-weight: 400;
 }
 
-h1, h2, .card h2, .tool h2 {
+h1, h2, .card h2, .tool h1 {
     font-weight: 900;
 }
 
@@ -79,13 +79,6 @@ header {
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-}
-
-.hero p {
     font-size: 1.2rem;
     text-transform: uppercase;
     padding-top: 2rem;
@@ -387,7 +380,7 @@ header {
     text-align: center;
 }
 
-.tool h2 {
+.tool h1 {
     font-size: 1.4rem;
     text-align: center;
     margin-bottom: 0.75rem;
@@ -901,9 +894,6 @@ footer {
         max-width: 100%;
     }
     .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
         font-size: 0.75rem;
     }
     .tool-section {
