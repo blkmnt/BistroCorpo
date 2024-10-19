@@ -1461,7 +1461,8 @@ function loadCompliments() {
 // Appeler la fonction pour charger et afficher un compliment dès le chargement de la page
 loadCompliments();
 
-// Sélectionner les toggles et les sections correspondantes
+function setupToggleMailSections() {
+    // Sélectionner les toggles et les sections correspondantes
     const locationToggle = document.getElementById("locationToggle");
     const backupToggle = document.getElementById("backupToggle");
     const signatureToggle = document.getElementById("signatureToggle");
