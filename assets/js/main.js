@@ -1241,6 +1241,23 @@ function initBullshitTranslator() {
         translateButton.addEventListener("focus", function() {
             translateButton.setAttribute("tabindex", "0"); // Assurez-vous que le bouton est focusable
         });
+        
+        // Gérer le clic sur le bouton "Traduire"
+        translateButton.addEventListener("click", function() {
+            // Appel à votre fonction de traduction ici
+            // (Logique de traduction à intégrer ici)
+        
+            // Défilement vers la section de sortie
+            const rect = outputText.getBoundingClientRect();
+        
+            // Vérifiez si la section outputText est complètement visible
+            const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+        
+            if (!isVisible) {
+                // Si outputText n'est pas visible, faites défiler jusqu'à l'élément
+                outputText.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
 
         // Copie le texte du bloc "outputText" quand on clique sur le bouton "copy"
         copyButton.addEventListener("click", function () {
