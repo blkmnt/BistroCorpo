@@ -27,7 +27,7 @@ function displayCards() {
                         <img src="${tool.image}" alt="${tool.title}">
                     </div>
                     <div class="card-content">
-                        <h2>${tool.title}</h2>
+                        <h1>${tool.title}</h1>
                         <p>${tool.description}</p>
                     </div>
                     <a href="${tool.link}">
@@ -50,15 +50,15 @@ function randomCard() {
                 return { title, description, buttonText, link, image, status };
             });
 
-            // Récupérer le titre du h2 dans la section de la page
-            const pageTitle = document.querySelector('.tool-header h2').textContent.trim();
+            // Récupérer le titre du h1 dans la section de la page
+            const pageTitle = document.querySelector('.tool-header h1').textContent.trim();
 
-            // Filtrer les outils actifs et exclure ceux dont le titre correspond au h2 de la page
+            // Filtrer les outils actifs et exclure ceux dont le titre correspond au h1 de la page
             const activeTools = tools.filter(tool => 
                 tool.status && 
                 tool.status.trim() === 'card' && 
                 tool.title.trim() !== "Encore plus de choses à découvrir !" && 
-                tool.title.trim() !== pageTitle // Exclure le titre correspondant au h2
+                tool.title.trim() !== pageTitle // Exclure le titre correspondant au h1
             );
             
             // Log pour voir les outils actifs dans la console
@@ -96,7 +96,7 @@ function displayRandomCards(selectedTools) {
                         <img src="${tool.image}" alt="${tool.title}">
                     </div>
                     <div class="card-content">
-                        <h2>${tool.title}</h2>
+                        <h1>${tool.title}</h1>
                         <p>${tool.description}</p>
                     </div>
                     <a href="${tool.link}">
